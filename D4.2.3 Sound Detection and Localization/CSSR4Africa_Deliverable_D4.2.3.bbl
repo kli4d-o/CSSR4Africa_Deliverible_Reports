@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{webrtcvad}
+WebRTC and Wiseman.
+\newblock Webrtc voice activity detector.
+\newblock \url{https://github.com/wiseman/py-webrtcvad}.
+\newblock Accessed: 2025-02-27.
+
+\bibitem{knapp1976generalized}
+C.~H. Knapp and G.~C. Carter.
+\newblock The generalized correlation method for estimation of time delay.
+\newblock {\em IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  24(4):320--327, 1976.
+
+\end{thebibliography}

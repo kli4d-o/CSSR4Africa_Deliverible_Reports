@@ -1,0 +1,34 @@
+\begin{thebibliography}{1}
+
+\bibitem{BruceTsotsos09}
+N.~D.~B. Bruce and J.~K. Tsotsos.
+\newblock Saliency, attention, and visual search: An information theoretic
+  approach.
+\newblock {\em Journal of Vision}, 9(3):1--24, 2009.
+
+\bibitem{Tsotsosetal95}
+J.~K. Tsotsos, S.~Culhane, W.~Wai, Y.~Lai, N.~David, and F.~Nuflo.
+\newblock Modeling visual attention via selective tuning.
+\newblock {\em Artificial Intelligence}, 78:507--547, 1995.
+
+\bibitem{Tsotsos06}
+J.~K. Tsotsos.
+\newblock Cognitive vision need attention to link sensing with recognition.
+\newblock In H.~I. Christensen and H.-H. Nagel, editors, {\em Cognitive Vision
+  Systems: Sampling the Spectrum of Approaches}, volume 3948 of {\em LNCS},
+  pages 25--36, Heidelberg, 2006. Springer.
+
+\bibitem{Tsotsos11}
+J.~K. Tsotsos.
+\newblock {\em A Computational Perspective on Visual Attention}.
+\newblock MIT Press, Cambridge MA, 2011.
+
+\bibitem{ZaharescuRothensteinTsotsos05}
+A.~Zaharescu, A.~L. Rothenstein, and J.~K. Tsotsos.
+\newblock Towards a biologically plausible active visual search model.
+\newblock In L.~Paletta, J.~K. Tsotsos, E.~Rome, and G.~Humphreys, editors,
+  {\em Proceedings of the Second International Workshop on Attention and
+  Performance in Computational Vision, {WAPCV}}, volume LNCS 3368, pages
+  133--147, Berlin, 2004. Springer.
+
+\end{thebibliography}

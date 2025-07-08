@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{Ghzoulietal2023}
+R.~Ghzouli, T.~Berger, E.~B. Johnsen, A.~Wasowski, and S.~Dragul.
+\newblock Behavior trees and state machines in robotics applications.
+\newblock {\em {IEEE} Transactions on Software Engineering}, 49(9):4243 --
+  4267, 2023.
+
+\bibitem{DortmansPunter2022}
+E.~Dortmans and T.~Punter.
+\newblock Behavior trees for smart robots practical guidelines for robot
+  software development.
+\newblock {\em Journal of Robotics}, 2022.
+
+\end{thebibliography}

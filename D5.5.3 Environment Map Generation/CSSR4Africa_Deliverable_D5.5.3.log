@@ -1,0 +1,1408 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.23)  25 JUN 2025 22:06
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"c:/Users/yohat/Desktop/Pepper Related/Deliverables/Deliverables/D5.5.3 Environment Map Generation/CSSR4Africa_Deliverable_D5.5.3.tex"
+(c:/Users/yohat/Desktop/Pepper Related/Deliverables/Deliverables/D5.5.3 Environment Map Generation/CSSR4Africa_Deliverable_D5.5.3.tex
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2024-11-02>
+(CSSRforAfrica.cls
+Document Class: CSSRforAfrica 2023/06/28 v1.0 
+ 
+CSSRforAfrica Deliverable Style 
+
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count196
+\c@section=\count197
+\c@subsection=\count198
+\c@subsubsection=\count199
+\c@paragraph=\count266
+\c@subparagraph=\count267
+\c@figure=\count268
+\c@table=\count269
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/a4wide\a4wide.sty
+Package: a4wide 1994/08/30
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/ntgclass\a4.sty
+Package: a4 2023/01/10 v1.2g A4 based page layout
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen142
+\ar@mcellbox=\box52
+\extrarowheight=\dimen143
+\NC@list=\toks17
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box53
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvips.def on input line 106.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
+File: dvips.def 2022/09/22 v3.1e Graphics/color driver for dvips
+))
+\Gin@req@height=\dimen144
+\Gin@req@width=\dimen145
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2024/06/23 v1.3e Standard LaTeX Color (DPC)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty
+\UL@box=\box54
+\UL@hyphenbox=\box55
+\UL@skip=\skip53
+\UL@hook=\toks19
+\UL@height=\dimen146
+\UL@pe=\count270
+\UL@pixel=\dimen147
+\ULC@box=\box56
+Package: ulem 2019/11/18
+\ULdepth=\dimen148
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count271
+\calc@Bcount=\count272
+\calc@Adimen=\dimen149
+\calc@Bdimen=\dimen150
+\calc@Askip=\skip54
+\calc@Bskip=\skip55
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count273
+\calc@Cskip=\skip56
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\headrulewidth=\dimen151
+\footrulewidth=\dimen152
+\plainheadrulewidth=\dimen153
+\plainfootrulewidth=\dimen154
+\headwidth=\dimen155
+\footruleskip=\dimen156
+\@sbpartners=\box57
+\contrib=\box58
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count274
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count275
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen157
+\Hy@linkcounter=\count276
+\Hy@pagecounter=\count277
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count278
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `colorlinks' set `false' on input line 4040.
+Package hyperref Info: Hyper figures OFF on input line 4157.
+Package hyperref Info: Link nesting OFF on input line 4162.
+Package hyperref Info: Hyper index ON on input line 4165.
+Package hyperref Info: Plain pages OFF on input line 4172.
+Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4424.
+\c@Hy@tempcnt=\count279
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen158
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count280
+\Field@Width=\dimen159
+\Fld@charsize=\dimen160
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count281
+\c@Item=\count282
+\c@Hfootnote=\count283
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2024-11-05 v7.01l Hyperref driver for pdfTeX
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count284
+\c@bookmark@seq@number=\count285
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip57
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 10.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/appendix\appendix.sty
+Package: appendix 2020/02/08 v1.2c extra appendix facilities
+\c@@pps=\count286
+\c@@ppsavesec=\count287
+\c@@ppsaveapp=\count288
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/base\latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2024/11/05 v2.17t AMS math features
+\@mathmargin=\skip58
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen161
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen162
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count289
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count290
+\leftroot@=\count291
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count292
+\DOTSCASE@=\count293
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box59
+\strutbox@=\box60
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen163
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count294
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count295
+\dotsspace@=\muskip18
+\c@parentequation=\count296
+\dspbrk@lvl=\count297
+\tag@help=\toks21
+\row@=\count298
+\column@=\count299
+\maxfields@=\count300
+\andhelp@=\toks22
+\eqnshift@=\dimen164
+\alignsep@=\dimen165
+\tagshift@=\dimen166
+\tagwidth@=\dimen167
+\totwidth@=\dimen168
+\lineht@=\dimen169
+\@envbody=\toks23
+\multlinegap=\skip59
+\multlinetaggap=\skip60
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 762.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
+\everycr=\toks25
+\minrowclearance=\skip61
+\rownum=\count301
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\svgnam.def
+File: svgnam.def 2024/09/29 v3.02 Predefined colors according to SVG 1.1 (UK)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\x11nam.def
+File: x11nam.def 2024/09/29 v3.02 Predefined colors according to Unix/X11 (UK)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count302
+\lst@gtempboxa=\box61
+\lst@token=\toks26
+\lst@length=\count303
+\lst@currlwidth=\dimen170
+\lst@column=\count304
+\lst@pos=\count305
+\lst@lostspace=\dimen171
+\lst@width=\dimen172
+\lst@newlines=\count306
+\lst@lineno=\count307
+\lst@maxwidth=\dimen173
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count308
+\lst@skipnumbers=\count309
+\lst@framebox=\box62
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen174
+\TX@old@table=\dimen175
+\TX@old@col=\dimen176
+\TX@target=\dimen177
+\TX@delta=\dimen178
+\TX@cols=\count310
+\TX@ftn=\toks27
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/forest\forest.sty
+Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks28
+\pgfutil@tempdima=\dimen179
+\pgfutil@tempdimb=\dimen180
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
+\pgfutil@abb=\box63
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks29
+\pgfkeys@temptoks=\toks30
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks31
+))
+\pgf@x=\dimen181
+\pgf@y=\dimen182
+\pgf@xa=\dimen183
+\pgf@ya=\dimen184
+\pgf@xb=\dimen185
+\pgf@yb=\dimen186
+\pgf@xc=\dimen187
+\pgf@yc=\dimen188
+\pgf@xd=\dimen189
+\pgf@yd=\dimen190
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count311
+\c@pgf@countb=\count312
+\c@pgf@countc=\count313
+\c@pgf@countd=\count314
+\t@pgf@toka=\toks32
+\t@pgf@tokb=\toks33
+\t@pgf@tokc=\toks34
+\pgf@sys@id@count=\count315
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+))) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count316
+\pgfsyssoftpath@bigbuffer@items=\count317
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen191
+\pgfmath@count=\count318
+\pgfmath@box=\box64
+\pgfmath@toks=\toks35
+\pgfmath@stack@operand=\toks36
+\pgfmath@stack@operation=\toks37
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count319
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.tex) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen192
+\pgf@picmaxx=\dimen193
+\pgf@picminy=\dimen194
+\pgf@picmaxy=\dimen195
+\pgf@pathminx=\dimen196
+\pgf@pathmaxx=\dimen197
+\pgf@pathminy=\dimen198
+\pgf@pathmaxy=\dimen199
+\pgf@xx=\dimen256
+\pgf@xy=\dimen257
+\pgf@yx=\dimen258
+\pgf@yy=\dimen259
+\pgf@zx=\dimen260
+\pgf@zy=\dimen261
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen262
+\pgf@path@lasty=\dimen263
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen264
+\pgf@shorten@start@additional=\dimen265
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box65
+\pgf@hbox=\box66
+\pgf@layerbox@main=\box67
+\pgf@picture@serial@count=\count320
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen266
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen267
+\pgf@pt@y=\dimen268
+\pgf@pt@temp=\dimen269
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen270
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen271
+\pgf@sys@shading@range@num=\count321
+\pgf@shadingcount=\count322
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box68
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box69
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen272
+\pgf@nodesepend=\dimen273
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen274
+\pgffor@skip=\dimen275
+\pgffor@stack=\toks38
+\pgffor@toks=\toks39
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count323
+\pgfplotmarksize=\dimen276
+)
+\tikz@lastx=\dimen277
+\tikz@lasty=\dimen278
+\tikz@lastxsaved=\dimen279
+\tikz@lastysaved=\dimen280
+\tikz@lastmovetox=\dimen281
+\tikz@lastmovetoy=\dimen282
+\tikzleveldistance=\dimen283
+\tikzsiblingdistance=\dimen284
+\tikz@figbox=\box70
+\tikz@figbox@bg=\box71
+\tikz@tempbox=\box72
+\tikz@tempbox@bg=\box73
+\tikztreelevel=\count324
+\tikznumberofchildren=\count325
+\tikznumberofcurrentchild=\count326
+\tikz@fig@count=\count327
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count328
+\pgfmatrixcurrentcolumn=\count329
+\pgf@matrix@numberofcolumns=\count330
+)
+\tikz@expandcount=\count331
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.callouts.code.tex (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.callouts.code.tex)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodepartlowerbox=\box74
+\pgfnodeparttwobox=\box75
+\pgfnodepartthreebox=\box76
+\pgfnodepartfourbox=\box77
+\pgfnodeparttwentybox=\box78
+\pgfnodepartnineteenbox=\box79
+\pgfnodeparteighteenbox=\box80
+\pgfnodepartseventeenbox=\box81
+\pgfnodepartsixteenbox=\box82
+\pgfnodepartfifteenbox=\box83
+\pgfnodepartfourteenbox=\box84
+\pgfnodepartthirteenbox=\box85
+\pgfnodeparttwelvebox=\box86
+\pgfnodepartelevenbox=\box87
+\pgfnodeparttenbox=\box88
+\pgfnodepartninebox=\box89
+\pgfnodeparteightbox=\box90
+\pgfnodepartsevenbox=\box91
+\pgfnodepartsixbox=\box92
+\pgfnodepartfivebox=\box93
+))) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryintersections.code.tex (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryfpu.code.tex)
+\pgf@intersect@solutions=\count332
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pgfopts\pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks40
+\pgfopts@list@add@b@toks=\toks41
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/elocalloc\elocalloc.sty
+Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2024-11-02 L3 programming layer (loader) 
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count333
+\l__pdf_internal_box=\box94
+))
+Package: xparse 2024-08-16 L3 Experimental document command parser
+)
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/inlinedef\inlinedef.sty
+Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
+\ID@toks=\toks42
+\ID@count=\count334
+)
+\ID@usercommands=\toks43
+\safeloop@depth=\count335
+\safeRKloop@depth=\count336
+\forest@temp@dimen=\dimen285
+\forest@temp@count=\count337
+\forest@n=\count338
+\forest@temp@global@count=\count339
+\forest@temp@toks=\toks44
+\forest@temparray@M=\count340
+\forest@temparray@N=\count341
+\forest@global@temparray@M=\count342
+\forest@global@temparray@N=\count343
+\forest@isnum@count=\count344
+\forest@isdim@nonintpart=\count345
+\forest@isdim@dimen=\dimen286
+\forest@sort@m=\count346
+\forest@sort@k=\count347
+\forest@sort@p=\count348
+\bracket@content=\toks45
+\bracket@afterthought=\toks46
+\forest@node@maxid=\count349
+\forest@process@left@M=\count350
+\forest@process@left@N=\count351
+\forest@process@right@M=\count352
+\forest@process@right@N=\count353
+\forest@process@saved@M=\count354
+\forest@process@saved@N=\count355
+\forest@process@result@M=\count356
+\forest@process@result@N=\count357
+\forest@process@n=\count358
+\forest@nodewalk@branch@toks=\toks47
+\forest@nodewalk@shortsteps@resolution=\toks48
+\forest@do@dynamics=\toks49
+\forest@box=\box95
+\forest@xg=\dimen287
+\forest@yg=\dimen288
+\forest@xs=\dimen289
+\forest@ys=\dimen290
+\forest@pi@toks=\toks50
+\forest@segment@toks=\toks51
+\forest@PIi@toks=\toks52
+\forest@PIii@toks=\toks53
+\forest@copy@in=\read3
+\forest@copy@out=\write4
+\forest@externalize@max@outer@n=\count359
+\forest@externalize@inner@n=\count360
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/dirtree\dirtree.sty
+Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/dirtree\dirtree.tex `dirtree' v0.32, 2012/12/11 (jcc)
+\DT@offset=\dimen291
+\DT@width=\dimen292
+\DT@sep=\dimen293
+\DT@all=\dimen294
+\DT@rulewidth=\dimen295
+\DT@dotwidth=\dimen296
+\DTbaselineskip=\dimen297
+\DT@counti=\count361
+\DT@countii=\count362
+\DT@countiii=\count363
+\DT@countiv=\count364
+\DT@indent=\dimen298
+\DT@parskip=\dimen299
+\DT@baselineskip=\dimen300
+)
+File: dirtree.tex 2012/12/11 v0.32 `dirtree' (jcc)
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count365
+\float@exts=\toks54
+\float@box=\box96
+\@float@everytoks=\toks55
+\@floatcapt=\box97
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
+Package: siunitx 2025-05-22 v3.4.12 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count366
+\l__siunitx_number_exponent_fixed_int=\count367
+\l__siunitx_number_min_decimal_int=\count368
+\l__siunitx_number_min_integer_int=\count369
+\l__siunitx_number_round_precision_int=\count370
+\l__siunitx_number_lower_threshold_int=\count371
+\l__siunitx_number_upper_threshold_int=\count372
+\l__siunitx_number_group_first_int=\count373
+\l__siunitx_number_group_size_int=\count374
+\l__siunitx_number_group_minimum_int=\count375
+\l__siunitx_angle_tmp_dim=\dimen301
+\l__siunitx_angle_marker_box=\box98
+\l__siunitx_angle_unit_box=\box99
+\l__siunitx_compound_count_int=\count376
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/translations\translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
+)
+\l__siunitx_table_tmp_box=\box100
+\l__siunitx_table_tmp_dim=\dimen302
+\l__siunitx_table_column_width_dim=\dimen303
+\l__siunitx_table_integer_box=\box101
+\l__siunitx_table_decimal_box=\box102
+\l__siunitx_table_uncert_box=\box103
+\l__siunitx_table_before_box=\box104
+\l__siunitx_table_after_box=\box105
+\l__siunitx_table_before_dim=\dimen304
+\l__siunitx_table_carry_dim=\dimen305
+\l__siunitx_unit_tmp_int=\count377
+\l__siunitx_unit_position_int=\count378
+\l__siunitx_unit_total_int=\count379
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
+Package: tcolorbox 2024/10/22 version 6.4.1 text color boxes
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks56
+\verbatim@line=\toks57
+\verbatim@in@stream=\read4
+)
+\tcb@titlebox=\box106
+\tcb@upperbox=\box107
+\tcb@lowerbox=\box108
+\tcb@phantombox=\box109
+\c@tcbbreakpart=\count380
+\c@tcblayer=\count381
+\c@tcolorbox@number=\count382
+\l__tcobox_tmpa_box=\box110
+\l__tcobox_tmpa_dim=\dimen306
+\tcb@temp=\box111
+\tcb@temp=\box112
+\tcb@temp=\box113
+\tcb@temp=\box114
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbraster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.4.1'
+\c@tcbrastercolumn=\count383
+\c@tcbrasterrow=\count384
+\c@tcbrasternum=\count385
+\c@tcbraster=\count386
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.4.1'
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzfill.image.sty
+Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzfill-common.sty
+Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzlibraryfill.image.code.tex
+File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
+\l__tikzfill_img_box=\box115
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.4.1'
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/pdfcol\pdfcol.sty
+Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
+)
+Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
+\tcb@testbox=\box116
+\tcb@totalupperbox=\box117
+\tcb@totallowerbox=\box118
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.4.1'
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbtheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.4.1'
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.4.1'
+\tcbfitdim=\dimen307
+\tcb@lowerfitdim=\dimen308
+\tcb@upperfitdim=\dimen309
+\tcb@cur@hbadness=\count387
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcblistingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.4.1'
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcblistings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.4.1'
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcblistingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.4.1'
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbprocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.4.1'
+)
+\c@tcblisting=\count388
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/listingsutf8\listingsutf8.sty
+Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
+)) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbexternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.4.1'
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbmagazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.4.1'
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbvignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.4.1'
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryfadings.code.tex
+File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.4.1'
+))
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 69.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 69.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+) (CSSR4Africa_Deliverable_D5.5.3.aux)
+\openout1 = `CSSR4Africa_Deliverable_D5.5.3.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count389
+\scratchdimen=\dimen310
+\scratchbox=\box119
+\nofMPsegments=\count390
+\nofMParguments=\count391
+\everyMPshowfont=\toks58
+\MPscratchCnt=\count392
+\MPscratchDim=\dimen311
+\MPnumerator=\count393
+\makeMPintoPDFobject=\count394
+\everyMPtoPDFconversion=\toks59
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring ON on input line 69.
+ (CSSR4Africa_Deliverable_D5.5.3.out) (CSSR4Africa_Deliverable_D5.5.3.out)
+\@outlinefile=\write5
+\openout5 = `CSSR4Africa_Deliverable_D5.5.3.out'.
+
+\c@lstlisting=\count395
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 69.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks60
+\inpenc@posthook=\toks61
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/generic/epsf\epsf.tex
+This is `epsf.tex' v2.7.4 <14 February 2011>
+\epsffilein=\read5
+\epsfframemargin=\dimen312
+\epsfframethickness=\dimen313
+\epsfrsize=\dimen314
+\epsftmp=\dimen315
+\epsftsize=\dimen316
+\epsfxsize=\dimen317
+\epsfysize=\dimen318
+\pspoints=\dimen319
+)
+<CSSRforAfrica_logo_red.pdf, id=122, 487.7245pt x 117.52507pt>
+File: CSSRforAfrica_logo_red.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_red.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_red.pdf  used on input line 95.
+(pdftex.def)             Requested size: 99.58464pt x 23.99594pt.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 95.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 95.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+
+[1
+Non-PDF special ignored!
+<special> papersize=597.50787pt,845.04684pt
+
+{C:/Users/yohat/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/yohat/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./CSSRforAfrica_logo_red.pdf>]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 102.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+
+<CSSRforAfrica_logo_grey.pdf, id=138, 487.63818pt x 125.159pt>
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 110.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 110.
+
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 110.
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 110.
+
+[2 <./CSSRforAfrica_logo_grey.pdf>] (CSSR4Africa_Deliverable_D5.5.3.toc)
+\tf@toc=\write6
+\openout6 = `CSSR4Africa_Deliverable_D5.5.3.toc'.
+
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 113.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 113.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 113.
+
+[3]
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 128.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 128.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 128.
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+
+ []
+
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 143.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 143.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 143.
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 167.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 167.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 167.
+
+[6]
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 228.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 228.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 228.
+
+[7
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.228 \newpage
+              ]
+Underfull \hbox (badness 1590) in paragraph at lines 258--259
+\OT1/ptm/m/n/10 The workspace map rep-re-sents the phys-i-cal en-vi-ron-ment in PNG im-age for-mat and as a ROS
+ []
+
+
+Underfull \hbox (badness 2012) in paragraph at lines 258--259
+\OT1/ptm/m/n/10 Oc-cu-pan-cy-Grid map rep-re-sen-ta-tion of free/oc-cu-pied space, and saved to a file as spec-i-fied in
+ []
+
+<images/environmentMap.png, id=205, 682.55pt x 996.72375pt>
+File: images/environmentMap.png Graphic file (type png)
+<use images/environmentMap.png>
+Package pdftex.def Info: images/environmentMap.png  used on input line 271.
+(pdftex.def)             Requested size: 130.53986pt x 190.6266pt.
+<images/navigationMap.png, id=206, 682.55pt x 996.72375pt>
+File: images/navigationMap.png Graphic file (type png)
+<use images/navigationMap.png>
+Package pdftex.def Info: images/navigationMap.png  used on input line 278.
+(pdftex.def)             Requested size: 130.53986pt x 190.6266pt.
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 284.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 284.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 284.
+
+[8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.284 \newpage
+              
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.284 \newpage
+               <./images/environmentMap.png (PNG copy)> <./images/navigationMap.png (PNG copy)>]
+Overfull \hbox (8.57126pt too wide) in paragraph at lines 287--288
+\OT1/ptm/m/n/10 This sec-tion pro-vides a com-pre-hen-sive guide on set-ting up, con-fig-ur-ing, and ex-e-cut-ing the \OT1/pcr/m/n/10 mapGeneration
+ []
+
+(C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+) (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 302.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+<images/mapGenerationFileDirectory.png, id=231, 1114.1625pt x 57.21375pt>
+File: images/mapGenerationFileDirectory.png Graphic file (type png)
+<use images/mapGenerationFileDirectory.png>
+Package pdftex.def Info: images/mapGenerationFileDirectory.png  used on input line 330.
+(pdftex.def)             Requested size: 424.58624pt x 21.80255pt.
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 340.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 340.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 340.
+
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.340 \newpage
+               <./images/mapGenerationFileDirectory.png>]
+<images/mapGenerationOutput.png, id=257, 1791.69376pt x 471.7625pt>
+File: images/mapGenerationOutput.png Graphic file (type png)
+<use images/mapGenerationOutput.png>
+Package pdftex.def Info: images/mapGenerationOutput.png  used on input line 348.
+(pdftex.def)             Requested size: 424.58624pt x 111.7928pt.
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 357.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 357.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 357.
+
+[10
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.357 \newpage
+               <./images/mapGenerationOutput.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 413--414
+
+ []
+
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 414.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 414.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 414.
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 415--417
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 420--422
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
+
+ []
+
+File: images/environmentMap.png Graphic file (type png)
+<use images/environmentMap.png>
+Package pdftex.def Info: images/environmentMap.png  used on input line 433.
+(pdftex.def)             Requested size: 97.42061pt x 142.26274pt.
+<images/configurationMap0.1.png, id=275, 682.55pt x 996.72375pt>
+File: images/configurationMap0.1.png Graphic file (type png)
+<use images/configurationMap0.1.png>
+Package pdftex.def Info: images/configurationMap0.1.png  used on input line 441.
+(pdftex.def)             Requested size: 97.42061pt x 142.26274pt.
+<images/configurationMap0.3.png, id=276, 682.55pt x 996.72375pt>
+File: images/configurationMap0.3.png Graphic file (type png)
+<use images/configurationMap0.3.png>
+Package pdftex.def Info: images/configurationMap0.3.png  used on input line 452.
+(pdftex.def)             Requested size: 97.42061pt x 142.26274pt.
+<images/configurationMap0.5.png, id=277, 682.55pt x 996.72375pt>
+File: images/configurationMap0.5.png Graphic file (type png)
+<use images/configurationMap0.5.png>
+Package pdftex.def Info: images/configurationMap0.5.png  used on input line 460.
+(pdftex.def)             Requested size: 97.42061pt x 142.26274pt.
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 465.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 465.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 465.
+
+[12
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.465 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.465 
+       <./images/configurationMap0.1.png (PNG copy)>]
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 467.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 467.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 467.
+
+[13
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.467 \newpage
+              
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.467 \newpage
+               <./images/configurationMap0.3.png (PNG copy)> <./images/configurationMap0.5.png (PNG copy)>]
+LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 476.
+ (C:\Users\yohat\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1pcr.fd
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+)
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 495.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 495.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 495.
+
+[14]
+Overfull \hbox (1.99927pt too wide) in paragraph at lines 532--532
+[]\OT1/pcr/m/n/9 [2025-06-05 15:45:06] mapGenerationTest: [SUCCESS] Configuration space correctly has more obstacles than environment map[] 
+ []
+
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 540.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 540.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 540.
+
+[15
+
+]
+Overfull \hbox (1.99927pt too wide) in paragraph at lines 550--550
+[]\OT1/pcr/m/n/9 [2025-06-05 15:45:07] mapGenerationTest: [SUCCESS] Configuration space correctly has more obstacles than environment map[] 
+ []
+
+
+Overfull \hbox (1.99927pt too wide) in paragraph at lines 560--560
+[]\OT1/pcr/m/n/9 [2025-06-05 15:45:08] mapGenerationTest: [SUCCESS] Configuration space correctly has more obstacles than environment map[] 
+ []
+
+
+Overfull \hbox (1.99927pt too wide) in paragraph at lines 570--570
+[]\OT1/pcr/m/n/9 [2025-06-05 15:45:09] mapGenerationTest: [SUCCESS] Configuration space correctly has more obstacles than environment map[] 
+ []
+
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 578.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 578.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 578.
+
+[16]
+Overfull \hbox (1.99927pt too wide) in paragraph at lines 588--588
+[]\OT1/pcr/m/n/9 [2025-06-05 15:45:40] mapGenerationTest: [SUCCESS] Configuration space correctly has more obstacles than environment map[] 
+ []
+
+
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 596.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 596.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 596.
+
+[17] (CSSR4Africa_Deliverable_D5.5.3.bbl)
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 606.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 606.
+
+[18
+
+
+]
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 615.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 615.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 615.
+
+[19]
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 637.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 637.
+
+
+Overfull \vbox (12.27559pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 637.
+
+[20] (CSSR4Africa_Deliverable_D5.5.3.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2024-11-02>
+ ***********
+
+
+Package rerunfilecheck Warning: File `CSSR4Africa_Deliverable_D5.5.3.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `CSSR4Africa_Deliverable_D5.5.3.out':
+(rerunfilecheck)             Before: 876E3729C02DF02C6BA9E176147045C1;3238
+(rerunfilecheck)             After:  C537EE39F7C9E8B779523CD29A459917;3218.
+ ) 
+Here is how much of TeX's memory you used:
+ 42268 strings out of 473650
+ 991042 string characters out of 5717934
+ 1693370 words of memory out of 5000000
+ 64641 multiletter control sequences out of 15000+600000
+ 591784 words of font info for 104 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 98i,17n,101p,1726b,1386s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/yohat/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/yohat/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/yohat/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/yohat/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/yohat/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/yohat/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
+Output written on CSSR4Africa_Deliverable_D5.5.3.pdf (20 pages, 380641 bytes).
+PDF statistics:
+ 378 PDF objects out of 1000 (max. 8388607)
+ 102 named destinations out of 1000 (max. 500000)
+ 362 words of extra memory for PDF output out of 10000 (max. 10000000)
+

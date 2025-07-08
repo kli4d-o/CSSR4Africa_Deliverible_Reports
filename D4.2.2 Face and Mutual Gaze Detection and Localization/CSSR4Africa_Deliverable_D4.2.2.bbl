@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{yolo}
+Joseph Redmon and Ali Farhadi.
+\newblock Yolo9000: Better, faster, stronger.
+\newblock {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, pages 7263--7271, 2017.
+
+\bibitem{sixdrepnet}
+Nataniel Ruiz, Eunji Chong, and James~M Rehg.
+\newblock Sixdrepnet: 6d rotation representation for head pose estimation.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, 2022.
+
+\bibitem{mediapipe_face_landmarker}
+Google AI.
+\newblock Mediapipe face landmarker: Real-time face detection and landmark
+  detection.
+\newblock
+  \url{https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker},
+  2024.
+\newblock Accessed: February 15, 2025.
+
+\bibitem{SORT}
+Nicolai Wojke, Alex Bewley, and Dietrich Paulus.
+\newblock Simple online and realtime tracking with a deep association metric.
+\newblock {\em arXiv preprint arXiv:1703.07402}, 2017.
+
+\end{thebibliography}

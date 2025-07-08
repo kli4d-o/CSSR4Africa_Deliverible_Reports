@@ -1,0 +1,53 @@
+\begin{thebibliography}{1}
+
+\bibitem{Ghzouli2023}
+Razan Ghzouli, Thorsten Berger, Einar~Broch Johnsen, Andrzej Wasowski, and
+  Swaib Dragule.
+\newblock Behavior trees and state machines in robotics applications, 2023.
+\newblock arXiv preprint arXiv:2208.04211.
+
+\bibitem{Ghzouli2020}
+Razan Ghzouli, Thorsten Berger, Einar~Broch Johnsen, Swaib Dragule, and Andrzej
+  Wasowski.
+\newblock Behavior trees in action: A study of robotics applications.
+\newblock In {\em Proc. 13th ACM SIGPLAN Int. Conf. on Software Language
+  Engineering}, volume SPLASH '20, pages 196--209, 2020.
+
+\bibitem{BehaviorTreeWebsite}
+Behaviortree.cpp website.
+\newblock \url{https://www.behaviortree.dev}.
+\newblock Accessed: 2024-12-14.
+
+\bibitem{Dortmans2022}
+Eric Dortmans, Teade Punter, and Ramadoni Syahputra.
+\newblock Behavior trees for smart robots practical guidelines for robot
+  software development.
+\newblock {\em Journal of Robotics}, 2022, 2022.
+
+\bibitem{Iovino2020}
+Matteo Iovino, Edvards Scukins, Jonathan Styrud, Petter Ögren, and Christian
+  Smith.
+\newblock A survey of behavior trees in robotics and ai, 2020.
+\newblock arXiv preprint arXiv:2005.05842.
+
+\bibitem{BehaviorTreeGithub}
+Behaviortree.cpp github repository.
+\newblock \url{https://github.com/BehaviorTree/BehaviorTree.CPP}.
+\newblock Accessed: 2024-12-14.
+
+\bibitem{ROSNavigation}
+Ros navigation stack.
+\newblock \url{https://navigation.ros.org}.
+\newblock Accessed: 2024-12-14.
+
+\bibitem{ROSCon2022}
+Roscon 2022 presentation.
+\newblock \url{https://roscon.ros.org/2022/}.
+\newblock Accessed: 2024-12-14.
+
+\bibitem{eSpeakWebsite}
+espeak source code repository.
+\newblock \url{https://github.com/espeak-ng/espeak-ng}.
+\newblock Accessed: 2025-06-07.
+
+\end{thebibliography}

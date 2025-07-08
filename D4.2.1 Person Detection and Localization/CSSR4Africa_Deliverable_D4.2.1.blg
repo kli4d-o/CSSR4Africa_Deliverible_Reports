@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: CSSR4Africa_Deliverable_D4.2.1.aux
+The style file: unsrt.bst
+Database file #1: cognitive_systems.bib
+Repeated entry---line 23 of file cognitive_systems.bib
+ : @article{SORT
+ :              ,
+I'm skipping whatever remains of this entry
+You've used 2 entries,
+            1791 wiz_defined-function locations,
+            455 strings with 3898 characters,
+and the built_in function-call counts, 539 in all, are:
+= -- 50
+> -- 19
+< -- 1
++ -- 7
+- -- 5
+* -- 27
+:= -- 84
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 2
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 28
+empty$ -- 47
+format.name$ -- 5
+if$ -- 126
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 2
+newline$ -- 13
+num.names$ -- 2
+pop$ -- 6
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 22
+stack$ -- 0
+substring$ -- 36
+swap$ -- 13
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 4
+width$ -- 3
+write$ -- 23
+(There was 1 error message)

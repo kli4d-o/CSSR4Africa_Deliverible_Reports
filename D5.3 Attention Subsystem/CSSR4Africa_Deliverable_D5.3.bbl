@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{IttiKochNiebur98}
+L.~Itti, C.~Koch, and E.~Niebur.
+\newblock A model of saliency-based visual attention for rapid scene analysis.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  20:1254{\~n}--1259, 1998.
+
+\bibitem{IttiKoch00}
+L.~Itti and C.~Koch.
+\newblock A saliency-based search mechanism for overt and covert shifts of
+  visual attention.
+\newblock {\em Vision Research}, 40:1489--1506, 2000.
+
+\bibitem{IttiKoch01}
+L.~Itti and C.~Koch.
+\newblock Computational modelling of visual attention.
+\newblock {\em Nature Reviews Neuroscience}, 2:194--203, 2001.
+
+\bibitem{ReaMettaBartolazzi13}
+F.~Rea, G.~Metta, and C.~Bartolozzi.
+\newblock Event-driven visual attention for the humanoid robot i{C}ub.
+\newblock {\em Frontiers in Neuroscience}, 7(Article 234):1--11, December 2013.
+
+\bibitem{BruceTsotsos09}
+N.~D.~B. Bruce and J.~K. Tsotsos.
+\newblock Saliency, attention, and visual search: An information theoretic
+  approach.
+\newblock {\em Journal of Vision}, 9(3):1--24, 2009.
+
+\bibitem{hou2007saliency}
+Xiaodi Hou and Liqing Zhang.
+\newblock Saliency detection: A spectral residual approach.
+\newblock In {\em 2007 IEEE Conference on computer vision and pattern
+  recognition}, pages 1--8. Ieee, 2007.
+
+\end{thebibliography}

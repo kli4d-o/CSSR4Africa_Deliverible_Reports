@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {section}{\numberline {2}Survey Methodology}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Cultural Knowledge Ontology}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Questionnaire Development}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Collection Methods and Ethical Considerations}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Structure of the Survey}{8}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Pilot Survey}{8}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Demographics}{8}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Data Analysis Techniques}{9}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Survey Results: Rwandan Cultural Knowledge for Respectful Interaction}{11}{section.3}%
+\contentsline {section}{\numberline {4}Conclusion}{13}{section.4}%
+\contentsline {section}{Appendix I: Cultural Knowledge Survey Questionnaire (English) }{14}{section*.12}%
+\contentsline {section}{Appendix II: Cultural Knowledge Survey Questionnaire (Kinyarwanda) }{26}{section*.20}%
+\contentsline {section}{References}{43}{section*.32}%
+\contentsline {section}{Principal Contributors}{44}{section*.33}%
+\contentsline {section}{Document History}{45}{section*.34}%

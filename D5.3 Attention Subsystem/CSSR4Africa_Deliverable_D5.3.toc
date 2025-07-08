@@ -1,0 +1,36 @@
+\contentsline {section}{Executive Summary}{2}{section*.1}%
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {section}{\numberline {2}Requirements Definition}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Overview}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Functional Specification}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Saliency Maps and Processes}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Gaze Control}{6}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Inputs and Outputs}{6}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Data and Service Management}{7}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Implementation}{8}{subsection.2.7}%
+\contentsline {section}{\numberline {3}System Design}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Face detection callback}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Sound localization callback}{9}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Camera sensor callback}{10}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Robot localization callback}{10}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Disabled mode function}{10}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Social mode function}{10}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Location mode function}{10}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Scanning mode function}{11}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Seek mode function}{11}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Change attention function}{11}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Attention application}{11}{subsection.3.11}%
+\contentsline {subsection}{\numberline {3.12}Mode service}{12}{subsection.3.12}%
+\contentsline {section}{\numberline {4}System Implementation}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Change attention}{14}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Attention application}{14}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Scanning Mode}{14}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Location Mode}{15}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Social Mode}{15}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Seeking Mode}{16}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Disabled Mode}{16}{subsection.4.7}%
+\contentsline {section}{\numberline {5}Running Attention Node}{17}{section.5}%
+\contentsline {section}{\numberline {6}Unit Tests}{18}{section.6}%
+\contentsline {section}{References}{21}{section*.7}%
+\contentsline {section}{Principal Contributors}{22}{section*.8}%
+\contentsline {section}{Revision History}{23}{section*.9}%

@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {section}{\numberline {2}Evaluation of the Functional Operation of the CSSR4Africa System}{5}{section.2}%
+\contentsline {section}{\numberline {3}Evaluation of the Social Behaviors of the CSSR4Africa System}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Evaluation of User Perception of Biological Motion in Deictic Gestures}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Results}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}User Response Evaluation}{10}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Warmth Dimension Analysis}{10}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Discomfort Dimension Analysis}{13}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Summary and Conclusion}{16}{subsection.3.4}%
+\contentsline {section}{References}{18}{section*.9}%
+\contentsline {section}{Principal Contributors}{19}{section*.10}%
+\contentsline {section}{Document History}{20}{section*.11}%

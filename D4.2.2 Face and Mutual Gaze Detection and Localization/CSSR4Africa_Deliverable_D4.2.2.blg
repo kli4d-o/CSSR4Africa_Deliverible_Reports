@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: CSSR4Africa_Deliverable_D4.2.2.aux
+The style file: unsrt.bst
+Database file #1: cognitive_systems.bib
+You've used 4 entries,
+            1791 wiz_defined-function locations,
+            466 strings with 4283 characters,
+and the built_in function-call counts, 869 in all, are:
+= -- 75
+> -- 34
+< -- 1
++ -- 13
+- -- 9
+* -- 37
+:= -- 136
+add.period$ -- 13
+call.type$ -- 4
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 45
+empty$ -- 90
+format.name$ -- 9
+if$ -- 204
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 3
+newline$ -- 24
+num.names$ -- 4
+pop$ -- 19
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 27
+stack$ -- 0
+substring$ -- 36
+swap$ -- 16
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 6
+width$ -- 5
+write$ -- 45

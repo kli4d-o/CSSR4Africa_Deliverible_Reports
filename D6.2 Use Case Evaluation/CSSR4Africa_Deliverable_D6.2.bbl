@@ -1,0 +1,95 @@
+\begin{thebibliography}{10}
+
+\bibitem{Carpinellaetal2017}
+C.~M. Carpinella, A.~B. Wyman, M.~A. Perez, and S.~J. Stroessner.
+\newblock The robotic social attributes scale ({RoSAS}): Development and
+  validation.
+\newblock In {\em Proceedings of the 2017 {ACM/IEEE} International Conference
+  on Human-Robot Interaction}, {HRI} '17, pages 254--262, New York, NY, USA,
+  2017. Association for Computing Machinery.
+
+\bibitem{Ghzoulietal2023}
+R.~Ghzouli, T.~Berger, E.~B. Johnsen, A.~Wasowski, and S.~Dragul.
+\newblock Behavior trees and state machines in robotics applications.
+\newblock {\em {IEEE} Transactions on Software Engineering}, 49(9):4243 --
+  4267, 2023.
+
+\bibitem{DortmansPunter2022}
+E.~Dortmans and T.~Punter.
+\newblock Behavior trees for smart robots practical guidelines for robot
+  software development.
+\newblock {\em Journal of Robotics}, 2022.
+
+\bibitem{AkinadeBarrosVernon2025}
+A.~Akinade, D.~Barros, and D.~Vernon.
+\newblock Biological motion aids gestural communication by humanoid social
+  robots.
+\newblock {\em {I}nternational {J}ournal of {H}umanoid {R}obotics}, 22(02),
+  2025.
+
+\bibitem{Spatola2021}
+N.~Spatola and O.~A. Wudarczyk.
+\newblock Implicit attitudes towards robots predict explicit attitudes,
+  semantic distance between robots and humans, anthropomorphism, and prosocial
+  behavior: From attitudes to human-robot interaction.
+\newblock {\em International Journal of Social Robotics}, 13:1149--1159, 2021.
+
+\bibitem{Mandletal2022}
+S.~Mandl, M.~Bretschneider, S.~Meyer, D.~Gesmann-{N}uissl, F.~Asbrock,
+  B.~Meyer, and A.~Strobel.
+\newblock Embodied digital technologies: First insights in the social and legal
+  perception of robots and users of prostheses.
+\newblock {\em Frontiers in Robotics and {AI}}, 9, 2022.
+
+\bibitem{Jorgensen2021}
+J.~J{\o}rgensen and M.~B. Christiansen.
+\newblock The sounds of softness. designing sound for human-soft robot
+  interaction.
+\newblock {\em Frontiers in Robotics and {AI}}, 8, 2021.
+
+\bibitem{Scassellatietal2012}
+B.~Scassellati, H.~Admoni, and M.~J. Matari{\'c}.
+\newblock Robots for use in autism research.
+\newblock {\em Annual Review of Biomedical Engineering}, 14:275--294, 2012.
+
+\bibitem{Oliveiraetal2021}
+R.~Oliveira, P.~Arriaga, S.~J. Stroessner, and A.~Paiva.
+\newblock Preliminary validation of the european portuguese version of the
+  robotic social attributes scale ({RoSAS}).
+\newblock {\em Human Behavior and Emerging Technologies}, 3(5):750--758, 2021.
+
+\bibitem{VernonSandini2024}
+D.~Vernon and G.~Sandini.
+\newblock The importance of being humanoid.
+\newblock {\em International Journal of Humanoid Robotics, 20th anniversary
+  issue}, 21(1), 2024.
+
+\bibitem{SimionRegolinBulf08}
+F.~Simion, L.~Regolin, and H.~Bulf.
+\newblock A predisposition for biological motion in the newborn baby.
+\newblock {\em Proceeding of the National Academy of Sciences (PNAS)},
+  105(2):809--813, 2008.
+
+\bibitem{Vignoloetal2017}
+A.~Vignolo, N.~Noceti, F.~Rea, A.~Sciutti, F.~Odone, and G.~Sandini.
+\newblock Detecting biological motion for human--robot interaction: A link
+  between perception and action.
+\newblock {\em Frontiers in Robotics and AI}, 4(14), 2017.
+
+\bibitem{Li2015}
+J.~Li.
+\newblock The benefit of being physically present: A survey of experimental
+  works comparing copresent robots, telepresent robots and virtual agents.
+  international journal of human-computer studies, 77, 23-37.
+\newblock {\em International Journal of Human-Computer Studies}, 77:23--37,
+  2015.
+
+\bibitem{Donnermannetal2024}
+M.~Donnermann, P.~Heinzmann, and B.~Lugrin.
+\newblock Meet or call my robotic tutor? -- the effect of a physically vs.
+  virtually present social robot on learning outcomes, engagement and
+  perception.
+\newblock {\em HRI '24: Companion of the 2024 ACM/IEEE International Conference
+  on Human-Robot Interaction}, pages 422 -- 426, 2024.
+
+\end{thebibliography}

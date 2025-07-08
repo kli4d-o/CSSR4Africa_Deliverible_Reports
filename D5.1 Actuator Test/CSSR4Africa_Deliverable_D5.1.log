@@ -1,0 +1,1702 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.16)  2 JUN 2025 13:59
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**CSSR4Africa_Deliverable_D5.1.tex
+(./CSSR4Africa_Deliverable_D5.1.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22> (./CSSRforAfrica.cls
+Document Class: CSSRforAfrica 2023/06/28 v1.0 
+ 
+CSSRforAfrica Deliverable Style 
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/a4wide/a4wide.sty
+Package: a4wide 1994/08/30
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/ntgclass/a4.sty
+Package: a4 2023/01/10 v1.2g A4 based page layout
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tools/array.sty
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen141
+\ar@mcellbox=\box51
+\extrarowheight=\dimen142
+\NC@list=\toks16
+\extratabsurround=\skip50
+\backup@length=\skip51
+\ar@cellbox=\box52
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvips.def on input line 107.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2022/09/22 v3.1e Graphics/color driver for dvips
+))
+\Gin@req@height=\dimen143
+\Gin@req@width=\dimen144
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box53
+\UL@hyphenbox=\box54
+\UL@skip=\skip52
+\UL@hook=\toks18
+\UL@height=\dimen145
+\UL@pe=\count193
+\UL@pixel=\dimen146
+\ULC@box=\box55
+Package: ulem 2019/11/18
+\ULdepth=\dimen147
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count194
+\calc@Bcount=\count195
+\calc@Adimen=\dimen148
+\calc@Bdimen=\dimen149
+\calc@Askip=\skip53
+\calc@Bskip=\skip54
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count196
+\calc@Cskip=\skip55
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+\headrulewidth=\dimen150
+\footrulewidth=\dimen151
+\plainheadrulewidth=\dimen152
+\plainfootrulewidth=\dimen153
+\headwidth=\dimen154
+\footruleskip=\dimen155
+\@sbpartners=\box56
+\contrib=\box57
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2020/02/08 v1.2c extra appendix facilities
+\c@@pps=\count197
+\c@@ppsavesec=\count198
+\c@@ppsaveapp=\count199
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count266
+)
+\@linkdim=\dimen156
+\Hy@linkcounter=\count267
+\Hy@pagecounter=\count268
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count269
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4060.
+Package hyperref Info: Hyper figures OFF on input line 4177.
+Package hyperref Info: Link nesting OFF on input line 4182.
+Package hyperref Info: Hyper index ON on input line 4185.
+Package hyperref Info: Plain pages OFF on input line 4192.
+Package hyperref Info: Backreferencing OFF on input line 4197.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4425.
+\c@Hy@tempcnt=\count270
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen157
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count271
+\Field@Width=\dimen158
+\Fld@charsize=\dimen159
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring ON on input line 6060.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count272
+\c@Item=\count273
+\c@Hfootnote=\count274
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count275
+\c@bookmark@seq@number=\count276
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+)
+\Hy@SectionHShift=\skip56
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write3
+
+Excluding comment 'comment')
+(/usr/local/texlive/2023/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip57
+\multirow@cntb=\count277
+\multirow@dima=\skip58
+\bigstrutjot=\dimen160
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/02/19 v1.6 Sub-captions (AR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/03/12 v3.6j Customizing captions (AR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
+\caption@tempdima=\dimen161
+\captionmargin=\dimen162
+\caption@leftmargin=\dimen163
+\caption@rightmargin=\dimen164
+\caption@width=\dimen165
+\caption@indent=\dimen166
+\caption@parindent=\dimen167
+\caption@hangindent=\dimen168
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count278
+\c@continuedfloat=\count279
+Package caption Info: hyperref package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 239.
+\c@subfigure=\count280
+Package caption Info: New subtype `subtable' on input line 239.
+\c@subtable=\count281
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2023/02/12 version 6.0.1 text color boxes
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks19
+\pgfutil@tempdima=\dimen169
+\pgfutil@tempdimb=\dimen170
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box58
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks20
+\pgfkeys@temptoks=\toks21
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfil
+tered.code.tex
+\pgfkeys@tmptoks=\toks22
+))
+\pgf@x=\dimen171
+\pgf@y=\dimen172
+\pgf@xa=\dimen173
+\pgf@ya=\dimen174
+\pgf@xb=\dimen175
+\pgf@yb=\dimen176
+\pgf@xc=\dimen177
+\pgf@yc=\dimen178
+\pgf@xd=\dimen179
+\pgf@yd=\dimen180
+\w@pgf@writea=\write4
+\r@pgf@reada=\read2
+\c@pgf@counta=\count282
+\c@pgf@countb=\count283
+\c@pgf@countc=\count284
+\c@pgf@countd=\count285
+\t@pgf@toka=\toks23
+\t@pgf@tokb=\toks24
+\t@pgf@tokc=\toks25
+\pgf@sys@id@count=\count286
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+)))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count287
+\pgfsyssoftpath@bigbuffer@items=\count288
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+LaTeX Info: Redefining \color on input line 711.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen181
+\pgfmath@count=\count289
+\pgfmath@box=\box59
+\pgfmath@toks=\toks26
+\pgfmath@stack@operand=\toks27
+\pgfmath@stack@operation=\toks28
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count290
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen182
+\pgf@picmaxx=\dimen183
+\pgf@picminy=\dimen184
+\pgf@picmaxy=\dimen185
+\pgf@pathminx=\dimen186
+\pgf@pathmaxx=\dimen187
+\pgf@pathminy=\dimen188
+\pgf@pathmaxy=\dimen189
+\pgf@xx=\dimen190
+\pgf@xy=\dimen191
+\pgf@yx=\dimen192
+\pgf@yy=\dimen193
+\pgf@zx=\dimen194
+\pgf@zy=\dimen195
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen196
+\pgf@path@lasty=\dimen197
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen198
+\pgf@shorten@start@additional=\dimen199
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box60
+\pgf@hbox=\box61
+\pgf@layerbox@main=\box62
+\pgf@picture@serial@count=\count291
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen256
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen257
+\pgf@pt@y=\dimen258
+\pgf@pt@temp=\dimen259
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen260
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen261
+\pgf@sys@shading@range@num=\count292
+\pgf@shadingcount=\count293
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box63
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.
+tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box64
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen262
+\pgf@nodesepend=\dimen263
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks29
+\verbatim@line=\toks30
+\verbatim@in@stream=\read3
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+\@envbody=\toks31
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count294
+)
+\tcb@titlebox=\box65
+\tcb@upperbox=\box66
+\tcb@lowerbox=\box67
+\tcb@phantombox=\box68
+\c@tcbbreakpart=\count295
+\c@tcblayer=\count296
+\c@tcolorbox@number=\count297
+\tcb@temp=\box69
+\tcb@temp=\box70
+\tcb@temp=\box71
+\tcb@temp=\box72
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.0.1'
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pdfcol/pdfcol.sty
+Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
+)
+Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
+\tcb@testbox=\box73
+\tcb@totalupperbox=\box74
+\tcb@totallowerbox=\box75
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.0.1'
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen264
+\pgffor@skip=\dimen265
+\pgffor@stack=\toks32
+\pgffor@toks=\toks33
+))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count298
+\pgfplotmarksize=\dimen266
+)
+\tikz@lastx=\dimen267
+\tikz@lasty=\dimen268
+\tikz@lastxsaved=\dimen269
+\tikz@lastysaved=\dimen270
+\tikz@lastmovetox=\dimen271
+\tikz@lastmovetoy=\dimen272
+\tikzleveldistance=\dimen273
+\tikzsiblingdistance=\dimen274
+\tikz@figbox=\box76
+\tikz@figbox@bg=\box77
+\tikz@tempbox=\box78
+\tikz@tempbox@bg=\box79
+\tikztreelevel=\count299
+\tikznumberofchildren=\count300
+\tikznumberofcurrentchild=\count301
+\tikz@fig@count=\count302
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count303
+\pgfmatrixcurrentcolumn=\count304
+\pgf@matrix@numberofcolumns=\count305
+)
+\tikz@expandcount=\count306
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
+Package: tikzfill.image 2022/07/20 v1.0.0 Image filling library for TikZ
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzfill-common.sty
+Package: tikzfill-common 2022/07/20 v1.0.0 Auxiliary code for tikzfill
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.co
+de.tex
+File: tikzlibraryfill.image.code.tex 2022/07/20 v1.0.0 Image filling library
+\l__tikzfill_img_box=\box80
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.0.1'
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.0.1'
+\c@tcbrastercolumn=\count307
+\c@tcbrasterrow=\count308
+\c@tcbrasternum=\count309
+\c@tcbraster=\count310
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.0.1'
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.0.1'
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2022/04/08 v2.17n AMS math features
+\@mathmargin=\skip59
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks34
+\ex@=\dimen275
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen276
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count311
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count312
+\leftroot@=\count313
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count314
+\DOTSCASE@=\count315
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box81
+\strutbox@=\box82
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen277
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count316
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count317
+\dotsspace@=\muskip17
+\c@parentequation=\count318
+\dspbrk@lvl=\count319
+\tag@help=\toks35
+\row@=\count320
+\column@=\count321
+\maxfields@=\count322
+\andhelp@=\toks36
+\eqnshift@=\dimen278
+\alignsep@=\dimen279
+\tagshift@=\dimen280
+\tagwidth@=\dimen281
+\totwidth@=\dimen282
+\lineht@=\dimen283
+\@envbody=\toks37
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks38
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.0.1'
+\tcbfitdim=\dimen284
+\tcb@lowerfitdim=\dimen285
+\tcb@upperfitdim=\dimen286
+\tcb@cur@hbadness=\count323
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.te
+x
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.0.1'
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.0.1'
+(/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count324
+\lst@gtempboxa=\box83
+\lst@token=\toks39
+\lst@length=\count325
+\lst@currlwidth=\dimen287
+\lst@column=\count326
+\lst@pos=\count327
+\lst@lostspace=\dimen288
+\lst@width=\dimen289
+\lst@newlines=\count328
+\lst@lineno=\count329
+\lst@maxwidth=\dimen290
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count330
+\lst@skipnumbers=\count331
+\lst@framebox=\box84
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.te
+x
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.0.1'
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.0.1'
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+))
+\c@tcblisting=\count332
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
+Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.0.1'
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.0.1'
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbvignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.0.1'
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings
+.code.tex
+File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.0.1'
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen291
+\TX@old@table=\dimen292
+\TX@old@col=\dimen293
+\TX@target=\dimen294
+\TX@delta=\dimen295
+\TX@cols=\count333
+\TX@ftn=\toks40
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
+\everycr=\toks41
+\minrowclearance=\skip62
+\rownum=\count334
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/bclogo/bclogo.sty
+Package: bclogo 2016/01/10 v3.1
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks42
+\XKV@tempa@toks=\toks43
+)
+\XKV@depth=\count335
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\bc@invboxh=\skip63
+\bc@invboxd=\skip64
+\bc@titleLength=\skip65
+\logowidth=\skip66
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/mdframed/mdframed.sty
+Package: mdframed 2013/07/01 1.9b: mdframed
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-02-22 L3 programming layer (loader) 
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count336
+\l__pdf_internal_box=\box85
+))
+Package: xparse 2023-02-02 L3 Experimental document command parser
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/zref/zref-abspage.sty
+Package: zref-abspage 2022-04-07 v2.34 Module abspage for zref (HO)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/zref/zref-base.sty
+Package: zref-base 2022-04-07 v2.34 Module base for zref (HO)
+Package zref Info: New property list: main on input line 767.
+Package zref Info: New property: default on input line 768.
+Package zref Info: New property: page on input line 769.
+)
+\c@abspage=\count337
+Package zref Info: New property: abspage on input line 65.
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/needspace/needspace.sty
+Package: needspace 2010/09/12 v1.3d reserve vertical space
+)
+\mdf@templength=\skip67
+\c@mdf@globalstyle@cnt=\count338
+\mdf@skipabove@length=\skip68
+\mdf@skipbelow@length=\skip69
+\mdf@leftmargin@length=\skip70
+\mdf@rightmargin@length=\skip71
+\mdf@innerleftmargin@length=\skip72
+\mdf@innerrightmargin@length=\skip73
+\mdf@innertopmargin@length=\skip74
+\mdf@innerbottommargin@length=\skip75
+\mdf@splittopskip@length=\skip76
+\mdf@splitbottomskip@length=\skip77
+\mdf@outermargin@length=\skip78
+\mdf@innermargin@length=\skip79
+\mdf@linewidth@length=\skip80
+\mdf@innerlinewidth@length=\skip81
+\mdf@middlelinewidth@length=\skip82
+\mdf@outerlinewidth@length=\skip83
+\mdf@roundcorner@length=\skip84
+\mdf@footenotedistance@length=\skip85
+\mdf@userdefinedwidth@length=\skip86
+\mdf@needspace@length=\skip87
+\mdf@frametitleaboveskip@length=\skip88
+\mdf@frametitlebelowskip@length=\skip89
+\mdf@frametitlerulewidth@length=\skip90
+\mdf@frametitleleftmargin@length=\skip91
+\mdf@frametitlerightmargin@length=\skip92
+\mdf@shadowsize@length=\skip93
+\mdf@extratopheight@length=\skip94
+\mdf@subtitleabovelinewidth@length=\skip95
+\mdf@subtitlebelowlinewidth@length=\skip96
+\mdf@subtitleaboveskip@length=\skip97
+\mdf@subtitlebelowskip@length=\skip98
+\mdf@subtitleinneraboveskip@length=\skip99
+\mdf@subtitleinnerbelowskip@length=\skip100
+\mdf@subsubtitleabovelinewidth@length=\skip101
+\mdf@subsubtitlebelowlinewidth@length=\skip102
+\mdf@subsubtitleaboveskip@length=\skip103
+\mdf@subsubtitlebelowskip@length=\skip104
+\mdf@subsubtitleinneraboveskip@length=\skip105
+\mdf@subsubtitleinnerbelowskip@length=\skip106
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/mdframed/md-frame-1.mdf
+File: md-frame-1.mdf 2013/07/01\ 1.9b: md-frame-1
+)
+\mdf@frametitlebox=\box86
+\mdf@footnotebox=\box87
+\mdf@splitbox@one=\box88
+\mdf@splitbox@two=\box89
+\mdf@splitbox@save=\box90
+\mdfsplitboxwidth=\skip107
+\mdfsplitboxtotalwidth=\skip108
+\mdfsplitboxheight=\skip109
+\mdfsplitboxdepth=\skip110
+\mdfsplitboxtotalheight=\skip111
+\mdfframetitleboxwidth=\skip112
+\mdfframetitleboxtotalwidth=\skip113
+\mdfframetitleboxheight=\skip114
+\mdfframetitleboxdepth=\skip115
+\mdfframetitleboxtotalheight=\skip116
+\mdffootnoteboxwidth=\skip117
+\mdffootnoteboxtotalwidth=\skip118
+\mdffootnoteboxheight=\skip119
+\mdffootnoteboxdepth=\skip120
+\mdffootnoteboxtotalheight=\skip121
+\mdftotallinewidth=\skip122
+\mdfboundingboxwidth=\skip123
+\mdfboundingboxtotalwidth=\skip124
+\mdfboundingboxheight=\skip125
+\mdfboundingboxdepth=\skip126
+\mdfboundingboxtotalheight=\skip127
+\mdf@freevspace@length=\skip128
+\mdf@horizontalwidthofbox@length=\skip129
+\mdf@verticalmarginwhole@length=\skip130
+\mdf@horizontalspaceofbox=\skip131
+\mdfsubtitleheight=\skip132
+\mdfsubsubtitleheight=\skip133
+\c@mdfcountframes=\count339
+
+****** mdframed patching \endmdf@trivlist
+
+****** -- success******
+
+\mdf@envdepth=\count340
+\c@mdf@env@i=\count341
+\c@mdf@env@ii=\count342
+\c@mdf@zref@counter=\count343
+Package zref Info: New property: mdf@pagevalue on input line 895.
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshadows.code.tex
+File: tikzlibraryshadows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex
+\pgfdecoratedcompleteddistance=\dimen296
+\pgfdecoratedremainingdistance=\dimen297
+\pgfdecoratedinputsegmentcompleteddistance=\dimen298
+\pgfdecoratedinputsegmentremainingdistance=\dimen299
+\pgf@decorate@distancetomove=\dimen300
+\pgf@decorate@repeatstate=\count344
+\pgfdecorationsegmentamplitude=\dimen301
+\pgfdecorationsegmentlength=\dimen302
+)
+\tikz@lib@dec@box=\box91
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+)
+\c@bclogocompteur=\count345
+\bcval@epBarre=\skip134
+\bcval@framesep=\skip135
+\bcval@tailleOndu=\skip136
+\bcval@borderWidth=\skip137
+\bcval@margeG=\skip138
+\bcval@margeD=\skip139
+\bc@envbox=\box92
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/ragged2e/ragged2e.sty
+Package: ragged2e 2023/02/25 v3.4 ragged2e Package
+\CenteringLeftskip=\skip140
+\RaggedLeftLeftskip=\skip141
+\RaggedRightLeftskip=\skip142
+\CenteringRightskip=\skip143
+\RaggedLeftRightskip=\skip144
+\RaggedRightRightskip=\skip145
+\CenteringParfillskip=\skip146
+\RaggedLeftParfillskip=\skip147
+\RaggedRightParfillskip=\skip148
+\JustifyingParfillskip=\skip149
+\CenteringParindent=\skip150
+\RaggedLeftParindent=\skip151
+\RaggedRightParindent=\skip152
+\JustifyingParindent=\skip153
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/dirtree/dirtree.sty
+Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/dirtree/dirtree.tex
+`dirtree' v0.32, 2012/12/11 (jcc)
+\DT@offset=\dimen303
+\DT@width=\dimen304
+\DT@sep=\dimen305
+\DT@all=\dimen306
+\DT@rulewidth=\dimen307
+\DT@dotwidth=\dimen308
+\DTbaselineskip=\dimen309
+\DT@counti=\count346
+\DT@countii=\count347
+\DT@countiii=\count348
+\DT@countiv=\count349
+\DT@indent=\dimen310
+\DT@parskip=\dimen311
+\DT@baselineskip=\dimen312
+)
+File: dirtree.tex 2012/12/11 v0.32 `dirtree' (jcc)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip154
+\bibsep=\skip155
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count350
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip156
+\LTright=\skip157
+\LTpre=\skip158
+\LTpost=\skip159
+\LTchunksize=\count351
+\LTcapwidth=\dimen313
+\LT@head=\box93
+\LT@firsthead=\box94
+\LT@foot=\box95
+\LT@lastfoot=\box96
+\LT@gbox=\box97
+\LT@cols=\count352
+\LT@rows=\count353
+\c@LT@tables=\count354
+\c@LT@chunks=\count355
+\LT@p@ftn=\toks44
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
+6.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(./CSSR4Africa_Deliverable_D5.1.aux)
+\openout1 = `CSSR4Africa_Deliverable_D5.1.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+
+(/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count356
+\scratchdimen=\dimen314
+\scratchbox=\box98
+\nofMPsegments=\count357
+\nofMParguments=\count358
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count359
+\MPscratchDim=\dimen315
+\MPnumerator=\count360
+\makeMPintoPDFobject=\count361
+\everyMPtoPDFconversion=\toks46
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package hyperref Info: Link coloring ON on input line 56.
+
+(./CSSR4Africa_Deliverable_D5.1.out) (./CSSR4Africa_Deliverable_D5.1.out)
+\@outlinefile=\write5
+\openout5 = `CSSR4Africa_Deliverable_D5.1.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count362
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks47
+\inpenc@posthook=\toks48
+)
+(/usr/local/texlive/2023/texmf-dist/tex/generic/epsf/epsf.tex
+This is `epsf.tex' v2.7.4 <14 February 2011>
+\epsffilein=\read4
+\epsfframemargin=\dimen316
+\epsfframethickness=\dimen317
+\epsfrsize=\dimen318
+\epsftmp=\dimen319
+\epsftsize=\dimen320
+\epsfxsize=\dimen321
+\epsfysize=\dimen322
+\pspoints=\dimen323
+)
+<CSSRforAfrica_logo_red.pdf, id=99, 487.7245pt x 117.52507pt>
+File: CSSRforAfrica_logo_red.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_red.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_red.pdf  used on input line 83.
+(pdftex.def)             Requested size: 99.58464pt x 23.99594pt.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 8
+3.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 83
+.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+) [1
+Non-PDF special ignored!
+<special> papersize=597.50787pt,845.04684pt
+
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
+al/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc} <./CSSRforAfrica_logo_r
+ed.pdf>]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 8
+9.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+<CSSRforAfrica_logo_grey.pdf, id=115, 487.63818pt x 125.159pt>
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 100.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 100.
+
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 100.
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 100.
+
+[2 <./CSSRforAfrica_logo_grey.pdf>] (./CSSR4Africa_Deliverable_D5.1.toc)
+\tf@toc=\write6
+\openout6 = `CSSR4Africa_Deliverable_D5.1.toc'.
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 102.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 102.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 102.
+
+[3]
+<images/Pepper_actuator.png, id=152, 3044.37375pt x 2871.72874pt>
+File: images/Pepper_actuator.png Graphic file (type png)
+<use images/Pepper_actuator.png>
+Package pdftex.def Info: images/Pepper_actuator.png  used on input line 127.
+(pdftex.def)             Requested size: 350.11885pt x 330.26376pt.
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 136.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 136.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 136.
+
+[4 <./images/Pepper_actuator.png>]
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 142.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 142.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 142.
+
+[5]
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 169.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 169.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 169.
+
+[6]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
+93.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 198.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 198.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 198.
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
+
+ []
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 246.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 246.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 246.
+
+[8]
+Overfull \hbox (5.44547pt too wide) in alignment at lines 255--260
+ [] [] [] 
+ []
+
+
+Overfull \hbox (5.44547pt too wide) in alignment at lines 260--266
+ [] [] [] 
+ []
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 286.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 286.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 286.
+
+[9]
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 329.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 329.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 329.
+
+[10]
+
+pdfTeX warning: /usr/local/texlive/2023/bin/universal-darwin/pdflatex (file ./i
+mages/Actuator.pdf): PDF inclusion: found PDF version <1.7>, but at most versio
+n <1.5> allowed
+<images/Actuator.pdf, id=203, 480.83638pt x 465.65968pt>
+File: images/Actuator.pdf Graphic file (type pdf)
+<use images/Actuator.pdf>
+Package pdftex.def Info: images/Actuator.pdf  used on input line 337.
+(pdftex.def)             Requested size: 432.74875pt x 419.08983pt.
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 343.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 343.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 343.
+
+[11 <./images/Actuator.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 375--378
+
+ []
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 386.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 386.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 386.
+
+[12] (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+Overfull \hbox (15.0pt too wide) in paragraph at lines 431--433
+[][] 
+ []
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 455.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 455.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 455.
+
+[13]
+<images/Pepper_Head.png, id=247, 756.57657pt x 383.18156pt>
+File: images/Pepper_Head.png Graphic file (type png)
+<use images/Pepper_Head.png>
+Package pdftex.def Info: images/Pepper_Head.png  used on input line 459.
+(pdftex.def)             Requested size: 264.80576pt x 134.11555pt.
+
+Overfull \hbox (4.61794pt too wide) in paragraph at lines 493--495
+[]\OT1/ptm/m/n/10.95 The ros-topic \OT1/pcr/m/n/10.95 /pepper[]dcm/LeftArm[]con
+troller/follow[]joint[]trajectory \OT1/ptm/m/n/10.95 is used
+ []
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 512.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 512.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 512.
+
+[14 <./images/Pepper_Head.png>]
+<images/LShoulderPitch.png, id=264, 1136.74687pt x 370.38374pt>
+File: images/LShoulderPitch.png Graphic file (type png)
+<use images/LShoulderPitch.png>
+Package pdftex.def Info: images/LShoulderPitch.png  used on input line 516.
+(pdftex.def)             Requested size: 397.86737pt x 129.63625pt.
+<images/LShoulderandLElbowRoll.png, id=267, 323.70938pt x 539.01375pt>
+File: images/LShoulderandLElbowRoll.png Graphic file (type png)
+<use images/LShoulderandLElbowRoll.png>
+Package pdftex.def Info: images/LShoulderandLElbowRoll.png  used on input line 
+525.
+(pdftex.def)             Requested size: 145.66786pt x 242.55394pt.
+<images/LElbowandWristYaw.png, id=270, 405.76593pt x 349.305pt>
+File: images/LElbowandWristYaw.png Graphic file (type png)
+<use images/LElbowandWristYaw.png>
+Package pdftex.def Info: images/LElbowandWristYaw.png  used on input line 531.
+(pdftex.def)             Requested size: 182.59297pt x 157.18579pt.
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 537.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 537.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 537.
+
+[15 <./images/LShoulderPitch.png> <./images/LShoulderandLElbowRoll.png> <./imag
+es/LElbowandWristYaw.png>]
+Overfull \hbox (9.99467pt too wide) in paragraph at lines 567--568
+[]\OT1/ptm/m/n/10.95 The ros-topic \OT1/pcr/m/n/10.95 /pepper[]dcm/RightArm[]co
+ntroller/follow[]joint[]trajectory \OT1/ptm/m/n/10.95 moves
+ []
+
+<images/RShoulderPitch.png, id=288, 1026.83624pt x 303.38344pt>
+File: images/RShoulderPitch.png Graphic file (type png)
+<use images/RShoulderPitch.png>
+Package pdftex.def Info: images/RShoulderPitch.png  used on input line 588.
+(pdftex.def)             Requested size: 359.39807pt x 106.18579pt.
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 593.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 593.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 593.
+
+[16]
+<images/RShoulderandElbowRoll.png, id=298, 255.95625pt x 441.90094pt>
+File: images/RShoulderandElbowRoll.png Graphic file (type png)
+<use images/RShoulderandElbowRoll.png>
+Package pdftex.def Info: images/RShoulderandElbowRoll.png  used on input line 5
+99.
+(pdftex.def)             Requested size: 115.17923pt x 198.85358pt.
+
+Underfull \hbox (badness 2096) in paragraph at lines 600--600
+[][]|\OT1/ptm/m/n/10.95 Right Shoul-der and El-bow Roll
+ []
+
+<images/RElbowandWrist.png, id=301, 380.92313pt x 311.66437pt>
+File: images/RElbowandWrist.png Graphic file (type png)
+<use images/RElbowandWrist.png>
+Package pdftex.def Info: images/RElbowandWrist.png  used on input line 605.
+(pdftex.def)             Requested size: 171.41382pt x 140.24767pt.
+
+Overfull \hbox (11.18793pt too wide) in paragraph at lines 633--635
+[]\OT1/ptm/m/n/10.95 The ros-topic \OT1/pcr/m/n/10.95 /pepper[]dcm/LeftHand[]co
+ntroller/follow[]joint[]trajectory \OT1/ptm/m/n/10.95 is used
+ []
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 635.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 635.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 635.
+
+[17 <./images/RShoulderPitch.png> <./images/RShoulderandElbowRoll.png> <./image
+s/RElbowandWrist.png>]
+Overfull \hbox (16.56467pt too wide) in paragraph at lines 644--647
+[]\OT1/ptm/m/n/10.95 The ros-topic \OT1/pcr/m/n/10.95 /pepper[]dcm/RightHand[]c
+ontroller/follow[]joint[]trajectory \OT1/ptm/m/n/10.95 moves
+ []
+
+<images/HipRoll.png, id=321, 251.43938pt x 435.12563pt>
+File: images/HipRoll.png Graphic file (type png)
+<use images/HipRoll.png>
+Package pdftex.def Info: images/HipRoll.png  used on input line 677.
+(pdftex.def)             Requested size: 113.14667pt x 195.80472pt.
+<images/HipPitchandKneePitch.png, id=324, 242.40562pt x 429.85594pt>
+File: images/HipPitchandKneePitch.png Graphic file (type png)
+<use images/HipPitchandKneePitch.png>
+Package pdftex.def Info: images/HipPitchandKneePitch.png  used on input line 68
+3.
+(pdftex.def)             Requested size: 109.08151pt x 193.43338pt.
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 689.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 689.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 689.
+
+[18]
+
+pdfTeX warning: /usr/local/texlive/2023/bin/universal-darwin/pdflatex (file ./i
+mages/Pepper_wheels.pdf): PDF inclusion: found PDF version <1.7>, but at most v
+ersion <1.5> allowed
+<images/Pepper_wheels.pdf, id=335, 483.55414pt x 319.96039pt>
+File: images/Pepper_wheels.pdf Graphic file (type pdf)
+<use images/Pepper_wheels.pdf>
+Package pdftex.def Info: images/Pepper_wheels.pdf  used on input line 699.
+(pdftex.def)             Requested size: 265.9556pt x 175.97874pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 723--725
+[][] 
+ []
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 730.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 730.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 730.
+
+[19 <./images/HipRoll.png> <./images/HipPitchandKneePitch.png> <./images/Pepper
+_wheels.pdf>]
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 732.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 732.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 732.
+
+[20] (./CSSR4Africa_Deliverable_D5.1.bbl)
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 740.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 740.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 740.
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 746--752
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 746--752
+
+ []
+
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 754.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+Package xcolor Warning: Incompatible color definition on input line 754.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 754.
+
+[22]
+Package textcomp Info: Symbol \textrightarrow not provided by
+(textcomp)             font family ptm in TS1 encoding.
+(textcomp)             Default family used instead on input line 767.
+File: CSSRforAfrica_logo_grey.pdf Graphic file (type pdf)
+<use CSSRforAfrica_logo_grey.pdf>
+Package pdftex.def Info: CSSRforAfrica_logo_grey.pdf  used on input line 773.
+(pdftex.def)             Requested size: 71.13188pt x 18.25548pt.
+
+
+Package xcolor Warning: Incompatible color definition on input line 773.
+
+
+Overfull \vbox (11.7075pt too high) has occurred while \output is active []
+
+
+
+Package xcolor Warning: Incompatible color definition on input line 773.
+
+[23{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
+c}] (./CSSR4Africa_Deliverable_D5.1.aux)
+Package rerunfilecheck Info: File `CSSR4Africa_Deliverable_D5.1.out' has not ch
+anged.
+(rerunfilecheck)             Checksum: F712B7ACC2E74A27B00BE35EF9225224;1995.
+ ) 
+Here is how much of TeX's memory you used:
+ 32234 strings out of 476025
+ 652622 string characters out of 5790017
+ 1901388 words of memory out of 5000000
+ 51966 multiletter control sequences out of 15000+600000
+ 555547 words of font info for 120 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 87i,17n,99p,538b,1310s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></us
+r/local/texlive/2023/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/
+texlive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive
+/2023/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2023/texmf-dist/
+fonts/type1/urw/times/utmr8a.pfb>
+Output written on CSSR4Africa_Deliverable_D5.1.pdf (23 pages, 3002773 bytes).
+PDF statistics:
+ 436 PDF objects out of 1000 (max. 8388607)
+ 313 compressed objects within 4 object streams
+ 84 named destinations out of 1000 (max. 500000)
+ 339 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {section}{\numberline {2}Requirements Definition}{5}{section.2}%
+\contentsline {section}{\numberline {3}Module Specification}{6}{section.3}%
+\contentsline {section}{\numberline {4}Interface Design}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Source Code}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Configuration Files}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Data Files}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Topics Subscribing To}{9}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Topics Publishing To}{9}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Services Supported}{9}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Module Design}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Model Architecture}{10}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Preprocessor}{10}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Encoder Architecture}{10}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Decoder/Predictor Architecture}{11}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}Joint Network Architecture}{12}{subsubsection.5.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.5}Combined Model Architecture}{13}{subsubsection.5.1.5}%
+\contentsline {section}{\numberline {6}Testing}{14}{section.6}%
+\contentsline {section}{\numberline {7}User Manual}{17}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Installation}{17}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Usage}{18}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Driver ROS Node}{18}{subsection.7.3}%
+\contentsline {section}{References}{19}{section*.3}%
+\contentsline {section}{Principal Contributors}{20}{section*.4}%
+\contentsline {section}{Document History}{21}{section*.5}%

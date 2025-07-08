@@ -1,0 +1,183 @@
+\relax 
+\providecommand\zref@newlabel[2]{}
+\providecommand{\transparent@use}[1]{}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\newlabel{executive_summary}{{}{2}{Executive Summary}{section*.1}{}}
+\newlabel{executive_summary@cref}{{}{[1][2][]2}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{4}{section.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Programming by Demonstration Setup: The human demonstrator gestures in front of an RGBD camera and Pepper imitates the movements. }}{5}{figure.caption.3}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:setup}{{1}{5}{Programming by Demonstration Setup: The human demonstrator gestures in front of an RGBD camera and Pepper imitates the movements}{figure.caption.3}{}}
+\newlabel{fig:setup@cref}{{[figure][1][]1}{[1][4][]5}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Requirements Definition}{5}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Module Specification}{7}{section.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Functional graph of the PbD module: the Skeletal Model processes visual and depth images to generate joint commands for the robot; the Demonstration Recorder logs these commands and data from the robot sensors; the Demonstration GUI provides user control over all the other components. The camera can be replaced by a pre-recorded video feed. }}{7}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:functionalgraph}{{2}{7}{Functional graph of the PbD module: the Skeletal Model processes visual and depth images to generate joint commands for the robot; the Demonstration Recorder logs these commands and data from the robot sensors; the Demonstration GUI provides user control over all the other components. The camera can be replaced by a pre-recorded video feed}{figure.caption.4}{}}
+\newlabel{fig:functionalgraph@cref}{{[figure][2][]2}{[1][7][]7}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Computational graph of the PbD module: Synchronized visual and depth images from the camera are used to estimate the skeletal model, i.e. the positions of the human joints. These are then retargeted to the joint angles of the Pepper humanoid robot. A filter is applied to the incoming joint angles to increase the naturalness of the movement in real-time and the resulting joint commands are fed to the robot arm controllers. }}{8}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:computationalgraph}{{3}{8}{Computational graph of the PbD module: Synchronized visual and depth images from the camera are used to estimate the skeletal model, i.e. the positions of the human joints. These are then retargeted to the joint angles of the Pepper humanoid robot. A filter is applied to the incoming joint angles to increase the naturalness of the movement in real-time and the resulting joint commands are fed to the robot arm controllers}{figure.caption.5}{}}
+\newlabel{fig:computationalgraph@cref}{{[figure][3][]3}{[1][8][]8}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces State machine graph of the PbD module: Barring internal errors that are displayed to the user in the terminal and the GUI, binary user input determines the state of the system: every active state has an entry and exit function that needs to be explicitly called. Exception is ``Stop Replay", which can be stopped manually or stops automatically when the recorded motion has been fully performed. }}{8}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:statemachinegraph}{{4}{8}{State machine graph of the PbD module: Barring internal errors that are displayed to the user in the terminal and the GUI, binary user input determines the state of the system: every active state has an entry and exit function that needs to be explicitly called. Exception is ``Stop Replay", which can be stopped manually or stops automatically when the recorded motion has been fully performed}{figure.caption.6}{}}
+\newlabel{fig:statemachinegraph@cref}{{[figure][4][]4}{[1][8][]8}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Behavioural graph of the PbD module: The user-centered graph shows an example procedure for demonstrating, recording and replaying. Rectangular boxes represent observable processes, diamond-shaped boxes stand for checks, non-rectangular boxes represent user action. ``Gesture Replay" is the termination element. The blue line indicates the available option of recording multiple demonstrations in one session.}}{9}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:behaviouralgraph}{{5}{9}{Behavioural graph of the PbD module: The user-centered graph shows an example procedure for demonstrating, recording and replaying. Rectangular boxes represent observable processes, diamond-shaped boxes stand for checks, non-rectangular boxes represent user action. ``Gesture Replay" is the termination element. The blue line indicates the available option of recording multiple demonstrations in one session}{figure.caption.7}{}}
+\newlabel{fig:behaviouralgraph@cref}{{[figure][5][]5}{[1][9][]9}{}{}{}}
+\citation{brugali2010component}
+\citation{Quigleyetal09}
+\citation{realsense_ros}
+\citation{realsense_ros}
+\citation{zhang2018real}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Module Design}{10}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Design Overview}{10}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Image Source}{10}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Skeletal Model}{10}{subsection.4.3}\protected@file@percent }
+\citation{lugaresi2019mediapipe}
+\citation{lugaresi2019mediapipe}
+\citation{barros2024enhancing}
+\citation{qt_signals_slots}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Skeletal model of the human demonstrator is estimated using Google's MediaPipe pose estimation framework \cite  {lugaresi2019mediapipe}.}}{11}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:mediapipe}{{6}{11}{Skeletal model of the human demonstrator is estimated using Google's MediaPipe pose estimation framework \cite {lugaresi2019mediapipe}}{figure.caption.8}{}}
+\newlabel{fig:mediapipe@cref}{{[figure][6][]6}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Demonstration Recorder}{11}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Demonstration GUI}{12}{subsection.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Graphical User Interface for the Programming by Demonstration system}}{12}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:gui}{{7}{12}{Graphical User Interface for the Programming by Demonstration system}{figure.caption.9}{}}
+\newlabel{fig:gui@cref}{{[figure][7][]7}{[1][12][]12}{}{}{}}
+\citation{betterstack_initpy}
+\citation{catkin_docs}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Implementation}{13}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}File Organization \& Purpose}{13}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Directory structure of the PbD module consisting of three components each with config, launch, src folders and CMakeLists.txt and README.md files. The root directory also includes the package.xml file. }}{14}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:dirtree_structure}{{8}{14}{Directory structure of the PbD module consisting of three components each with config, launch, src folders and CMakeLists.txt and README.md files. The root directory also includes the package.xml file}{figure.caption.10}{}}
+\newlabel{fig:dirtree_structure@cref}{{[figure][8][]8}{[1][14][]14}{}{}{}}
+\citation{harris2020array}
+\gdef \LT@i {\LT@entry 
+    {2}{155.6pt}\LT@entry 
+    {2}{150.4pt}\LT@entry 
+    {1}{154.66377pt}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Skeletal Model Implementation}{15}{subsection.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Configuration file for the skeletal model}}{15}{table.1}\protected@file@percent }
+\newlabel{tab:config_file}{{1}{15}{Configuration File}{table.1}{}}
+\newlabel{tab:config_file@cref}{{[table][1][]1}{[1][15][]15}{}{}{}}
+\gdef \LT@ii {\LT@entry 
+    {2}{220.15979pt}\LT@entry 
+    {2}{102.0399pt}\LT@entry 
+    {1}{0.0pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Configuration file for the skeletal model}}{16}{table.1}\protected@file@percent }
+\newlabel{tab:config_file}{{1}{16}{Configuration File}{table.1}{}}
+\newlabel{tab:config_file@cref}{{[table][1][]1}{[1][15][]16}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Topics subscribed by the skeletal\_model node.}}{16}{table.2}\protected@file@percent }
+\newlabel{tab:Published_topics}{{2}{16}{Topics Subscribed}{table.2}{}}
+\newlabel{tab:Published_topics@cref}{{[table][2][]2}{[1][16][]16}{}{}{}}
+\gdef \LT@iii {\LT@entry 
+    {2}{219.07977pt}\LT@entry 
+    {2}{177.63982pt}\LT@entry 
+    {1}{0.0pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Topics published by the skeletal\_model node.}}{17}{table.3}\protected@file@percent }
+\newlabel{tab:Published_topics}{{3}{17}{Topics Published}{table.3}{}}
+\newlabel{tab:Published_topics@cref}{{[table][3][]3}{[1][17][]17}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces UML class diagram for the skeletal model component. Class visualization contains name, attributes and methods from top to bottom. Class relationships are of composition (filled diamond), as classes where symbol ends instantiate the others as attributes.}}{17}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:skeletaluml}{{9}{17}{UML class diagram for the skeletal model component. Class visualization contains name, attributes and methods from top to bottom. Class relationships are of composition (filled diamond), as classes where symbol ends instantiate the others as attributes}{figure.caption.17}{}}
+\newlabel{fig:skeletaluml@cref}{{[figure][9][]9}{[1][17][]17}{}{}{}}
+\citation{intel_realsense_d435}
+\citation{intel_realsense_d435}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Table with available image formats using USB 3.1 Gen 1 and the Intel RealSense D435 \cite  {intel_realsense_d435}}}{18}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:resolutions}{{10}{18}{Table with available image formats using USB 3.1 Gen 1 and the Intel RealSense D435 \cite {intel_realsense_d435}}{figure.caption.19}{}}
+\newlabel{fig:resolutions@cref}{{[figure][10][]10}{[1][18][]18}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Demonstration Recorder Implementation}{19}{subsection.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces UML class diagram for the demonstration recorder component. Class visualization contains name, attributes and methods from top to bottom. Class instances are aggregated by the DemoRecorder (unfilled diamond)}}{20}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:recorderuml}{{11}{20}{UML class diagram for the demonstration recorder component. Class visualization contains name, attributes and methods from top to bottom. Class instances are aggregated by the DemoRecorder (unfilled diamond)}{figure.caption.21}{}}
+\newlabel{fig:recorderuml@cref}{{[figure][11][]11}{[1][20][]20}{}{}{}}
+\gdef \LT@iv {\LT@entry 
+    {2}{155.6pt}\LT@entry 
+    {2}{102.4pt}\LT@entry 
+    {1}{211.56927pt}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Event types, states and enums as Python Enums, Event as a Python class}}{21}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:states}{{12}{21}{Event types, states and enums as Python Enums, Event as a Python class}{figure.caption.22}{}}
+\newlabel{fig:states@cref}{{[figure][12][]12}{[1][20][]21}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Configuration file for the demonstration recorder}}{21}{table.4}\protected@file@percent }
+\newlabel{tab:config_file}{{4}{21}{Configuration File}{table.4}{}}
+\newlabel{tab:config_file@cref}{{[table][4][]4}{[1][20][]21}{}{}{}}
+\gdef \LT@v {\LT@entry 
+    {2}{223.57977pt}\LT@entry 
+    {2}{177.63982pt}\LT@entry 
+    {1}{0.0pt}}
+\gdef \LT@vi {\LT@entry 
+    {2}{97.0399pt}\LT@entry 
+    {2}{91.23991pt}\LT@entry 
+    {1}{0.0pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Topics subscribed by the demonstration\_recorder node.}}{22}{table.5}\protected@file@percent }
+\newlabel{tab:Published_topics}{{5}{22}{Topics Subscribed}{table.5}{}}
+\newlabel{tab:Published_topics@cref}{{[table][5][]5}{[1][22][]22}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Topics subscribed by the demonstration\_recorder node.}}{22}{table.6}\protected@file@percent }
+\newlabel{tab:Published_topics}{{6}{22}{Topics Published}{table.6}{}}
+\newlabel{tab:Published_topics@cref}{{[table][6][]6}{[1][22][]22}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Demonstration GUI Implementation}{22}{subsection.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces UML class diagram for the demonstration gui component. Class visualization contains name, attributes and methods from top to bottom. Class relationships are of composition (filled diamond), as classes where symbol ends instantiate the others as attributes.}}{23}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:guiuml}{{13}{23}{UML class diagram for the demonstration gui component. Class visualization contains name, attributes and methods from top to bottom. Class relationships are of composition (filled diamond), as classes where symbol ends instantiate the others as attributes}{figure.caption.30}{}}
+\newlabel{fig:guiuml@cref}{{[figure][13][]13}{[1][23][]23}{}{}{}}
+\gdef \LT@vii {\LT@entry 
+    {2}{155.6pt}\LT@entry 
+    {1}{59.90959pt}\LT@entry 
+    {1}{211.56927pt}}
+\gdef \LT@viii {\LT@entry 
+    {2}{124.03987pt}\LT@entry 
+    {2}{102.0399pt}\LT@entry 
+    {1}{0.0pt}}
+\gdef \LT@ix {\LT@entry 
+    {2}{82.99991pt}\LT@entry 
+    {2}{91.23991pt}\LT@entry 
+    {1}{0.0pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Configuration file for the demonstration GUI}}{24}{table.7}\protected@file@percent }
+\newlabel{tab:config_file}{{7}{24}{Configuration File}{table.7}{}}
+\newlabel{tab:config_file@cref}{{[table][7][]7}{[1][23][]24}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Topics subscribed by the demonstration\_gui node.}}{24}{table.8}\protected@file@percent }
+\newlabel{tab:Published_topics}{{8}{24}{Topics Subscribed}{table.8}{}}
+\newlabel{tab:Published_topics@cref}{{[table][8][]8}{[1][24][]24}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Topics published by the demonstration\_gui node.}}{24}{table.9}\protected@file@percent }
+\newlabel{tab:Published_topics}{{9}{24}{Topics Published}{table.9}{}}
+\newlabel{tab:Published_topics@cref}{{[table][9][]9}{[1][24][]24}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Running the Programming by Demonstration System}{25}{section.6}\protected@file@percent }
+\newlabel{sec:run}{{6}{25}{Running the Programming by Demonstration System}{section.6}{}}
+\newlabel{sec:run@cref}{{[section][6][]6}{[1][25][]25}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Run as a whole}{25}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Run components one by one}{25}{subsection.6.2}\protected@file@percent }
+\newlabel{sec:run_incremental}{{6.2}{25}{Run components one by one}{subsection.6.2}{}}
+\newlabel{sec:run_incremental@cref}{{[subsection][2][6]6.2}{[1][25][]25}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Unit Tests}{26}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}For Developers}{31}{section.8}\protected@file@percent }
+\newlabel{sec:fordevelopers}{{8}{31}{For Developers}{section.8}{}}
+\newlabel{sec:fordevelopers@cref}{{[section][8][]8}{[1][31][]31}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Use another input device}{31}{subsection.8.1}\protected@file@percent }
+\newlabel{sec:anotherinput}{{8.1}{31}{Use another input device}{subsection.8.1}{}}
+\newlabel{sec:anotherinput@cref}{{[subsection][1][8]8.1}{[1][31][]31}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Demonstrate for another robot}{31}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Record more data}{31}{subsection.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Change filter}{32}{subsection.8.4}\protected@file@percent }
+\newlabel{sec:anotherfilter}{{8.4}{32}{Change filter}{subsection.8.4}{}}
+\newlabel{sec:anotherfilter@cref}{{[subsection][4][8]8.4}{[1][31][]32}{}{}{}}
+\bibstyle{unsrt}
+\bibdata{cognitive_systems.bib}
+\@writefile{toc}{\contentsline {section}{References}{33}{subsection.8.4}\protected@file@percent }
+\newlabel{contributors}{{8.4}{33}{Principal Contributors}{section*.40}{}}
+\newlabel{contributors@cref}{{[subsection][4][8]8.4}{[1][33][]33}{}{}{}}
+\@writefile{toc}{\contentsline {section}{Principal Contributors}{33}{section*.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Appendix I: User Manual --- PepperTrace Programming by Demonstration Tool}{34}{section*.41}\protected@file@percent }
+\newlabel{introduction}{{8.4}{34}{Introduction}{section*.42}{}}
+\newlabel{introduction@cref}{{[subsection][4][8]8.4}{[1][34][]34}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Graphical User Interface for the PepperTrace Programming by Demonstration Tool}}{37}{figure.caption.46}\protected@file@percent }
+\newlabel{fig:gui}{{14}{37}{Graphical User Interface for the PepperTrace Programming by Demonstration Tool}{figure.caption.46}{}}
+\newlabel{fig:gui@cref}{{[figure][14][]14}{[1][36][]37}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Behavioural graph of the PbD module: The user-centered graph shows an example procedure for demonstrating, recording and replaying. Rectangular boxes represent observable processes, diamond-shaped boxes stand for checks, non-rectangular boxes represent user action. ``Gesture Replay" is the termination element. The blue line indicates the available option of recording multiple demonstrations in one session.}}{39}{figure.caption.49}\protected@file@percent }
+\newlabel{fig:behavioural}{{15}{39}{Behavioural graph of the PbD module: The user-centered graph shows an example procedure for demonstrating, recording and replaying. Rectangular boxes represent observable processes, diamond-shaped boxes stand for checks, non-rectangular boxes represent user action. ``Gesture Replay" is the termination element. The blue line indicates the available option of recording multiple demonstrations in one session}{figure.caption.49}{}}
+\newlabel{fig:behavioural@cref}{{[figure][15][]15}{[1][38][]39}{}{}{}}
+\newlabel{sec:report}{{8.4}{40}{Guidelines for Reporting Issues}{section*.50}{}}
+\newlabel{sec:report@cref}{{[subsection][4][8]8.4}{[1][40][]40}{}{}{}}
+\@writefile{toc}{\contentsline {section}{Document History}{41}{section*.51}\protected@file@percent }
+\newlabel{document_history}{{8.4}{41}{Document History}{section*.51}{}}
+\newlabel{document_history@cref}{{[subsection][4][8]8.4}{[1][41][]41}{}{}{}}
+\gdef\svg@ink@ver@settings{{\m@ne }{inkscape}{\m@ne }}
+\gdef \@abspage@last{41}
