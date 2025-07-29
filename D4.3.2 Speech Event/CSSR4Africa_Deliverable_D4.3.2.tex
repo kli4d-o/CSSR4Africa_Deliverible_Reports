@@ -33,10 +33,10 @@
 \leadpartner{Carnegie Mellon University Africa}                        % INSERT partner name: Carnegie Mellon University Africa or The University of the Witwatersrand
 \partner{The University of the Witwatersrand}                                % INSERT partner name: Carnegie Mellon University Africa or The University of the Witwatersrand
 
-\revision{1.2}                          % REPLACE with correct version number
+\revision{1.3}                          % REPLACE with correct version number
 \deliverabledate{31/03/2024}   % REPLACE with correct date
 \submissiondate{20/02/2025}  % REPLACE with correct date
-\revisiondate{11/06/2025}                   % REPLACE with date
+\revisiondate{28/07/2025}                   % REPLACE with date
 \disseminationlevel{PU}
 \responsible{Clifford Onyonka}           % REPLACE with correct  name
 
@@ -93,7 +93,7 @@ Conversational systems are developed using the following main components: automa
 \label{fig:conversational-system}
 \end{figure}
  
-The Speech Event module only handles one component of the conversational system described in the previous paragraph, that is, speech-to-text (which is referred to as automatic speech recognition in Fig \ref{fig:conversational-system}). It acquires audio signals published on the \texttt{/soundDetection/signal} ROS topic, and then passes these audio signals through a deep neural network that transcribes speech utterances contained within the audio to generate text strings representations, which are then published on the \texttt{/speechEvent/text} ROS topic. Kinyarwanda and English are the two languages that are transcribed by Speech Event, with the choice of language being set by the Behaviour Controller which reads it from the Culture Knowledge Base and then passes it to Speech Event via the \texttt{/speechEvent/set\_language} ROS service that is advertised by Speech Event.
+The Speech Event module only handles one component of the conversational system described in the previous paragraph, that is, speech-to-text (which is referred to as automatic speech recognition in Fig \ref{fig:conversational-system}). It acquires audio signals published on the \texttt{/soundDetection/signal} ROS topic, and then passes these audio signals through a deep neural network that transcribes speech utterances contained within the audio to generate text string representations, which are then published on the \texttt{/speechEvent/text} ROS topic. Kinyarwanda and English are the two languages that are transcribed by Speech Event, with the choice of language being set by the Behaviour Controller which reads it from the Culture Knowledge Base and then passes it to Speech Event via the \texttt{/speechEvent/set\_language} ROS service that is advertised by Speech Event.
 
 
 \newpage
@@ -109,7 +109,7 @@ In order to successfully perform this function, the following functional require
     \item Publish the transcribed text to the \texttt{/speechEvent/text} ROS topic
 \end{enumerate}
 
-The exact language between Kinyarwanda and English which a running Speech Event ROS node transcribes is decided based on a configuration option that is set during the initialisation stage when the ROS node is started. The language that is set during the initialisation of the Speech Event ROS node can be overridden by invoking the \texttt{/speechEvent/set\_language} ROS service and passing a different language to it.
+The exact language between Kinyarwanda and English, which a running Speech Event ROS node transcribes, is decided based on a configuration option that is set during the initialisation stage when the ROS node is started. The language that is set during the initialisation of the Speech Event ROS node can be overridden by invoking the \texttt{/speechEvent/set\_language} ROS service and passing a different language to it.
 
 To supplement the core functionality that Speech Event performs (Kinyarwanda and English speech recognition), the text transcriptions that Speech Event transcribes are displayed on a graphical interface. The graphical interface is used as a replacement for the terminal interface, especially in presentation settings where displaying text transcriptions on the terminal is impractical due to the small font size used by the terminal and the extra verbosity of the results displayed on the terminal. This graphical interface is enabled when the ROS node is configured to run in verbose mode.
 
@@ -188,7 +188,7 @@ The \texttt{data/} directory contains data that is required by Speech Event when
 
 \begin{enumerate}
     \item \texttt{pepper\_topics.dat}: list of ROS topics that Speech Event listens to when it is running
-    \item \texttt{audio\_storage}: stores temporary audio files generated when Speech Event is transcibing speech utterances
+    \item \texttt{audio\_storage}: stores temporary audio files generated when Speech Event is transcribing speech utterances
 \end{enumerate}
 
 The \texttt{models/} directory holds the two deep learning models used to transcribe speech utterances:
@@ -198,15 +198,15 @@ The \texttt{models/} directory holds the two deep learning models used to transc
     \item \texttt{stt\_en\_conformer\_transducer\_large.nemo} for transcribing English utterances
 \end{enumerate}
 
-The \texttt{src/} directory holds all the python source code files that implement the Speech Event system.
+The \texttt{src/} directory holds all the Python source code files that implement the Speech Event system.
 
 The \texttt{srv/} directory contains the \texttt{set\_language.srv} service file specification for the ROS service \texttt{/speechEvent/set\_language} and the \texttt{set\_enabled.srv} service file specification for the ROS service \texttt{/speechEvent/set\_enabled} .
 
-The file \texttt{README.md} contains documentation of how to use Speech Event,  and the python requirements file \texttt{speech\_event\_requirements.txt} contains a list of versioned Python packages that Speech Event depends on.
+The file \texttt{README.md} contains documentation of how to use Speech Event,  and the Python requirements file \texttt{speech\_event\_requirements.txt} contains a list of versioned Python packages that Speech Event depends on.
 
 \subsection{Configuration Files}
 
-A Speech Event ROS node neesd to be configured prior to starting it, a task that is accomplished via a configuration file. The configuration parameters are displayed in Table \ref{table:speechEvent-config-file}.
+A Speech Event ROS node needs to be configured prior to starting it, a task that is accomplished via a configuration file. The configuration parameters are displayed in Table \ref{table:speechEvent-config-file}.
 
 \begin{center}
 \begin{table}[thb]
@@ -298,7 +298,7 @@ Both the Kinyarwanda and English speech recognition processes performed by Speec
 The conformer transducer architecture is made up of a conformer encoder and a transducer decoder. The conformer encoder combines transformers and Convolution Neural Networks (CNNs) in an attempt to utilise the strengths of both, with transformers excelling at capturing global dependencies of an audio signal and CNNs excelling at capturing local dependencies of an audio signal \cite{gulati_conformer_2020}. The transducer decoder, on the other hand, makes use of Recurrent Neural Networks (RNNs) to form an autoregressive model whose next token prediction is conditioned on the previously predicted tokens.
 
 \subsubsection{Preprocessor}
-When an audio signal is received, it is first passed through a preprocessor block that extracts filterbank features from the audio signal. For this process, an audio signal is first converted to a spectrogram by a Short Time Fourier Transform (STFT), and then a series of filters are applied to the resultant spectrogram to obtain the filterbank features that each represent the magnitude of the energy within a distinct frequency band. This preprocessor block is visualised in Fig \ref{fig:preprocessor}.
+When an audio signal is received, it is first passed through a preprocessor block that extracts filterbank features from the audio signal. For this process, an audio signal is first converted to a spectrogram by a Short Time Fourier Transform (STFT), and then a series of filters is applied to the resultant spectrogram to obtain the filterbank features that each represent the magnitude of the energy within a distinct frequency band. This preprocessor block is visualised in Fig \ref{fig:preprocessor}.
 
 \begin{figure}[thb]
 \begin{center}
@@ -371,11 +371,11 @@ A conformer encoder is shown in Fig \ref{fig:conformer-encoder}. The encoder use
 \label{fig:conformer-encoder}
 \end{figure}
 
-The filterbank features are first passed through a SpecAugment block. SpecAugment is a data augmentation method that is suitable for end-to-end speech recognition models such as the Conformer Tranducer model used by Speech Event. ``The augmentation policy consists of warping the features, masking blocks of frequency channels, and masking blocks of time steps'' \cite{park_specaugment_2019}.
+The filterbank features are first passed through a SpecAugment block. SpecAugment is a data augmentation method that is suitable for end-to-end speech recognition models such as the Conformer Transducer model used by Speech Event. ``The augmentation policy consists of warping the features, masking blocks of frequency channels, and masking blocks of time steps'' \cite{park_specaugment_2019}.
 
-The features are then processed by a convolution subsampling block, dropout applied, and then passed through the series of 17 conformer blocks in the encoder.
+The features are then processed by a convolution subsampling block, dropout applied, and then passed through a series of 17 conformer blocks in the encoder.
 
-Each confomer block consists of a multi-head self-attention module and a convolution module collectively sandwiched between two feedforward modules \cite{gulati_conformer_2020}. The self-attention module is more adept at capturing global feature dependencies while the convolution module is more adept at capturing local feature dependencies, thereby capturing the semantics of speech utterances much better than models that only specialise in capturing only either of the global or local feature dependencies.
+Each confomer block consists of a multi-head self-attention module and a convolution module collectively sandwiched between two feedforward modules \cite{gulati_conformer_2020}. The self-attention module is more adept at capturing global feature dependencies, while the convolution module is more adept at capturing local feature dependencies, thereby capturing the semantics of speech utterances much better than models that only specialise in capturing only one of either the global or local feature dependencies.
 
 \subsubsection{Decoder/Predictor Architecture}
 Keeping in line with Gulati et al., a single LSTM layer is used in the decoder \cite{gulati_conformer_2020}. An embedding layer converts input tokens into vectorised representations that are then passed to the LSTM layer. Additionally, drop out is applied both in the LSTM layer and on the output of the LSTM layer.
@@ -400,7 +400,7 @@ The decoder architecture used in Speech Event is shown in Fig \ref{fig:transduce
 \end{figure}
 
 \subsubsection{Joint Network Architecture}
-The joint network combines the output of the encoder and the output of the decoder in order to predict the text in the speech utterances contained in the original sound signal passed to the encoder. The combined outputs are then passed through a ReLU activation, dropout applied, and lastly passed through a linear layer.
+The joint network combines the output of the encoder and the output of the decoder in order to predict the text in the speech utterances contained in the original sound signal passed to the encoder. The combined outputs are then passed through a ReLU activation, dropout is applied, and lastly passed through a linear layer.
 
 The joint network architecture used in Speech Event is shown in Fig \ref{fig:joint}.
 
@@ -455,7 +455,7 @@ The four different sections of the full conformer transducer architecture discus
 \newpage
 \section{Testing}
 %===============================================================
-The \texttt{unit\_tests} package contains unit tests for all CSSR4Africa ROS nodes, including Speech Event. The unittest python testing framework is used for testing. The unittest package is part of the standard python library, and therefore no extra packages need to be installed when running tests.
+The \texttt{unit\_tests} package contains unit tests for all CSSR4Africa ROS nodes, including Speech Event. Python's unittest testing framework is used for testing. The unittest package is part of the standard Python library, and therefore no extra packages need to be installed when running tests.
 
 These tests check to ensure that Speech Event works as expected end-to-end, from when it receives a signal on the \texttt{/soundDetection/signal} ROS topic to when it publishes transcribed text on the \texttt{/speechEvent/text} ROS topic. They also check that the \texttt{/speechEvent/set\_language} and \texttt{/speechEvent/set\_enabled} ROS services work as expected.
 
@@ -675,6 +675,11 @@ Updated the testing section to use use a test ROS node to run tests \\
 Updated the user manual section to detail usage of Speech Event using a Python virtual environment and steps for downloading ASR models from Hugging Face \\
 Clifford Onyonka. \\
 11 June 2025.
+
+\item [Version 1.3]~\\
+Fixed typing errors.\\
+Clifford Onyonka. \\
+28 July 2025.
 
 
 
