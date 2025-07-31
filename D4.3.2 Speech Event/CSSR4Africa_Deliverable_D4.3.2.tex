@@ -6,18 +6,40 @@
 
 \documentclass{CSSRforAfrica}
 
-\usepackage[hidelinks,colorlinks=false]{hyperref}
 \usepackage[titletoc,title]{appendix}
 \usepackage{dirtree}
 \usepackage{graphicx}
+\usepackage[hidelinks,colorlinks=false]{hyperref}
 \usepackage{latexsym}
-\usepackage[table]{xcolor}
+\usepackage{listings}
 \usepackage{tikz}
+\usepackage[table]{xcolor}
+
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
 
 \newcommand{\blank}{~\\}
 \newcommand{\checkbox}{{~~~~~~~\leavevmode \put(-7,-1.5){  \huge $\Box$  }}}
+
+\lstset{
+    language=bash,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color[rgb]{0.95, 0.95, 0.95},
+    keywordstyle=\color[rgb]{0.1, 0.1, 0.8}\bfseries,
+    commentstyle=\color[rgb]{0, 0.6, 0}\itshape,
+    stringstyle=\color[rgb]{0.7, 0.1, 0.1},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    keepspaces=false,
+    breakatwhitespace=false,
+    breaklines=true,
+    postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},
+    columns=fullflexible,
+}
+
+
 
 \begin{document}
 \input{epsf}
@@ -36,7 +58,7 @@
 \revision{1.3}                          % REPLACE with correct version number
 \deliverabledate{31/03/2024}   % REPLACE with correct date
 \submissiondate{20/02/2025}  % REPLACE with correct date
-\revisiondate{28/07/2025}                   % REPLACE with date
+\revisiondate{30/07/2025}                   % REPLACE with date
 \disseminationlevel{PU}
 \responsible{Clifford Onyonka}           % REPLACE with correct  name
 
@@ -580,44 +602,71 @@ The Speech Event ROS node needs to be installed before it can be used. To instal
 
 \begin{enumerate}
     \item Download ASR model files and move them to the correct directory (skip if you already have the ASR models in the correct directory):
-    \begin{enumerate}
-        \item git lfs install
-        \item git clone https://huggingface.co/cssr4africa/cssr4africa\_models
-        \item mv cssr4africa\_models/speech\_event/models/* \$HOME/workspace/pepper\_rob\_ws/src/\\cssr4africa/cssr\_system/speech\_event/models
-    \end{enumerate}
+    \begin{lstlisting}[language=bash]
+ # Install git-lfs
+ sudo apt-get update
+ sudo apt-get install git-lfs
+ git lfs install
+
+ # Clone CSSR4Africa models repository from Hugging Face
+ git clone https://huggingface.co/cssr4africa/cssr4africa_models
+
+ # Move speech event models to the models/ directory
+ mv cssr4africa_models/speech_event/models/* $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/speech_event/models
+    \end{lstlisting}
     \item Install required Linux tools:
-    \begin{enumerate}
-        \item sudo apt-get update
-        \item sudo apt-get install cython3 ffmpeg gfortran libopenblas-dev libopenblas64-dev patchelf pkg-config portaudio19-dev python3-testresources python3-tk python3-typing-extensions sox
-    \end{enumerate}
+    \begin{lstlisting}[language=bash]
+ # Install required Linux packages
+ sudo apt-get update
+ sudo apt-get install cython3 ffmpeg gfortran libopenblas-dev libopenblas64-dev patchelf pkg-config portaudio19-dev python3-testresources python3-tk python3-typing-extensions sox
+    \end{lstlisting}
     \item Create a Python virtual environment and install required Python packages (Speech Event has been tested and proven to work using Python3.8): 
-    \begin{enumerate}
-        \item mkdir -p \$HOME/workspace/pepper\_rob\_ws/src/cssr4africa\_virtual\_envs
-        \item cd \$HOME/workspace/pepper\_rob\_ws/src/cssr4africa\_virtual\_envs
-        \item python3 -m venv cssr4africa\_speech\_event\_env
-        \item source cssr4africa\_speech\_event\_env/bin/activate
-        \item pip install -r \$HOME/workspace/pepper\_rob\_ws/src/cssr4africa/cssr\_system/speech\_event/ speech\_event\_requirements.txt
-    \end{enumerate}
+    \begin{lstlisting}[language=bash]
+ # Create CSSR4Africa's virtual environments' parent directory if it doesn't exist
+ mkdir -p $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
+
+ # Change the current working directory to CSSR4Africa's virtual environments' parent directory 
+ cd $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
+
+ # Create speech event's Python virtual environment
+ python3 -m venv cssr4africa_speech_event_env
+
+ # Source the created virtual environment
+ source cssr4africa_speech_event_env/bin/activate
+
+ # Install required Python dependencies
+ pip install -r $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/speech_event/speech_event_requirements.txt
+    \end{lstlisting}
     \item Build the ROS workspace (it's best to proceed with the next steps on a separate terminal, otherwise an error may arise when running `catkin\_make'):
-    \begin{enumerate}
-        \item cd \$HOME/workspace/pepper\_rob\_ws
-        \item catkin\_make
-        \item source devel/setup.bash
-    \end{enumerate}
+    \begin{lstlisting}[language=bash]
+ # Change the current working directory to CSSR4Africa's ROS workspace
+ cd $HOME/workspace/pepper_rob_ws
+
+ # Build the CSSR4Africa project
+ catkin_make
+
+ # Source the CSSR4Africa ROS workspace
+ source devel/setup.bash
+    \end{lstlisting}
     \item Make application files executable:
-    \begin{enumerate}
-        \item chmod +x \$HOME/workspace/pepper\_rob\_ws/src/cssr4africa/cssr\_system/speech\_event/src/ speech\_event\_application.py
-        \item chmod +x \$HOME/workspace/pepper\_rob\_ws/src/cssr4africa/unit\_tests/speech\_event\_test/ src/speech\_event\_test\_application.py
-        \item chmod +x \$HOME/workspace/pepper\_rob\_ws/src/cssr4africa/unit\_tests/speech\_event\_test/ src/speech\_event\_driver.py
-    \end{enumerate}
+    \begin{lstlisting}[language=bash]
+ # Add executable permission flag to speech event's application file
+ chmod +x $HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/speech_event/src/speech_event_application.py
+
+ # Add executable permission flag to speech event's test application file
+ chmod +x $HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/speech_event_test/src/speech_event_test_application.py
+
+ # Add executable permission flag to speech event's driver file
+ chmod +x $HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/speech_event_test/src/speech_event_driver.py
+    \end{lstlisting}
 \end{enumerate}
 
 \subsection{Usage}
 To run a Speech Event ROS node, a Sound Detection ROS node needs to also be running (or a Speech Event driver node, which is described in a subsequent subsection).
 
 \begin{enumerate}
-    \item Run a Speech Event ROS node: rosrun speech\_event speech\_event\_application.py
-    \item View text transcriptions on the terminal (optional): rostopic echo /speechEvent/text
+    \item Run a Speech Event ROS node: \lstinline|rosrun speech_event speech_event_application.py|
+    \item View text transcriptions on the terminal (optional): \lstinline|rostopic echo /speechEvent/text|
 \end{enumerate}
 
 If running the Speech Event ROS node in verbose mode (by setting the configuration option \texttt{verboseMode} to \texttt{true}), a graphical application that displays the text transcriptions will open on the screen.
@@ -678,8 +727,9 @@ Clifford Onyonka. \\
 
 \item [Version 1.3]~\\
 Fixed typing errors.\\
+Use listings for code blocks.\\
 Clifford Onyonka. \\
-28 July 2025.
+30 July 2025.
 
 
 
