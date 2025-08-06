@@ -10,3 +10,6 @@
 # Bibliography intermediates
 *.bbl
 *.blg
+
+# Other files
+*.docx
