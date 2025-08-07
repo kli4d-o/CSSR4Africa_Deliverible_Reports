@@ -87,10 +87,10 @@
 \leadpartner{Carnegie Mellon University Africa}  
 \partner{Carnegie Mellon University Africa}  
 
-\revision{1.1}                         
+\revision{1.2}                         
 \deliverabledate{26/02/2025}  
 \submissiondate{26/02/2025} 
-\revisiondate{18/04/2025}  
+\revisiondate{07/08/2025}  
 \disseminationlevel{PU}
 \responsible{Birhanu Shimelis Girma} 
 
@@ -427,22 +427,21 @@ The source code for executing the robot navigation functionality is structured i
 		.4 robotNavigationConfiguration.ini.
 		.3 data.
 		.4 robotTopics.dat.
-		.4 simulatorTopics.dat.
-		.4 navigationOutput.dat.
+		.4 environmentMap.png.
+		.4 configurationSpaceMap.png.
+		.4 prameters230.dat.
+		.4 parameters240.dat.
+		.4 robotPose.dat.
 		.3 include.
-		.4 robot\_navigation.
+		.4 robotNavigation.
 		.5 robotNavigationInterface.h.
-		.5 moveTo.h.
-		.3 launch.
-		.4 robotNavigationLaunchRobot.launch.
-		.4 robotNavigationLaunchSimulator.launch.
 		.3 msg.
 		.4 Goal.msg.
 		.3 src.
 		.4 robotNavigationApplication.cpp.
 		.4 robotNavigationImplementation.cpp.
 		.3 srv.
-		.4 set\_goal.srv.
+		.4 setGoal.srv.
 		.3 README.md.
 		.3 CMakeLists.txt.
 		.3 package.xml.
@@ -461,12 +460,13 @@ The operation of the \verb|robotNavigation| node is determined by the contents o
 \begin{tabularx}{\textwidth}{|l|l|X|}
 \hline
 \textbf{Key} & \textbf{Values} & \textbf{Effect} \\ \hline
-\verb|map| & \verb|scenarioOneMap.dat| & Specifies the workspace map file. \\ \hline
+\verb|environmentMap| & \verb|environmentMap.png| & Specifies the workspace map file. \\ \hline
+\verb|configurationMap| & \verb|configuratuinSpaceMap.png| & Specifies the configuration space map file. \\ \hline
 \verb|pathPlanning| & \verb|BFS, Dijkstra, A*| & Specifies the algorithm for path planning. \\ \hline
 \verb|socialDistance| & \verb|true, false| & Enables/disables cultural proxemics constraints. \\ \hline
 \verb|robotTopics| & \verb|pepperTopics.dat| & Sensor/actuator topics for the physical robot. \\ \hline
-\verb|simulatorTopics| & \verb|simulatorTopics.dat| & Sensor/actuator topics for the simulator. \\ \hline
 \verb|verboseMode| & \verb|true, false| & Enables verbose output with terminal logs and OpenCV displays. \\ \hline
+\verb|robotType| & \verb|new, old| & Enables choosing between the old and new robot in the lab, can be differentiated by IP address. \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -535,7 +535,7 @@ This node calls the following two services, as summarized in Table~\ref{tab:serv
 \textbf{Service} & \textbf{Message Value} & \textbf{Effect} \\ \hline
 \verb|/knowledgeBase/query | & To be defined & Extract required knowledge from the cultural
 knowledge base \\ \hline
-\verb|/robotLocalization/reset_pose  | & \verb|reset| & Reset the pose of the robot using absolute localization \\ \hline
+\verb|/robotLocalization/set_pose  | & \verb|Set| & Set the pose of the robot using absolute localization \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -622,14 +622,14 @@ rostopic echo /robotNavigation/pose
 \noindent This will output the robot’s current position and orientation.
 
 \subsubsection*{Resetting the Pose}
-To manually reset the robot’s pose, use the following service call:
+To manually set the robot’s pose, use the following service call:
 \begin{lstlisting}[style=withoutNumbering, language=bash]
-rosservice call /robotLocalization/reset_pose <x_position> <y_position> <theta>
+rosservice call /robotLocalization/set_pose <x_position> <y_position> <theta>
 \end{lstlisting}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{Images/reset_pose.png}
-    \caption{Screenshot of the rosservice call to reset the position responds a success message of true.}
+    \caption{Screenshot of the rosservice call to set the position responds a success message of true.}
     \label{fig:reset_pose}
 \end{figure}
 \subsubsection*{Sending a Goal}
@@ -665,13 +665,19 @@ The \verb|robotNavigation| node comprises several key operations, including path
 		.3 config.
 		.4 robotNavigationTestConfiguration.ini.
 		.3 data.
-		.4 navigationUnitTestLogs.log.
-		.4 test\_goals.dat.
+		.4 astarAlgorithmInput.dat.
+		.4 bfsAlgorithmInput.dat.
+		.4 boundaryTestInput.dat.
+		.4 dijkstraAlgorithmInput.dat.
+		.4 navigationServiceInput.dat.
+		.4 pepperTopics.dat.
+		.4 robotNavigationTestOutput.dat.
 		.3 include.
 		.4 robotNavigationTest.
 		.5 robotNavigationTestInterface.h.
 		.3 launch.
-		.4 robotNavigationTestLaunch.launch.
+		.4 robotNavigationLaunchTestHarness.launch.
+		.4 robotNavigationLaunchTestRobot.launch.
 		.3 msg.
 		.4 Goal.msg.
 		.3 src.
@@ -679,8 +685,8 @@ The \verb|robotNavigation| node comprises several key operations, including path
 		.4 robotNavigationTestApplication.cpp.
 		.4 robotNavigationTestImplementation.cpp.
 		.3 srv.
-		.4 NavigationTest.srv.
-		.4 set\_goal.srv.
+		.4 setGoal.srv.
+		.4 setPose.srv.
 		.3 CSSR4AfricaLogo.svg.
 		.3 CMakeLists.txt.
 		.3 README.md.
@@ -694,7 +700,7 @@ The \verb|robotNavigation| node comprises several key operations, including path
 \noindent The \texttt{robotNavigationTest} folder is structured to support unit testing of the Robot Navigation unit test Node. The \texttt{src} directory contains \texttt{robotNavigationDriver.cpp}, which serves as the driver for test execution, \texttt{robotNavigationTestApplication.cpp}, which manages the test flow, and \texttt{robotNavigationTestImplementation.cpp}, which provides the core test logic.\\
 
 
-\noindent The \texttt{config} directory houses the \texttt{robotNavigationTestConfiguration.ini} file, which defines test parameters such as goal positions and navigation constraints, allowing customization of test cases. The \texttt{data} folder contains \texttt{test\_goals.dat}, which stores predefined navigation goals for the tests, and \texttt{navigationUnitTestLogs.log}, which captures the test execution logs, recording timestamps and goal completion statuses for debugging and validation.
+\noindent The \texttt{config} directory houses the \texttt{robotNavigationTestConfiguration.ini} file, which defines test parameters such as goal positions and navigation constraints, allowing customization of test cases. The \texttt{data} folder contains \texttt{navigationServiceInput.dat}, \texttt{astarAlgorithmInput.dat}, \texttt{bfsAlgorithmInput.dat}, \texttt{boundaryTestInput.dat}, \texttt{dijkstraAlgorithmInput.dat} which stores predefined navigation goals for the tests, and \texttt{navigationUnitTestLogs.log}, which captures the test execution logs, recording timestamps and goal completion statuses for debugging and validation.
 
 
 
@@ -869,7 +875,15 @@ Birhanu Shimelis Girma, Carnegie Mellon University Africa.
 	Added proper captions and labels to file structure diagrams. \\
 	Birhanu Shimelis Girma. \\
 	18 April 2025.
-	
+		
+	\item [Version 1.2]~\\
+	Updated the file organization diagram. \\
+	Updated Table \ref{tab:robotNavigationConfiguration.ini} to include robotType, environmentMap, and configurationSpaceMap parameters.\\
+	Changed service name from reset\_pose to set\_pose in the body of document. \\
+	Updated the commands as well following the change in service name and updated it in the body. \\
+	Birhanu Shimelis Girma. \\
+	18 April 2025.
+
 \end{description}
 
 \end{document}
