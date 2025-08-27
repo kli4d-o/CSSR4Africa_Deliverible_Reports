@@ -10,7 +10,7 @@
 # Bibliography intermediates
 *.bbl
 *.blg
-*.pdf
+**/CSSR4Africa_Deliverable_*.pdf
 
 # Other files
 *.docx
