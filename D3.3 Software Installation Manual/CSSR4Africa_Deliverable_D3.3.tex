@@ -22,6 +22,7 @@
 \usepackage{blindtext}
 \usepackage[T1]{fontenc}
 \usepackage{enumitem}
+\usepackage{float}
 
 
 \lstset{upquote=true}
@@ -75,10 +76,10 @@
 \leadpartner{Carnegie Mellon University Africa}    
 \partner{}                                      
 
-\revision{1.16}                          
+\revision{1.17}                          
 \deliverabledate{1/10/2023}     
 \submissiondate{26/07/2023}   
-\revisiondate{26/08/2025}      
+\revisiondate{27/08/2025}      
 \disseminationlevel{PU}
 \responsible{ CSSR4Africa Team }   
 
@@ -827,16 +828,17 @@ cd $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
 
 # Activate the sound detection environment
 source cssr4africa_speech_event_env/bin/activate
-\end{lstlisting}
+\end{lstlisting} 
 
-The speech event virtual environment setup is now complete.
+\noindent The speech event virtual environment setup is now complete. \\
+
+
+
+\noindent As of now, only eleven software have been uploaded in the \texttt{cssr\_system} and \texttt{unit\_tests} directory: \texttt{animateBehaviour}, \texttt{faceDetection}, \texttt{soundDetection}, \texttt{gestureExecution}, \texttt{mapGeneration}, \texttt{robotNavigation}, \texttt{text\_to\_speech}, \texttt{speech\_event}, \texttt{behaviorController}, \texttt{overtAttention}, and \texttt{personDetection}. \\
 
 \newpage
-
-As of now, only eleven software have been uploaded in the \texttt{cssr\_system} and \texttt{unit\_tests} directory: \texttt{animateBehaviour}, \texttt{faceDetection}, \texttt{soundDetection}, \texttt{gestureExecution}, \texttt{mapGeneration}, \texttt{robotNavigation}, \texttt{text\_to\_speech}, \texttt{speech\_event}, \texttt{behaviorController}, \texttt{overtAttention}, $ $and \texttt{personDetection}.
-
-Figure \ref{fig:pepper-robot-workspace-directory} shows the directory structure of the workspace for reference.
-\begin{figure}[ht]
+\noindent Figure \ref{fig:pepper-robot-workspace-directory} shows the directory structure of the workspace for reference.
+\begin{figure}[H]
 
 {\small 
 \dirtree{%
@@ -939,6 +941,8 @@ overlay={\node[left] (mynotenode) at ([xshift=-\mynote@shift]frame.west) {\textb
 If you are switching to a new ROS workspace. Activate the workspace environment by sourcing the \texttt{devel/setup.bash}. This process ensures that your terminal session is configured to use the current workspace's ROS packages and environment settings.
 \end{tcolorbox}
 \endgroup
+
+\newpage 
 
 \begin{lstlisting}[style=withoutNumbering, language=bash]
 roslaunch pepper_interface_tests actuatorTestLaunchRobot.launch \
@@ -1204,6 +1208,14 @@ Clifford Onyonka.\\
 Added commands for the installation of the dependecies for the ``Robot Mission Interpreter''.\\
 Tsegazeab Tefferi.\\
 26 August 2025.
+
+\newpage
+
+\item [Version 1.17]~\\
+Rearranged the floating format of Figure 5 and Figure 6 in the text body. \\
+Added a usepackage\{float\} at the top to resolve the figure formating issue.
+Birhanu Shimelis Girma.\\
+27 August 2025.
 
 \end{description}
 \end{document}
