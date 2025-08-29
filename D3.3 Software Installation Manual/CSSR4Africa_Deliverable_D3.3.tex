@@ -76,10 +76,10 @@
 \leadpartner{Carnegie Mellon University Africa}    
 \partner{}                                      
 
-\revision{1.17}                          
+\revision{1.18}                          
 \deliverabledate{1/10/2023}     
 \submissiondate{26/07/2023}   
-\revisiondate{27/08/2025}      
+\revisiondate{29/08/2025}      
 \disseminationlevel{PU}
 \responsible{ CSSR4Africa Team }   
 
@@ -671,6 +671,48 @@ sudo make install
 
 \noindent Upon completing the installation above, the \textbf{src} folder within the development environment's workspace will contain the CSS4Africa software meta-package and all the necessary packages for the project. 
 
+\subsubsection{[Optional] Installing Intel RealSense SDK 2.0}
+This section provides instructions for installing the necessary packages and tools for the Intel® RealSense™ SDK 2.0 on Debian-based Linux distributions (e.g., Ubuntu 18.04, 20.04, 22.04).
+
+Follow these steps to add the official Intel repository and install the packages.
+
+\begin{lstlisting}[style=withoutNumbering, language=bash]
+	# Register the Server's Public Key
+	# This step ensures your system trusts the packages from the Intel repository.
+	sudo mkdir -p /etc/apt/keyrings
+	curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
+	
+	# The repository uses HTTPS. Confirm the required transport package is installed.
+	sudo apt-get install apt-transport-https
+	
+	# Add the Intel Repository to your Sources List
+	# This command adds the Librealsense repository to your system's list of software sources.
+	echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo `lsb_release -cs` main" | sudo tee /etc/apt/sources.list.d/librealsense.list
+	
+	# Update the Package List
+	sudo apt-get update
+\end{lstlisting}
+
+Now install the DKMS kernel drivers and the utilities package which includes tools and examples.
+
+\begin{lstlisting}[style=withoutNumbering, language=bash]
+	# Install the DKMS Kernel Modules:
+	# This package will build and install the necessary kernel modules for your system and deploy udev rules for device permissions.
+	sudo apt-get install librealsense2-dkms
+	
+	#Install the Utilities and Libraries:
+	#This package provides the runtime libraries, executable tools (e.g., realsense-viewer), and examples.
+	sudo apt-get install librealsense2-utils
+\end{lstlisting}
+
+To verify the installation was successful, connect a Intel RealSense depth camera and run the following command to launch the viewer:
+
+\begin{lstlisting}[style=withoutNumbering, language=bash]
+	realsense-viewer
+\end{lstlisting}
+
+For Jetson users see \href{https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md}{this}. 
+
 \subsubsection{Installing the CSSR4Africa Python Virtual Environment}
 The CSSR4Africa system requires dedicated Python virtual environments for different components. This section provides step-by-step instructions for setting up these environments.
 
@@ -1213,9 +1255,14 @@ Tsegazeab Tefferi.\\
 
 \item [Version 1.17]~\\
 Rearranged the floating format of Figure 5 and Figure 6 in the text body. \\
-Added a usepackage\{float\} at the top to resolve the figure formating issue.
+Added a usepackage\{float\} at the top to resolve the figure formating issue.\\
 Birhanu Shimelis Girma.\\
 27 August 2025.
+
+\item [Version 1.18]~\\
+Added installation guide for Intel RealSense SDK 2.0. \\
+Muhammed Danso.\\
+29 August 2025.
 
 \end{description}
 \end{document}
