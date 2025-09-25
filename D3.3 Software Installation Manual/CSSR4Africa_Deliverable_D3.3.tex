@@ -76,10 +76,10 @@
 	\leadpartner{Carnegie Mellon University Africa}    
 	\partner{}                                      
 	
-	\revision{1.18}                          
+	\revision{1.19}                          
 	\deliverabledate{1/10/2023}     
 	\submissiondate{26/07/2023}   
-	\revisiondate{29/08/2025}      
+	\revisiondate{22/09/2025}      
 	\disseminationlevel{PU}
 	\responsible{ CSSR4Africa Team }   
 	
@@ -667,6 +667,22 @@
 		make
 		sudo make install
 		
+		# Move text to speech models to the correct directory
+		mkdir -p "$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/text_to_speech/model"
+		mv ~/cssr4africa_models/speech_event/models/* \
+		"$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/text_to_speech/model"
+		
+		# Remove the cloned model and directory to clean up
+		rm -rf ~/cssr4africa_models
+		
+		# Install sshpass for robot communication
+		sudo apt-get install sshpass
+		
+		# Make text to speech application files executable
+		chmod +x "$HOME/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/text_to_speech/src/text_to_speech_application.py"
+		chmod +x "$HOME/workspace/pepper_rob_ws/src/cssr4africa/unit_tests/text_to_speech_test/src/text_to_speech_test_application.py"
+		
+		
 		\end{lstlisting}
 		
 		\noindent Upon completing the installation above, the \textbf{src} folder within the development environment's workspace will contain the CSS4Africa software meta-package and all the necessary packages for the project. 
@@ -868,11 +884,62 @@
 		# Navigate to the virtual environment directory
 		cd $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
 		
-		# Activate the sound detection environment
+		# Activate the speech event environment
 		source cssr4africa_speech_event_env/bin/activate
 		\end{lstlisting} 
 		
 		\noindent The speech event virtual environment setup is now complete. \\
+		
+		\subsubsection*{Text to Speech Environment}
+		The text to speech module requires Python 3.10
+		
+		\subsubsection*{System Package Installation for Text to Speech}
+		Ensure Python 3.10 virtual environment tools are installed:
+		\begin{lstlisting}[style=withoutNumbering, language=bash]
+		# Update system packages (if not already done)
+		sudo apt update && sudo apt upgrade -y
+		
+		# Install Python virtual environment tools
+		sudo apt install python3.10 python3.10-venv python3.10-dev
+		\end{lstlisting}
+		
+		\subsubsection*{Text to Speech Virtual Environment Setup}
+		Create and configure the Python virtual environment for text to speech:
+		\begin{lstlisting}[style=withoutNumbering, language=bash]
+		# Navigate to the virtual environments directory
+		cd $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs/
+		
+		# Create a virtual environment for text to speech
+		python3.10 -m venv cssr4africa_text_to_speech_env
+		
+		# Activate the virtual environment
+		source cssr4africa_text_to_speech_env/bin/activate
+		
+		# Upgrade pip in the virtual environment
+		python -m pip install --upgrade pip
+		\end{lstlisting}
+		
+		\subsubsection*{Text to Speech Dependencies Installation}
+		Install the required packages for text to speech:
+		\begin{lstlisting}[style=withoutNumbering, language=bash]
+		# Install required packages from the requirement file.
+		pip install -r ~/workspace/pepper_rob_ws/src/cssr4africa/cssr_system/text_to_speech/text_to_speech_requirements.txt
+		
+		# Configure ROS path in virtual environment
+		echo "import sys; sys.path.append('/opt/ros/noetic/lib/python3/dist-packages')" > $(python -c "import site; print(site.getsitepackages()[0])")/sitecustomize.py
+		\end{lstlisting}
+		
+		\subsubsection*{Activating the Text to Speech Environment}
+		To use the text to speech module, activate the dedicated environment:
+		\begin{lstlisting}[style=withoutNumbering, language=bash]
+		# Navigate to the virtual environment directory
+		cd $HOME/workspace/pepper_rob_ws/src/cssr4africa_virtual_envs
+		
+		# Activate the text to speech environment
+		source cssr4africa_text_to_speech_env/bin/activate
+		\end{lstlisting} 
+		
+		\noindent The Text to speech virtual environment setup is now complete. \\
 		
 		
 		
@@ -1115,6 +1182,7 @@
 		David Vernon, CMU-Africa\\
 		Pamely Zantou, CMU-Africa\\
 		Tsegazeab Tefferi, CMU-Africa\\
+		Richard Muhirwa, CMU-Africa\\
 		
 		\pagebreak
 		\section*{Document History}
@@ -1263,6 +1331,11 @@
 			Added installation guide for Intel RealSense SDK 2.0. \\
 			Muhammed Danso.\\
 			29 August 2025.
+			
+			\item [Version 1.19]~\\
+			Added Text to speech installation steps.\\
+			Richard Muhirwa.\\
+			22 September 2025.
 			
 		\end{description}
 	\end{document}
