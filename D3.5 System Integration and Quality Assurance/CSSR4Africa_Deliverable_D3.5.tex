@@ -47,10 +47,10 @@
 \leadpartner{Carnegie Mellon University Africa}                         
 \partner{}                          
 
-\revision{1.2}                  
+\revision{1.3}                  
 \deliverabledate{30/06/2024}    
 \submissiondate{25/07/2024}   
-\revisiondate{30/06/2025}   
+\revisiondate{14/11/2025}   
 \disseminationlevel{PU}
 \responsible{D. Vernon }            
 
@@ -92,15 +92,20 @@
 \noindent Each software's integration process and unit test results are documented in dedicated subsections within the report, where the corresponding checklist details what was tested for and the results achieved.
 The following software modules successfully passed the integration tests, meeting all functional requirements and proving their readiness for system deployment:
 \begin{description}
+    \item[D4.1] Sensor Tests
     \item[D4.2.1] Person Detection and Localization
     \item[D4.2.2] Face \& Mutual Gaze Detection and Localization
     \item[D4.2.3] Sound Detection and Localization
+    \item[D4.2.4] Robot Localization
     \item[D4.3.2] Speech Event
+    \item[D5.1] Actuator Tests
     \item[D5.2] Animate Behavior Subsystem
     \item[D5.3] Attention Subsystem
     \item[D5.4.3] Robot Mission Interpreter
     \item[D5.5.1.1] Gesture Execution
+    \item[D5.5.2.4] Integrated Text to Speech Conversion
     \item[D5.5.3] Environment Map Generation
+    \item[D5.5.4] Robot Navigation
 \end{description}
 
 %\noindent The following software module is still undergoing integration. Ongoing efforts are focused on addressing outstanding issues to align it with the system's operational expectations.
@@ -127,6 +132,399 @@ The current integration process prioritizes functionality of the software on the
 \pagebreak
 \tableofcontents
 \newpage
+
+
+
+%===========================================================================
+%============================ D4.1 Sensor Tests ============================
+%===========================================================================
+
+\section{D4.1 Sensor Tests}
+
+\subsection{Sensor Tests}
+
+\subsubsection{Files and Directories}
+
+\begin{description}
+
+\item[\checkboxChecked] Files for a single component are stored in a subdirectory named \textbf{pepper\_interface\_tests} outside of the \verb+cssr_system+ and \verb+unit_tests+ package directories. Refer to Deliverable D3.1 System Architecture for details of the ROS package names and the associated ROS nodes.
+
+\item[\checkboxChecked] The \textbf{pepper\_interface\_tests} directory five sub-directories: {\small \verb+config+},   {\small \verb+data+},  \\ {\small \verb+include/pepper_interface_tests+}, {\small \verb+launch+}, and {\small \verb+src+}.
+
+\item[\checkboxChecked] The  {\small \verb+config+} directory contains two files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+actuatorTestConfiguration.json+}  and {\small \verb+sensorTestConfiguration.json+}
+\item[\checkboxChecked] The configuration files {\small \verb+actuatorTestConfiguration.ini+} and \\ {\small \verb+sensorTestConfiguration.json+} contains the key-value pairs that set the component parameters.  
+\item[\checkboxChecked] Each key-value pair is written on a separate line.
+\end{description} 
+
+\item[\checkboxChecked] The  {\small \texttt{data}} directory contains four input fules and one output file.
+\begin{itemize}
+    \item The input files are named as follows.
+        \begin{description} 
+        \item[\checkboxChecked] {\small \texttt{actuatorTestInput.dat}}
+        \item[\checkboxChecked] {\small \texttt{pepperTopics.dat}}
+        \item[\checkboxChecked] {\small \texttt{sensorTestInput.dat}}
+        \item[\checkboxChecked] {\small \texttt{simulatorTopics.dat}}
+        \item[\checkboxChecked] The topics files {\small \texttt{pepperTopics.dat}} and {\small \texttt{simulatorTopics.dat}} contain the key-value pairs that set the topic names required by the component.
+        \item[\checkboxChecked] Each key-value pair of the {\small \texttt{pepperTopics.dat}} and {\small \texttt{sensorTopics.dat}} files is written on a separate line.
+        \end{description}
+    \item The output files are named as follows.
+        \begin{description}
+            \item[\checkboxChecked] {\small \texttt{sensorTestOutput.dat}}
+        \end{description}
+\end{itemize}
+
+
+\item[\checkboxChecked] The  {\small \verb+include/pepper_interface_tests+} directory contains two files, named as follows.
+
+\begin{description}
+\item[\checkboxChecked] {\small \verb+actuatorTestInterface.h+}  
+\item[\checkboxChecked] {\small \verb+sensorTestInterface.h+}  
+\end{description} 
+
+\item[\checkboxChecked] The  {\small \verb+launch+} directory contains three files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+actuatorTestLaunchRobot.launch+}  
+\item[\checkboxChecked] {\small \verb+interfaceTestLaunchSimulator.launch+}  
+\item[\checkboxChecked] {\small \verb+sensorTestLaunchRobot.launch+} 
+\end{description} 
+
+
+\item[\checkboxChecked] The  {\small \verb+src+} directory contains four source files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+actuatorTestApplication.cpp+}  
+\item[\checkboxChecked]  {\small \verb+actuatorTestImplementation.cpp+} 
+\item[\checkboxChecked] {\small \verb+sensorTestApplication.cpp+}  
+\item[\checkboxChecked]  {\small \verb+sensorTestImplementation.cpp+} 
+\end{description} 
+
+\item[\checkboxChecked] The {\small \verb+pepper_interface_tests+} directory or node subdirectory contains  a {\small \verb+README.md+} file with  instructions on how to run the node. 
+
+\item[\checkboxChecked] The {\small \verb+pepper_interface_tests+} directory contains  a {\small \verb+CMakeLists.txt+} build file.
+
+\item[\checkboxChecked] The {\small \verb+pepper_interface_tests+} directory contains  a {\small \verb+package.xml+} manifest file since it is a package directory.
+
+\end{description}
+
+\subsubsection{Internal Source Code Documentation}
+
+Refer to Deliverable D3.2, Appendix B (Mandatory Standards for Internal Source Code Documentation), for a definition of the standards on which this checklist is based.\\
+
+\noindent All source files contain a documentation comment that gives the copyright notice, as follows.
+ 
+\begin{description}
+
+\item[\checkboxChecked] {\small \verb+sensorTestApplication.cpp+}
+{\scriptsize \begin{verbatim}
+/* sensorTestApplication.cpp Application to test the sensors of the Pepper robot
+*        using ROS interface.   
+*
+* Copyright (C) 2023 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+sensorTestImplementation.cpp+}
+{\scriptsize \begin{verbatim}
+/* sensorTestImplementation.cpp Implementation code to test the sensors of the Pepper robot 
+*        using ROS interface.
+*
+* Author: Yohannes Tadesse Haile and Mihirteab Taye Hordofa
+* Date: October 13, 2025
+* Version: v1.1
+*
+* Copyright (C) 2023 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+sensorTestInterface.h+}
+{\scriptsize \begin{verbatim}
+/* sensorTestInterface.h - Header file for the sensorTest module to test the sensors
+*        of the Pepper robot using ROS interface.
+ *
+ * Author:  Yohannes Tadesse Haile and Mihirteab Taye Hordofa, Carnegie Mellon University Africa
+ * Email:   yohanneh@andrew.cmu.edu
+ * Date:    September 25, 2025
+ * Version: v1.1
+ *
+ * Copyright (C) 2023 CSSR4Africa Consortium
+ *
+ * This project is funded by the African Engineering and Technology Network (Afretec)
+ * Inclusive Digital Transformation Research Grant Programme.
+ *
+ * Website: www.cssr4africa.org
+ *
+ * This program comes with ABSOLUTELY NO WARRANTY.
+ */
+\end{verbatim} }
+
+\end{description}
+
+\noindent The {\small \verb+sensorTestApplication.cpp+} file contains a documentation comment with the following sections:
+
+\begin{description}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+/* sensorTestApplication.cpp Application to test the sensors of the
+*        Pepper robot using ROS interface.
+*
+* The component test the functionality of the sensor of the robot
+* using the ROS interface. The test is performed by subscribing to
+* the sensor topics and checking if the robot sends the expected data.
+* The test is performed in two modes: sequential and parallel. In
+* the sequential mode, the tests are performed one after the other.
+* In the parallel mode, the tests are performed simultaneously.
+*
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Libraries
+* Standard libraries
+- std::string, std::vector, std::thread, std::fstream, std::cout,
+    std::endl, std::fabs, std::time_t, std::tm, std::localtime,
+    std::strftime
+* ROS libraries
+- ros/ros.h, ros/package.h, image_transport/image_transport.h,
+    sensor_msgs/CameraInfo.h, sensor_msgs/Range.h,
+    sensor_msgs/JointState.h, sensor_msgs/LaserScan.h,
+    cv_bridge/cv_bridge.h, opencv2/highgui/highgui.hpp
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Parameters
+*
+* Command-line Parameters
+
+* Configuration File Parameters
+
+* Key | Value 
+* --- | ---
+* platform        | robot
+* simulatorTopics | simulatorTopics.dat
+* robotTopics     | pepperTopics.dat
+* mode            | sequential
+
+* Key | Value
+* --- | ---
+* BackSonar             |   true
+* FrontSonar            |   true    
+* BottomCamera          |   true
+* FrontCamera           |   true
+* realsenseRGBDCamera   |   true
+* realsenseDepthCamera  |   true
+* DepthCamera           |   true
+* StereoCamera          |   true
+* LaserSensor           |   true
+* Microphone            |   true
+* JointState            |   true
+* Odometry              |   true
+* IMU                   |   true
+* Speech                |   true
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Subscribed Topics and Message Types
+*
+* /naoqi_driver/sonar/back                      sensor_msgs/Range                 
+* /naoqi_driver/sonar/front                     sensor_msgs/Range
+* /naoqi_driver/camera/front/image_raw          sensor_msgs/Image
+* /camera/color/image_raw                       sensor_msgs/Image
+* /camera/aligned_depth_to_color/image_raw      sensor_msgs/Image
+* /naoqi_driver/camera/bottom/image_raw         sensor_msgs/Image
+* /naoqi_driver/camera/depth/image_raw          sensor_msgs/Image
+* /naoqi_driver/laser                           sensor_msgs/LaserScan
+* /naoqi_driver/audio                           naoqi_driver/AudioCustomMsg
+* /naoqi_driver/joint_states                    sensor_msgs/JointState
+* /naoqi_driver/odom                            nav_msgs/Odometry
+* /naoqi_driver/imu                             sensor_msgs/Imu
+
+
+* /pepper/sonar_back                            sensor_msgs/Range
+* /pepper/sonar_front                           sensor_msgs/Range
+* /pepper/camera/front/image_raw                sensor_msgs/Image
+* /pepper/camera/bottom/image_raw               sensor_msgs/Image
+* /pepper/camera/depth/image_raw                sensor_msgs/Image
+* /pepper/laser_2                               sensor_msgs/LaserScan
+* /joint_states                                 sensor_msgs/JointState
+* /pepper/odom                                  nav_msgs/Odometry
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}                    
+* Published Topics and Message Types
+* /naoqi_driver/speech                          std_msgs/String
+\end{verbatim}}
+
+\item[\checkboxChecked]
+{\small
+\begin{verbatim} 
+* Services Invoked
+*
+* None
+\end{verbatim}}
+
+\item[\checkboxChecked]
+{\small
+\begin{verbatim} 
+* Services Advertised and Request Message
+* 
+* None
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Input Data Files
+*
+* pepperTopics.dat
+* simulatorTopics.dat
+* sensorTestInput.dat
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Output Data Files
+*
+* sensorTestOutput.dat, 
+* frontCameraOutput.mp4,
+* realsenseRGBOutput.mp4,
+* realsenseDepthOutput.mp4,
+* bottomCameraOutput.mp4,
+* depthCameraOutput.mp4,
+* stereoCameraOutput.mp4,
+* microphoneOutput.wav
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Configuration Files
+*
+* sensorTestConfiguration.ini
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Example Instantiation of the Module
+*
+* rosrun pepper_interface_tests sensorTest
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Author: Yohannes Tadesse Haile and Mihirteab Taye Hordofa,
+    Carnegie Mellon University Africa
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Email: yohanneh@andrew.cmu.edu
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Date: October 13, 2025
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Version: v1.1
+\end{verbatim}}
+
+\end{description}
+
+\subsubsection{Component Unit Testing}
+
+\begin{description}
+
+\item[\checkboxChecked] A unit test application named {\small \verb+sensorTestLaunchRobot.launch+} is provided in the {\small \verb+launch+} directory. 
+
+\item[\checkboxChecked] A unit test application named {\small \verb+interfaceTestLaunchSimulator.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxDashed] A unit test application named {\small \verb+sensorTestLaunchTestHarness.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxChecked] The {\small \verb+sensorTestLaunchRobot.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The {\small \verb+interfaceTestLaunchSimulator.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+sensorTestLaunchTestHarness.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The component being tested outputs the copyright message on startup:  \\ 
+{\scriptsize
+\begin{verbatim}
+sensorTest: v1.1
+
+This project is funded by the African Engineering and Technology Network (Afretec) 
+Inclusive Digital Transformation Research Grant Programme. 
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The component being tested write short messages to the terminal  during the start-up phase to indicate the state of the node:
+{\small
+\begin{verbatim}
+sensorTest: start-up.
+sensorTest: subscribed to /topicName.
+\end{verbatim}
+} 
+
+\item[\checkboxChecked] The component being tested periodically (every ten seconds) writes a short heartbeat message to the terminal to indicate the state of the node:
+{\small
+\begin{verbatim}
+sensorTest: running.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The {\small \verb+sensorTestLaunchRobot.launch+} file  connects the component a data source and a data sink on the physical robot, and produces the expected result as set out in the  \small {\texttt{README.md}}   file.    This means this file launches the physical robot and all its sensors and actuators as required.
+
+\item[\checkboxChecked] The {\small \verb+interfaceTestLaunchSimulator.launch+} file  connects the component a data source and a data sink on the simulator.    This means this file launches the simulator robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+sensorTestLaunchTestHarness.launch+} file  connects the component a data source and a data sink using a driver and a stub.   This means this file launches there required drivers and stubs, and the node being tested.
+
+\item[\checkboxChecked] Unit test instructions are provided in a file named {\small \verb+README.md+} in the {\small \verb+pepper_interface_tests+} directory.
+
+\begin{description}
+
+\item[\checkboxChecked] The instructions  explain how the  communication and computation functionality are validated by describing the (sink) output data that will be produced from the (source) input data.  
+
+\item[\checkboxChecked] The instructions  explain how the  configuration functionality is validated by describing what changes in behaviour will occur if the values for the component parameters in the component configuration ({\small \verb+sensorTestConfiguration.ini+}) file are altered.
+
+\end{description}
+
+\end{description}
+
+
 
 \section{D4.2.1 Person Detection and Localization} 
 %%%%%%%%%%Face Detection
@@ -2160,6 +2558,685 @@ soundDetectionTest: running.
 
 
 
+%===========================================================================
+%======================== D4.2.4 Robot Localization ========================
+%===========================================================================
+
+\section{D4.2.4 Robot Localization}
+
+\subsection{Robot Localization}
+
+\subsubsection{Files and Directories}
+
+\begin{description}
+
+\item[\checkboxChecked] Files for a single component are stored in a subdirectory named \textbf{robotLocalization}. Refer to Deliverable D3.1 System Architecture for details of the ROS package names and the associated ROS nodes.
+
+\item[\checkboxChecked] The \textbf{robotLocalization} directory has six sub-directories: {\small \verb+config+},   {\small \verb+data+}, \\  {\small \verb+include/robotLocalization+}, {\small \verb+launch+},  {\small \verb+src+}, and {\small \verb+srv+}.
+
+\item[\checkboxChecked] The  {\small \verb+config+} directory contains one file, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotLocalizationConfiguration.json+}  
+\item[\checkboxChecked] The configuration file {\small \verb+robotLocalizationConfiguration.json+} contains the key-value pairs that set the component parameters.  
+\item[\checkboxChecked] Each key-value pair is written on a separate line.
+\end{description} 
+
+\item[\checkboxChecked] The  {\small \texttt{data}} directory contains at three of three files.
+\begin{description} 
+\item[\checkboxChecked] {\small \texttt{arucoLandmarks.json}}
+\item[\checkboxChecked] {\small \texttt{cameraInfo.json}}
+\item[\checkboxChecked] {\small \texttt{pepperTopics.dat}}
+\item[\checkboxChecked] The topics files {\small \texttt{pepperTopics.dat}} contains the key-value pairs that set the topic names required by the component.
+\item[\checkboxChecked] Each key-value pair is written on a separate line.
+\end{description}
+
+
+\item[\checkboxChecked] The  {\small \verb+include/robotLocalization+} directory contains one file, named as follows.
+
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotLocalizationInterface.h+}  
+\end{description} 
+
+\item[\checkboxChecked] The  {\small \verb+launch+} directory contains one file, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotLocalizationLaunchRobot.launch+}
+\end{description} 
+
+
+\item[\checkboxChecked] The  {\small \verb+src+} directory contains two source files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotLocalizationApplication.cpp+}  
+\item[\checkboxChecked]  {\small \verb+robotLocalizationImplementation.cpp+}  
+\end{description} 
+
+\item[\checkboxChecked] The {\small \verb+robotLocalization+} directory or node subdirectory contains  a {\small \verb+README.md+} file with  instructions on how to run the node.
+
+\item[\checkboxChecked] The {\small \verb+robotLocalization+} directory contains  a {\small \verb+CMakeLists.txt+} build file.
+
+\item[\checkboxChecked] The {\small \verb+robotLocalization+} directory contains no {\small \verb+package.xml+} since it is a ROS node within the {\small \verb+cssr_system+} package.
+
+\end{description}
+
+\subsubsection{Internal Source Code Documentation}
+
+Refer to Deliverable D3.2, Appendix B (Mandatory Standards for Internal Source Code Documentation), for a definition of the standards on which this checklist is based.\\
+
+\noindent All source files contain a documentation comment that gives the copyright notice, as follows.
+ 
+\begin{description}
+
+\item[\checkboxChecked] {\small \verb+robotLocalizationApplication.cpp+}
+{\scriptsize \begin{verbatim}
+/* robotLocalizationApplication.cpp    Program initialization and main function execution
+*
+* Author:  Ibrahim Olaide Jimoh, Carnegie Mellon University Africa
+* Email:   ioj@andrew.cmu.edu
+* Date:    June 25, 2025
+* Version: v1.0
+*
+* Copyright (C) 2025 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim} }
+
+\item[\checkboxChecked]  {\small \verb+robotLocalizationImplementation.cpp+}
+{\scriptsize \begin{verbatim}
+/* robotLocalizationImplementation.cpp    Function definitions and implementation
+*
+* Author:   Ibrahim Olaide Jimoh, Carnegie Mellon University Africa
+* Email:    ioj@andrew.cmu.edu
+* Date:     June 25, 2025
+* Version:  v1.0
+*
+* Copyright (C) 2025 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+robotLocalizationInterface.h+}
+{\scriptsize \begin{verbatim}
+/* robotLocalizationInterface.h      Function, class, and variable declarations
+*
+* Author:   Ibrahim Olaide Jimoh, Carnegie Mellon University Africa
+* Email:    ioj@andrew.cmu.edu
+* Date:     June 25, 2025
+* Version:  v1.0
+*
+* Copyright (C) 2025 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\end{description}
+
+\noindent The {\small \verb+robotLocalizationApplication.cpp+} file contains a documentation comment with the following sections:
+
+\begin{description}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+/* robotLocalizationApplication.cpp    Program initialization and main
+*        function execution
+*
+* This node is responsible for determining the robot's absolute position
+* and orientation in the environment using visual landmark detection and
+* sensor fusion. The node combines ArUco marker detection from RGB and
+* depth cameras with odometry data to provide accurate 6-DOF pose
+* estimation. The system uses triangulation (RGB-only) or trilateration
+* (with depth) algorithms to compute absolute poses from detected landmarks,
+* then maintains relative positioning through odometry integration. The
+* node supports both periodic automatic pose correction and on-demand pose
+* reset services for robust localization in dynamic environments.
+*
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Libraries
+*     Standard libraries
+*        std::string, std::vector, std::map, std::fstream, std::algorithm,
+*        std::numeric, std::sqrt, std::abs, std::atan2, std::cos, std::sin
+*     ROS libraries
+*        ros/ros.h, nav_msgs/Odometry.h, sensor_msgs/Imu.h,
+*        sensor_msgs/Image.h, sensor_msgs/JointState.h,
+*        sensor_msgs/CameraInfo.h, geometry_msgs/Pose2D.h,
+*        geometry_msgs/TransformStamped.h
+*     ROS TF libraries
+*        tf2/LinearMath/Quaternion.h,
+*        tf2_geometry_msgs/tf2_geometry_msgs.h,
+*        tf2_ros/transform_listener.h, tf2_ros/buffer.h
+*     OpenCV libraries
+*        opencv2/opencv.hpp, opencv2/aruco.hpp, cv_bridge/cv_bridge.h
+*     Image transport
+*        image_transport/image_transport.h
+*     Utility libraries
+*        angles/angles.h, yaml-cpp/yaml.h, json/json.h
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Parameters
+*     Command-line Parameters
+*        None
+*     Configuration File Parameters
+*        Key                  |     Value 
+*        -------------------- |     -------------------
+*        verboseMode          |     false
+*        camera               |     FrontCamera
+*        depthCamera          |     DepthRealSense
+*        useDepth             |     false
+*        resetInterval        |     30.0
+*        absolutePoseTimeout  |     300.0
+*        cameraInfoTimeout    |     10.0
+*        useHeadYaw           |     false
+*        headYawJointName     |     HeadYaw
+*        mapFrame             |     map
+*        odomFrame            |     odom
+*        landmarkFile         |     /robotLocalization/data/arucoLandmarks.json
+*        topicsFile           |     /robotLocalization/data/pepperTopics.dat
+*        cameraInfoFile       |     /robotLocalization/data/cameraInfo.yaml
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Subscribed Topics and Message Types
+*     /naoqi_driver/camera/front/image_raw         sensor_msgs/Image
+*     /naoqi_driver/camera/stereo/image_raw        sensor_msgs/Image
+*     /camera/color/image_raw                      sensor_msgs/Image
+*     /camera/aligned_depth_to_color/image_raw     sensor_msgs/Image
+*     /camera/color/camera_info                    sensor_msgs/CameraInfo
+*     /naoqi_driver/odom                           nav_msgs/Odometry
+*     /naoqi_driver/imu/base                       sensor_msgs/Imu
+*     /joint_states                                sensor_msgs/JointState
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}                    
+* Published Topics and Message Types
+*     /robotLocalization/pose                      geometry_msgs/Pose2D
+*     /robotLocalization/marker_image              sensor_msgs/Image
+\end{verbatim}}
+
+\item[\checkboxChecked]
+{\small 
+\begin{verbatim}
+* Services Invoked
+*     None
+\end{verbatim}}
+
+\item[\checkboxChecked]
+{\small 
+\begin{verbatim}
+* Services Advertised and Message Types
+*     /robotLocalization/reset_pose                cssr_system/ResetPose
+*     /robotLocalization/set_pose                  cssr_system/SetPose
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Input Data Files
+*     pepperTopics.dat        Contains topic names for robot sensors and actuators
+*     arucoLandmarks.json     3D coordinates of ArUco markers in the environment
+*     cameraInfo.json         Camera intrinsic parameters for fallback (fx, fy, cx, cy)
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Output Data Files
+*     None (publishes pose data via ROS topics)
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Configuration Files
+*     robotLocalizationConfiguration.json - Main configuration parameters file
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Example Instantiation of the Module
+*     roslaunch cssr_system robotLocalizationLaunchRobot.launch
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Author:   Ibrahim Olaide Jimoh, Carnegie Mellon University Africa
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Email:    ioj@andrew.cmu.edu
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Date:     June 25, 2025
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Version:  v1.0
+\end{verbatim}}
+
+\end{description}
+
+\subsubsection{Component Unit Testing}
+
+\begin{description}
+
+\item[\checkboxDashed] A unit test application named {\small \verb+robotLocalizationLaunchRobot.launch+} is provided in the {\small \verb+launch+} directory. 
+
+\item[\checkboxDashed] A unit test application named {\small \verb+robotLocalizationLaunchSimulator.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxDashed] A unit test application named {\small \verb+robotLocalizationLaunchTestHarness.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxDashed] The {\small \verb+robotLocalizationLaunchRobot.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+robotLocalizationLaunchSimulator.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+robotLocalizationLaunchTestHarness.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The component being tested outputs the copyright message on startup:  \\ 
+{\scriptsize
+\begin{verbatim}
+robotLocalization: v1.0
+
+This project is funded by the African Engineering and Technology Network (Afretec) 
+Inclusive Digital Transformation Research Grant Programme. 
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The component being tested write short messages to the terminal  during the start-up phase to indicate the state of the node:
+{\small
+\begin{verbatim}
+robotLocalization: start-up.
+robotLocalization: subscribed to /topicName.
+\end{verbatim}
+} 
+
+\item[\checkboxChecked] The component being tested periodically (every ten seconds) writes a short heartbeat message to the terminal to indicate the state of the node:
+{\small
+\begin{verbatim}
+robotLocalization: running.
+\end{verbatim}
+}
+
+\item[\checkboxDashed] The {\small \verb+robotLocalizationLaunchRobot.launch+} file  connects the component a data source and a data sink on the physical robot, and produces the expected result as set out in the  \small {\texttt{README.md}}   file.    This means this file launches the physical robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+robotLocalizationLaunchSimulator.launch+} file  connects the component a data source and a data sink on the simulator.    This means this file launches the simulator robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+robotLocalizationLaunchTestHarness.launch+} file  connects the component a data source and a data sink using a driver and a stub.   This means this file launches there required drivers and stubs, and the node being tested.
+
+\item[\checkboxChecked] Unit test instructions are provided in a file named {\small \verb+README.md+} in the {\small \verb+robotLocalization+} directory.
+
+\begin{description}
+
+\item[\checkboxChecked] The instructions  explain how the  communication and computation functionality are validated by describing the (sink) output data that will be produced from the (source) input data.  
+
+\item[\checkboxChecked] The instructions  explain how the  configuration functionality is validated by describing what changes in behaviour will occur if the values for the component parameters in the component configuration ({\small \verb+robotLocalizationConfiguration.json+}) file are altered.
+
+\end{description}
+
+\end{description}
+
+\subsection{Robot Localization Unit Test}
+
+\subsubsection{Files and Directories}
+
+\begin{description}
+
+\item[\checkboxChecked] Files for a single component are stored in a subdirectory named \textbf{robotLocalizationTest}. Refer to Deliverable D3.1 System Architecture for details of the ROS package names and the associated ROS nodes.
+
+\item[\checkboxChecked] The \textbf{robotLocalization} directory has six sub-directories: {\small \verb+config+},   {\small \verb+data+}, \\  {\small \verb+include/robotLocalizationTest+}, {\small \verb+launch+},  {\small \verb+src+}, and {\small \verb+srv+}.
+
+\item[\checkboxChecked] The  {\small \verb+config+} directory contains one file, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotLocalizationTestConfiguration.ini+}  
+\item[\checkboxChecked] The configuration file {\small \verb+robotLocalizationTestConfiguration.ini+} contains the key-value pairs that set the component parameters.  
+\item[\checkboxChecked] Each key-value pair is written on a separate line.
+\end{description} 
+
+\item[\checkboxChecked] The  {\small \texttt{data}} directory contains at three input files and one output file.
+\begin{description} 
+\item[\checkboxChecked] {\small \texttt{arucoLandmarks.json}}, an input file
+\item[\checkboxChecked] {\small \texttt{cameraInfo.json}}, an input file
+\item[\checkboxChecked] {\small \texttt{pepperTopics.dat}}, an input file
+\item[\checkboxChecked] {\small \texttt{robotLocalizationTestOutput.dat}}, an output file
+\item[\checkboxChecked] The topics files {\small \texttt{pepperTopics.dat}} contains the key-value pairs that set the topic names required by the component.
+\item[\checkboxChecked] Each key-value pair is written on a separate line.
+\end{description}
+
+
+\item[\checkboxChecked] The  {\small \verb+include/robotLocalizationTest+} directory contains one file, named as follows.
+
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotLocalizationTestInterface.h+}  
+\end{description} 
+
+\item[\checkboxChecked] The  {\small \verb+launch+} directory contains two files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotLocalizationTestLaunchRobot.launch+}
+\item[\checkboxChecked] {\small \verb+robotLocalizationTestLaunchTestHarness.launch+}
+\end{description} 
+
+
+\item[\checkboxChecked] The  {\small \verb+src+} directory contains three source files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotLocalizationTestApplication.cpp+}
+\item[\checkboxChecked]  {\small \verb+robotLocalizationTestDriver.cpp+}
+\item[\checkboxChecked]  {\small \verb+robotLocalizationTestImplementation.cpp+}
+\end{description} 
+
+\item[\checkboxChecked] The {\small \verb+robotLocalizationTest+} directory contains  a {\small \verb+README.md+} file with  instructions on how to run the test.
+
+\item[\checkboxChecked] The {\small \verb+robotLocalizationTest+} directory contains  a {\small \verb+CMakeLists.txt+} build file.
+
+\item[\checkboxChecked] The {\small \verb+robotLocalizationTest+} directory contains no {\small \verb+package.xml+} since it is a ROS node within the {\small \verb+unit_test+} package.
+
+\end{description}
+
+\subsubsection{Internal Source Code Documentation}
+
+Refer to Deliverable D3.2, Appendix B (Mandatory Standards for Internal Source Code Documentation), for a definition of the standards on which this checklist is based.\\
+
+\noindent All source files contain a documentation comment that gives the copyright notice, as follows.
+ 
+\begin{description}
+
+\item[\checkboxChecked] {\small \verb+robotLocalizationTestApplication.cpp+}
+{\scriptsize \begin{verbatim}
+/* robotLocalizationTestApplication.cpp - Robot Localization Unit Test Application
+*
+* Author:   Ibrahim Olaide Jimoh, Carnegie Mellon University Africa
+* Email:    ioj@andrew.cmu.edu
+* Date:     June 25, 2025
+* Version:  v1.0
+*
+* Copyright (C) 2025 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+robotLocalizationTestImplementation.cpp+}
+{\scriptsize \begin{verbatim}
+/* robotLocalizationTestImplementation.cpp - Robot Localization Unit Test Implementation
+*
+* Author:   Ibrahim Olaide Jimoh, Carnegie Mellon University Africa
+* Email:    ioj@andrew.cmu.edu
+* Date:     June 25, 2025
+* Version:  v1.0
+*
+* Copyright (C) 2025 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+robotLocalizationTestDriver.cpp+}
+{\scriptsize \begin{verbatim}
+/* robotLocalizationTestDriver.cpp - Simple driver for testing
+*
+* Author:   Ibrahim Olaide Jimoh, Carnegie Mellon University Africa
+* Email:    ioj@andrew.cmu.edu
+* Date:     June 25, 2025
+* Version:  v1.0
+*
+* Copyright (C) 2025 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\end{description}
+
+\noindent The {\small \verb+robotLocalizationTestApplication.cpp+} file contains a documentation comment with the following sections:
+
+\begin{description}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+/* robotLocalizationTestApplication.cpp - Application code to run the
+    Robot Localization Unit tests.
+*
+* This module is responsible for running comprehensive tests on the robot
+* localization module. The tests are run using Google Test and the results
+* are written to a file. The module tests pose setting, pose reset, marker
+* detection, accuracy, service functionality, and system stability.
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Libraries
+*       Standard libraries
+-           std::string, std::vector, std::fstream, std::chrono
+*       ROS libraries
+-           ros/ros.h, ros/package.h, geometry_msgs/Pose2D.h
+*       OpenCV libraries
+-           opencv2/opencv.hpp, opencv2/aruco.hpp
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Parameters
+*       Command-line Parameters
+*           None
+*           
+*       Configuration File Parameters
+*           Key                      | Value 
+*           ------------------------ | -------------------
+*           poseSetTests             | true
+*           poseResetTests           | true
+*           markerDetectionTests     | true
+*           accuracyTests            | true
+*           serviceTests             | true
+*           stabilityTests           | true
+*           verboseMode              | true
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Subscribed Topics and Message Types
+*       /robotLocalization/pose                 geometry_msgs/Pose2D
+*       /naoqi_driver/odom                      nav_msgs/Odometry
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}                    
+* Published Topics and Message Types
+*       None
+\end{verbatim}}
+
+\item[\checkboxChecked]
+{\small 
+\begin{verbatim}
+* Services Used
+*       /robotLocalization/set_pose             cssr_system/setPose
+*       /robotLocalization/reset_pose           cssr_system/resetPose
+\end{verbatim}}
+
+\item[\checkboxChecked]
+{\small 
+\begin{verbatim}
+* Services Advertised and Message Types
+*       None
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Input Data Files
+*       arucoLandmarks.json (test landmarks)
+*       pepperTopics.dat
+*       cameraInfo.json
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Output Data Files
+*       robotLocalizationTestOutput.dat
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Configuration Files
+*       robotLocalizationTestConfiguration.ini
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Example Instantiation of the Module
+*       rosrun unit_tests robotLocalizationTest
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Author:   Ibrahim Olaide Jimoh, Carnegie Mellon University Africa
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Email:    ioj@andrew.cmu.edu
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Date:     June 25, 2025
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+* Version:  v1.0
+\end{verbatim}}
+
+\end{description}
+
+\subsubsection{Component Unit Testing}
+
+\begin{description}
+
+\item[\checkboxChecked] A unit test application named {\small \verb+robotLocalizationTestLaunchRobot.launch+} is provided in the {\small \verb+launch+} directory. 
+
+\item[\checkboxDashed] A unit test application named {\small \verb+robotLocalizationTestLaunchSimulator.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxChecked] A unit test application named {\small \verb+robotLocalizationTestLaunchTestHarness.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxChecked] The {\small \verb+robotLocalizationTestLaunchRobot.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+robotLocalizationTestLaunchSimulator.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The {\small \verb+robotLocalizationTestLaunchTestHarness.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The component being tested outputs the copyright message on startup:  \\ 
+{\scriptsize
+\begin{verbatim}
+robotLocalizationTest: v1.0
+
+This project is funded by the African Engineering and Technology Network (Afretec) 
+Inclusive Digital Transformation Research Grant Programme. 
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The component being tested write short messages to the terminal  during the start-up phase to indicate the state of the node:
+{\small
+\begin{verbatim}
+robotLocalizationTest: start-up.
+robotLocalizationTest: subscribed to /topicName.
+\end{verbatim}
+} 
+
+\item[\checkboxChecked] The component being tested periodically (every ten seconds) writes a short heartbeat message to the terminal to indicate the state of the node:
+{\small
+\begin{verbatim}
+robotLocalizationTest: running.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The {\small \verb+robotLocalizationTestLaunchRobot.launch+} file  connects the component a data source and a data sink on the physical robot, and produces the expected result as set out in the  \small {\texttt{README.md}}   file.    This means this file launches the physical robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+robotLocalizationTestLaunchSimulator.launch+} file  connects the component a data source and a data sink on the simulator.    This means this file launches the simulator robot and all its sensors and actuators as required.
+
+\item[\checkboxChecked] The {\small \verb+robotLocalizationTestLaunchTestHarness.launch+} file  connects the component a data source and a data sink using a driver and a stub.   This means this file launches there required drivers and stubs, and the node being tested.
+
+\item[\checkboxChecked] Unit test instructions are provided in a file named {\small \verb+README.md+} in the {\small \verb+robotLocalizationTest+} directory.
+
+\begin{description}
+
+\item[\checkboxChecked] The instructions  explain how the  communication and computation functionality are validated by describing the (sink) output data that will be produced from the (source) input data.  
+
+\item[\checkboxChecked] The instructions  explain how the  configuration functionality is validated by describing what changes in behaviour will occur if the values for the component parameters in the component configuration ({\small \verb+robotLocalizationTestConfiguration.ini+}) file are altered.
+
+\end{description}
+
+\end{description}
+
+
+
  \newpage
  \section{D4.3.2 Speech Event} 
 %%%%%%%%%%Face Detection
@@ -2823,6 +3900,389 @@ speechEventTest: running.
 \end{description}
 
 \end{description} 
+
+
+
+%===========================================================================
+%=========================== D5.1 Actuator Tests ===========================
+%===========================================================================
+
+\section{D5.1 Actuator Tests}
+
+\subsection{Actuator Tests}
+
+\subsubsection{Files and Directories}
+
+\begin{description}
+
+\item[\checkboxChecked] Files for a single component are stored in a subdirectory named \textbf{pepper\_interface\_tests} outside of the \verb+cssr_system+ and \verb+unit_tests+ package directories. Refer to Deliverable D3.1 System Architecture for details of the ROS package names and the associated ROS nodes.
+
+\item[\checkboxChecked] The \textbf{pepper\_interface\_tests} directory five sub-directories: {\small \verb+config+},   {\small \verb+data+},  \\ {\small \verb+include/pepper_interface_tests+}, {\small \verb+launch+}, and {\small \verb+src+}.
+
+\item[\checkboxChecked] The  {\small \verb+config+} directory contains two files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+actuatorTestConfiguration.json+}  and {\small \verb+sensorTestConfiguration.json+}
+\item[\checkboxChecked] The configuration files {\small \verb+actuatorTestConfiguration.ini+} and \\ {\small \verb+sensorTestConfiguration.json+} contains the key-value pairs that set the component parameters.  
+\item[\checkboxChecked] Each key-value pair is written on a separate line.
+\end{description} 
+
+\item[\checkboxChecked] The  {\small \texttt{data}} directory contains four input fules and one output file.
+\begin{itemize}
+    \item The input files are named as follows.
+        \begin{description} 
+        \item[\checkboxChecked] {\small \texttt{actuatorTestInput.dat}}
+        \item[\checkboxChecked] {\small \texttt{pepperTopics.dat}}
+        \item[\checkboxChecked] {\small \texttt{sensorTestInput.dat}}
+        \item[\checkboxChecked] {\small \texttt{simulatorTopics.dat}}
+        \item[\checkboxChecked] The topics files {\small \texttt{pepperTopics.dat}} and {\small \texttt{simulatorTopics.dat}} contain the key-value pairs that set the topic names required by the component.
+        \item[\checkboxChecked] Each key-value pair of the {\small \texttt{pepperTopics.dat}} and {\small \texttt{sensorTopics.dat}} files is written on a separate line.
+        \end{description}
+    \item The output files are named as follows.
+        \begin{description}
+            \item[\checkboxChecked] {\small \texttt{sensorTestOutput.dat}}
+        \end{description}
+\end{itemize}
+
+
+\item[\checkboxChecked] The  {\small \verb+include/pepper_interface_tests+} directory contains two files, named as follows.
+
+\begin{description}
+\item[\checkboxChecked] {\small \verb+actuatorTestInterface.h+}  
+\item[\checkboxChecked] {\small \verb+sensorTestInterface.h+}  
+\end{description} 
+
+\item[\checkboxChecked] The  {\small \verb+launch+} directory contains three files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+actuatorTestLaunchRobot.launch+}  
+\item[\checkboxChecked] {\small \verb+interfaceTestLaunchSimulator.launch+}  
+\item[\checkboxChecked] {\small \verb+sensorTestLaunchRobot.launch+} 
+\end{description} 
+
+
+\item[\checkboxChecked] The  {\small \verb+src+} directory contains four source files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+actuatorTestApplication.cpp+}  
+\item[\checkboxChecked]  {\small \verb+actuatorTestImplementation.cpp+} 
+\item[\checkboxChecked] {\small \verb+sensorTestApplication.cpp+}  
+\item[\checkboxChecked]  {\small \verb+sensorTestImplementation.cpp+} 
+\end{description} 
+
+\item[\checkboxChecked] The {\small \verb+pepper_interface_tests+} directory or node subdirectory contains  a {\small \verb+README.md+} file with  instructions on how to run the node.
+
+\item[\checkboxChecked] The {\small \verb+pepper_interface_tests+} directory contains  a {\small \verb+CMakeLists.txt+} build file.
+
+\item[\checkboxChecked] The {\small \verb+pepper_interface_tests+} directory contains  a {\small \verb+package.xml+} manifest file since it is a package directory.
+
+\end{description}
+
+\subsubsection{Internal Source Code Documentation}
+
+Refer to Deliverable D3.2, Appendix B (Mandatory Standards for Internal Source Code Documentation), for a definition of the standards on which this checklist is based.\\
+
+\noindent All source files contain a documentation comment that gives the copyright notice, as follows.
+ 
+\begin{description}
+
+\item[\checkboxChecked] {\small \verb+actuatorTestApplication.cpp+}
+{\scriptsize \begin{verbatim}
+/* actuatorTestApplication.cpp Application code for running the actuator tests on
+*        Pepper robot
+*
+* Copyright (C) 2023 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim} }
+
+\item[\checkboxChecked]  {\small \verb+actuatorTestImplementation.cpp+}
+{\scriptsize \begin{verbatim}
+/* actuatorTestImplementation.cpp Implementation code for running the actuator tests on
+*        Pepper robot
+*
+* Author: Yohannes Tadesse Haile and Mihirteab Taye Hordofa 
+* Date: September 25, 2025
+* Version: v1.1
+*
+* Copyright (C) 2023 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+actuatorTestInterface.h+}
+{\scriptsize \begin{verbatim}
+/* actuatorTestInterface.h - Header file for the actuatorTest module to test the
+ *       actuators of the Pepper robot using ROS interface.
+ *
+ * Author:  Yohannes Tadesse Haile, Carnegie Mellon University Africa
+ * Email:   yohanneh@andrew.cmu.edu
+ * Date:    September 25, 2025
+ * Version: v1.1
+ *
+ * Copyright (C) 2023 CSSR4Africa Consortium
+ *
+ * This project is funded by the African Engineering and Technology Network (Afretec)
+ * Inclusive Digital Transformation Research Grant Programme.
+ *
+ * Website: www.cssr4africa.org
+ *
+ * This program comes with ABSOLUTELY NO WARRANTY.
+ */
+\end{verbatim} }
+
+\end{description}
+
+\noindent The {\small \verb+actuatorTestApplication.cpp+} file contains a documentation comment with the following sections:
+
+\begin{description}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+/* actuatorTestApplication.cpp Application code for running the actuator
+*        tests on Pepper robot
+*
+* The component test the functionality of the actuator of the robot using
+* the ROS interface. The test is performed by sending commands to the
+* robot and checking if the robot performs the expected action. The test
+* is performed in two modes: sequential and parallel. In the sequential
+* mode, the tests are performed one after the other. In the parallel
+* mode, the tests are performed simultaneously. 
+*
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Libraries
+* Standard libraries
+- std::string, std::vector, std::thread, std::fstream, std::cout,
+        std::endl, std::cin, std::pow, std::sqrt, std::abs
+* ROS libraries
+- ros/ros.h, ros/package.h, actionlib/client/simple_action_client.h,
+        control_msgs/FollowJointTrajectoryAction.h, geometry_msgs/Twist.h
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Parameters
+*
+* Command-line Parameters
+*
+* None
+
+* Configuration File Parameters
+
+* Key | Value 
+* --- | ---
+* platform        | robot
+* simulatorTopics | simulatorTopics.dat
+* robotTopics     | pepperTopics.dat
+* mode            | sequential
+*
+* Key | Value
+* --- | ---
+* Head   | true
+* RArm   | true
+* LArm   | true
+* RHand  | true
+* LHand  | true
+* Leg    | true
+* Wheels | false
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Subscribed Topics and Message Types
+*
+* None
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}                    
+* Published Topics and Message Types
+* 
+* /pepper_dcm/Head_controller/follow_joint_trajectory
+        trajectory_msgs/JointTrajectory
+* /pepper_dcm/RightArm_controller/follow_joint_trajectory
+        trajectory_msgs/JointTrajectory
+* /pepper_dcm/LeftArm_controller/follow_joint_trajectory
+        trajectory_msgs/JointTrajectory
+* /pepper_dcm/RightHand_controller/follow_joint_trajectory
+        trajectory_msgs/JointTrajectory
+* /pepper_dcm/LeftHand_controller/follow_joint_trajectory
+        trajectory_msgs/JointTrajectory
+* /pepper_dcm/Pelvis_controller/follow_joint_trajectory 
+        trajectory_msgs/JointTrajectory
+* /cmd_vel
+        geometry_msgs/Twist
+
+* /pepper/Head_controller/follow_joint_trajectory
+        trajectory_msgs/JointTrajectory
+* /pepper/RightArm_controller/follow_joint_trajectory
+        trajectory_msgs/JointTrajectory
+* /pepper/LeftArm_controller/follow_joint_trajectory
+        trajectory_msgs/JointTrajectory
+* /pepper/Pelvis_controller/follow_joint_trajectory
+        trajectory_msgs/JointTrajectory
+* /pepper/cmd_vel
+        geometry_msgs/Twist
+\end{verbatim}}
+
+\item[\checkboxChecked]
+{\small
+\begin{verbatim} 
+* Services Invoked
+*
+* None
+\end{verbatim}}
+
+\item[\checkboxChecked]
+{\small
+\begin{verbatim} 
+* Services Advertised and Request Message
+* 
+* None
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Input Data Files
+*
+* pepperTopics.dat
+* simulatorTopics.dat
+* actuatorTestInput.dat
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Output Data Files
+*
+* None
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Configuration Files
+*
+* actuatorTestConfiguration.ini
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Example Instantiation of the Module
+*
+* rosrun pepper_interface_tests actuatorTest
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Author: Yohannes Tadesse Haile and Mihirteab Taye Hordofa,
+        Carnegie Mellon University Africa
+* Author: Yohannes Tadesse Haile and Mihirteab Taye Hordofa,
+        Carnegie Mellon University Africa
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Email: yohanneh@andrew.cmu.edu
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Date: September 25, 2025
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Version: v1.1
+\end{verbatim}}
+
+\end{description}
+
+\subsubsection{Component Unit Testing}
+
+\begin{description}
+
+\item[\checkboxChecked] A unit test application named {\small \verb+actuatorTestLaunchRobot.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxChecked] A unit test application named {\small \verb+interfaceTestLaunchSimulator.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxDashed] A unit test application named {\small \verb+actuatorTestLaunchTestHarness.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxChecked] The {\small \verb+actuatorTestLaunchRobot.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The {\small \verb+interfaceTestLaunchSimulator.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+actuatorTestLaunchTestHarness.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The component being tested outputs the copyright message on startup:  \\ 
+{\scriptsize
+\begin{verbatim}
+actuatorTest: v1.1
+
+This project is funded by the African Engineering and Technology Network (Afretec) 
+Inclusive Digital Transformation Research Grant Programme. 
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The component being tested write short messages to the terminal  during the start-up phase to indicate the state of the node:
+{\small
+\begin{verbatim}
+actuatorTest: start-up.
+actuatorTest: subscribed to /topicName.
+\end{verbatim}
+} 
+
+\item[\checkboxChecked] The component being tested periodically (every ten seconds) writes a short heartbeat message to the terminal to indicate the state of the node:
+{\small
+\begin{verbatim}
+actuatorTest: running.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The {\small \verb+actuatorTestLaunchRobot.launch+} file  connects the component a data source and a data sink on the physical robot, and produces the expected result as set out in the  \small {\texttt{README.md}}   file.    This means this file launches the physical robot and all its sensors and actuators as required.
+
+\item[\checkboxChecked] The {\small \verb+interfaceTestLaunchSimulator.launch+} file  connects the component a data source and a data sink on the simulator.    This means this file launches the simulator robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+actuatorTestLaunchTestHarness.launch+} file  connects the component a data source and a data sink using a driver and a stub.   This means this file launches there required drivers and stubs, and the node being tested.
+
+\item[\checkboxChecked] Unit test instructions are provided in a file named {\small \verb+README.md+} in the {\small \verb+pepper_interface_tests+} directory.
+
+\begin{description}
+
+\item[\checkboxChecked] The instructions  explain how the  communication and computation functionality are validated by describing the (sink) output data that will be produced from the (source) input data.  
+
+\item[\checkboxChecked] The instructions  explain how the  configuration functionality is validated by describing what changes in behaviour will occur if the values for the component parameters in the component configuration ({\small \verb+actuatorTestConfiguration.ini+}) file are altered.
+
+\end{description}
+
+\end{description}
+
 
 
 \newpage
@@ -6256,6 +7716,624 @@ gestureExecutionTest: running.
 
 
 
+%===========================================================================
+%============== D5.5.2.4 Integrated Text to Speech Conversion ==============
+%===========================================================================
+
+\section{D5.5.2.4 Integrated Text to Speech Conversion}
+
+\subsection{Integrated Text to Speech Conversion}
+
+\subsubsection{Files and Directories}
+
+\begin{description}
+
+\item[\checkboxChecked] Files for a single component are stored in a subdirectory named \textbf{text\_to\_speech}. Refer to Deliverable D3.1 System Architecture for details of the ROS package names and the associated ROS nodes.
+
+\item[\checkboxChecked] The \textbf{text\_to\_speech} directory has four sub-directories: {\small \verb+config+}, {\small \verb+data+}, {\small \verb+src+}, and {\small \verb+srv+}.
+
+\item[\checkboxChecked] The  {\small \verb+config+} directory contains one file, named as follows.
+
+\begin{description}
+\item[\checkboxChecked] {\small  \texttt{text\_to\_speech\_configuration.ini}}  
+\item[\checkboxChecked] The configuration file {\small \verb+text_to_speech_configuration.ini+} contains the key-value pairs that set the component parameters.  
+\item[\checkboxChecked] Each key-value pair is written on a separate line.
+\end{description}
+
+ 
+\item[\checkboxChecked] The  {\small \texttt{data}} directory contains one input file.
+\begin{description} 
+\item[\checkboxChecked] {\small \texttt{pepper\_topics.dat}}
+\end{description}
+
+\item[\checkboxChecked] The  {\small \verb+src+} directory contains three source files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+send_and_play_audio.py+}  
+\item[\checkboxChecked] {\small \verb+text_to_speech_application.py+}  
+\item[\checkboxChecked]  {\small \verb+text_to_speech_implementation.py+}  
+\end{description} 
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech+} directory contains  a {\small \verb+README.md+} file with  instructions on how to run the node.
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech+} directory contains no {\small \verb+CMakeLists.txt+} build file.
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech+} directory contains no {\small \verb+package.xml+} since it is a ROS node within the {\small \verb+cssr_system+} package.
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech+} directory contains a {{\small \texttt{text\_to\_speech\_requirements.txt}}} file with  the dependencies (and their versions) required to be installed for proper functionality of the node.
+
+\end{description}
+
+\subsubsection{Internal Source Code Documentation}
+
+Refer to Deliverable D3.2, Appendix B (Mandatory Standards for Internal Source Code Documentation), for a definition of the standards on which this checklist is based.\\
+
+\noindent All source files contain a documentation comment that gives the copyright notice, as follows.
+
+\begin{description}
+
+\item[\checkboxChecked] {\small \verb+send_and_play_audio.py+}
+{\scriptsize \begin{verbatim}
+"""
+send_and_play_audio.py - functionality to send and play audio on the robot for the
+transcribed kinyarwanda text
+
+Author:     Muhirwa Richard
+Date:       2025-04-18
+Version:    v1.0
+
+Copyright (C) 2023 CSSR4Africa Consortium
+
+This project is funded by the African Engineering and Technology Network (Afretec)
+Inclusive Digital Transformation Research Grant Programme.
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+"""
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+text_to_speech_application.py+}
+{\scriptsize \begin{verbatim}
+""" 
+text_to_speech_application.py - ROS node for integrated multilingual text-to-speech
+functionality
+
+Author:     Muhirwa Richard
+Date:       2025-04-18
+Version:    v1.0
+
+Copyright (C) 2023 CSSR4Africa Consortium
+
+This project is funded by the African Engineering and Technology Network (Afretec) 
+Inclusive Digital Transformation Research Grant Programme.
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+"""
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+text_to_speech_implementation.py+}
+{\scriptsize \begin{verbatim}
+""" 
+text-to-speech_Implementation.py - implementation of the text-to-speech functionality
+
+Author:     Muhirwa Richard
+Date:       2025-04-18
+Version:    v1.0
+
+Copyright (C) 2023 CSSR4Africa Consortium
+
+This project is funded by the African Engineering and Technology Network (Afretec)
+Inclusive Digital Transformation Research Grant Programme.
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+"""
+\end{verbatim} }
+
+\end{description}
+
+\noindent The {\small \verb+text_to_speech_application.py+} file contains a documentation comment with the following sections:\\
+
+\noindent \verb+"""+
+
+\begin{description}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> text_to_speech_application.py - ROS node for integrated multilingual
+text-to-speech functionality
+
+This ROS application node provides text-to-speech (TTS) services
+supporting both Kinyarwanda and English languages. The node integrates
+with Pepper robot's audio system for English TTS and uses a custom
+TTS model for Kinyarwanda. It exposes a ROS service interface that
+accepts text messages and language specifications, then generates and
+plays the corresponding speech audio.
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Libraries
+    - rospy
+    - os
+    - sys
+    - threading
+    - time
+    - text_to_speech_implementation
+    - cssr_system.srv: (TTS, TTSResponse)
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Parameters
+    > Command line parameters:
+        None
+
+    > Configuration File Parameters
+        - language: (english/kinyarwanda)
+        - verboseMode: (True/False)
+        - ip: Network IP address of the Pepper robot
+        - port: Communication port for robot connection
+        - useCuda: (True/False)
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Subscribed Topics 
+    - None 
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}                    
+
+> Published Topics and Message Types
+    - /speech (std_msgs/String): English text messages for Pepper
+            robot's built-in TTS
+\end{verbatim}}
+
+
+\item[\checkboxChecked]
+{\small
+\begin{verbatim}
+> Services Invoked
+    - None 
+\end{verbatim}}
+
+
+\item[\checkboxChecked]
+{\small
+\begin{verbatim}
+> Services Advertised and Request Message
+    - /textToSpeech/say_text (cssr_system/TTS)
+      Request: {string message, string language}
+      Response: {bool success}
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Input Data Files
+    - None
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Output Data Files
+    - Temporary .wav files: Generated audio files for Kinyarwanda
+            speech (auto-deleted)
+    - ROS log files: Node operation logs in ~/.ros/log/
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Configuration Files
+    - text_to_speech_configuration.ini
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Example Instantiation of the Module
+    - rosrun cssr_system text_to_speech_application.py
+    - roslaunch cssr_system text_to_speech_launch_robot.launch
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+- Author:  Muhirwa Richard, Carnegie Mellon University Africa
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+- Email:   muhirwarichard1@gmail.com
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+- Date:    2025-04-18
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+- Version: v1.0
+\end{verbatim}}
+
+\end{description}
+
+\noindent \verb+"""+
+
+\subsubsection{Component Unit Testing}
+
+\begin{description}
+
+\item[\checkboxDashed] A unit test application named {\small \verb+text_to_speech_launch_robot.launch+} is provided in the {\small \verb+launch+} directory. 
+
+\item[\checkboxDashed] A unit test application named {\small \verb+text_to_speech_launch_simulator.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxDashed] A unit test application named {\small \verb+text_to_speech_launch_test_harness.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxDashed] The {\small \verb+text_to_speech_launch_robot.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+text_to_speech_launch_simulator.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+text_to_speech_launch_test_harness.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The component being tested outputs the copyright message on startup:  \\ 
+{\scriptsize
+\begin{verbatim}
+textToSpeech version v1.0
+
+This project is funded by the African Engineering and Technology Network (Afretec) 
+Inclusive Digital Transformation Research Grant Programme. 
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The component being tested write short messages to the terminal  during the start-up phase to indicate the state of the node:
+{\small
+\begin{verbatim}
+textToSpeech: start-up.
+textToSpeech: subscribed to /topicName.
+\end{verbatim}
+} 
+
+\item[\checkboxChecked] The component being tested periodically (every ten seconds) writes a short heartbeat message to the terminal to indicate the state of the node:
+{\small
+\begin{verbatim}
+textToSpeech: running.
+\end{verbatim}
+}
+
+\item[\checkboxDashed] The {\small \verb+text_to_speech_launch_robot.launch+} file  connects the component a data source and a data sink on the physical robot, and produces the expected result as set out in the  \small {\texttt{README.md}}   file.    This means this file launches the physical robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+text_to_speech_launch_simulator.launch+} file  connects the component a data source and a data sink on the simulator.    This means this file launches the simulator robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+text_to_speech_launch_test_harness.launch+} file  connects the component a data source and a data sink using a driver and a stub.   This means this file launches there required drivers and stubs, and the node being tested.
+
+\item[\checkboxChecked] Unit test instructions are provided in a file named {\small \verb+README.md+} in the {\small \verb+text_to_speech+} directory.
+
+\begin{description}
+
+\item[\checkboxChecked] The instructions  explain how the  communication and computation functionality are validated by describing the (sink) output data that will be produced from the (source) input data.  
+
+\item[\checkboxChecked] The instructions  explain how the  configuration functionality is validated by describing what changes in behaviour will occur if the values for the component parameters in the component configuration ({\small \verb+text_to_speech_configuration.ini+}) file are altered.
+
+\end{description}
+
+\end{description}
+
+\subsection{Integrated Text to Speech Conversion Unit Test}
+
+\subsubsection{Files and Directories}
+
+\begin{description}
+
+\item[\checkboxChecked] Files for a single component are stored in a subdirectory named \textbf{text\_to\_speech\_test}. Refer to Deliverable D3.1 System Architecture for details of the ROS package names and the associated ROS nodes.
+
+\item[\checkboxChecked] The \textbf{text\_to\_speech\_test} directory has three sub-directories: {\small \verb+data+}, {\small \verb+launch+}, and {\small \verb+src+}.
+
+\item[\checkboxDashed] The  {\small \verb+config+} directory contains one file, named as follows.
+
+\begin{description}
+\item[\checkboxDashed] {\small  \texttt{text\_to\_speech\_test\_configuration.ini}}  
+\item[\checkboxDashed] The configuration file {\small \verb+text_to_speech_test_configuration.ini+} contains the key-value pairs that set the component parameters.  
+\item[\checkboxDashed] Each key-value pair is written on a separate line.
+\end{description}
+
+ 
+\item[\checkboxChecked] The  {\small \texttt{data}} directory contains one output file.
+\begin{description} 
+\item[\checkboxChecked] {\small \texttt{text\_to\_speech\_test\_output.dat}}
+\end{description}
+
+\item[\checkboxChecked] The  {\small \verb+launch+} directory contains two launch files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+text_to_speech_test_launch_robot.launch+}  
+\item[\checkboxChecked]  {\small \verb+text_to_speech_test_launch_test_harness.launch+}  
+\end{description}
+
+\item[\checkboxChecked] The  {\small \verb+src+} directory contains two source files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+text_to_speech_test_application.py+}  
+\item[\checkboxChecked]  {\small \verb+text_to_speech_test_implementation.py+}  
+\end{description}
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech_test+} directory contains  a {\small \verb+README.md+} file with  instructions on how to run the test.
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech_test+} directory contains no {\small \verb+CMakeLists.txt+} build file.
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech_test+} directory contains no {\small \verb+package.xml+} since it is a ROS node within the {\small \verb+unit_test+} package.
+
+\item[\checkboxDashed] The {\small \verb+text_to_speech_test+} directory contains a {{\small \texttt{text\_to\_speech\_test\_requirements.txt}}} file with  the dependencies (and their versions) required to be installed for proper functionality of the node.
+
+\end{description}
+
+\subsubsection{Internal Source Code Documentation}
+
+Refer to Deliverable D3.2, Appendix B (Mandatory Standards for Internal Source Code Documentation), for a definition of the standards on which this checklist is based.\\
+
+\noindent All source files contain a documentation comment that gives the copyright notice, as follows.
+
+\begin{description}
+
+\item[\checkboxChecked] {\small \verb+text_to_speech_test_application.py+}
+{\scriptsize \begin{verbatim}
+""" 
+text_to_speech_test_application.py - ROS-based integration test application for
+    validating Text-to-Speech (TTS) service implementation
+
+Author:     Muhirwa Richard
+Date:       2025-04-18
+Version:    v1.0
+
+Copyright (C) 2023 CSSR4Africa Consortium
+
+This project is funded by the African Engineering and Technology Network (AfretecInclusive
+Digital Transformation Research Grant Programme.
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+"""
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+text_to_speech_test_implementation.py+}
+{\scriptsize \begin{verbatim}
+""" 
+text_to_speech_test_implementation.py - text-to-speech test cases
+
+Author:     Muhirwa Richard
+Date:       2025-04-18
+Version:    v1.0
+
+Copyright (C) 2023 CSSR4Africa Consortium
+
+This project is funded by the African Engineering and Technology Network (AfretecInclusive
+Digital Transformation Research Grant Programme.
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+"""
+\end{verbatim} }
+
+\end{description}
+
+\noindent The {\small \verb+text_to_speech_test_application.py+} file contains a documentation comment with the following sections:\\
+
+\noindent \verb+"""+
+
+\begin{description}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> text_to_speech_test_application.py - ROS-based integration test application
+    for validating Text-to-Speech (TTS) service implementation.
+
+This application serves as a comprehensive testing framework for validating
+the functionality and integration of a Text-to-Speech (TTS) service within
+a ROS environment.
+The primary purpose is to ensure that the TTS implementation correctly
+processes text input in both English and Kinyarwanda languages and
+produces appropriate audio output on pepper robot.
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Libraries
+    - rospy: ROS Python client library for node initialization and service
+            handling
+    - sys: System-specific parameters and functions for exit codes
+    - text_to_speech_test_implementation: Custom module containing:
+        - TTSImplementationIntegrationTest
+        - TestOutputLogger
+        - print_success, print_warning, print_error, print_info, print_header:
+                Colored output functions
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Parameters
+    > Command-line Parameters
+        - None (no command-line arguments required)
+
+    > Configuration File Parameters
+        - None (no configuration file used)
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Subscribed Topics and Message Types
+    - None (no topics subscribed)
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}                    
+> Published Topics and Message Types
+    - None (no topics published)
+\end{verbatim}}
+
+
+\item[\checkboxChecked]
+{\small
+\begin{verbatim}
+> Services Invoked
+    - /textToSpeech/say_text (cssr_system.srv.TTS): Text-to-speech service
+            for converting text to audio output
+\end{verbatim}}
+
+
+\item[\checkboxChecked]
+{\small
+\begin{verbatim}
+> Services Advertised and Request Message
+    - None (no services advertised)
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Input Data Files
+    - None (no input data files required)
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Output Data Files
+    - text_to_speech_test_output.dat: Test results and logging output file
+            stored in unit_tests/text_to_speech_test/data/
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Configuration Files
+    - None (no configuration files used)
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+{\small 
+\begin{verbatim}
+> Example Instantiation of the Module
+    rosrun unit_tests text_to_speech_test_application.py
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+- Author:  Muhirwa Richard, Carnegie Mellon University Africa
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+- Email:   muhirwarichard1@gmail.com
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+- Date:    2025-04-18
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+- Version: v1.0
+\end{verbatim}}
+
+\end{description}
+
+\noindent \verb+"""+
+
+\subsubsection{Component Unit Testing}
+
+\begin{description}
+
+\item[\checkboxChecked] A unit test application named {\small \verb+text_to_speech_test_launch_robot.launch+} is provided in the {\small \verb+launch+} directory. 
+
+\item[\checkboxDashed] A unit test application named {\small \verb+text_to_speech_test_launch_simulator.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxChecked] A unit test application named {\small \verb+text_to_speech_test_launch_test_harness.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech_test_launch_robot.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+text_to_speech_test_launch_simulator.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech_test_launch_test_harness.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The component being tested outputs the copyright message on startup:  \\ 
+{\scriptsize
+\begin{verbatim}
+textToSpeechTest version v1.0
+
+This project is funded by the African Engineering and Technology Network (Afretec) 
+Inclusive Digital Transformation Research Grant Programme. 
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The component being tested write short messages to the terminal  during the start-up phase to indicate the state of the node:
+{\small
+\begin{verbatim}
+textToSpeechTest: start-up.
+textToSpeechTest: subscribed to /topicName.
+\end{verbatim}
+} 
+
+\item[\checkboxChecked] The component being tested periodically (every ten seconds) writes a short heartbeat message to the terminal to indicate the state of the node:
+{\small
+\begin{verbatim}
+textToSpeechTest: running.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech_test_launch_robot.launch+} file  connects the component a data source and a data sink on the physical robot, and produces the expected result as set out in the  \small {\texttt{README.md}}   file.    This means this file launches the physical robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+text_to_speech_test_launch_simulator.launch+} file  connects the component a data source and a data sink on the simulator.    This means this file launches the simulator robot and all its sensors and actuators as required.
+
+\item[\checkboxChecked] The {\small \verb+text_to_speech_test_launch_test_harness.launch+} file  connects the component a data source and a data sink using a driver and a stub.   This means this file launches there required drivers and stubs, and the node being tested.
+
+\item[\checkboxChecked] Unit test instructions are provided in a file named {\small \verb+README.md+} in the {\small \verb+text_to_speech_test+} directory.
+
+\begin{description}
+
+\item[\checkboxChecked] The instructions  explain how the  communication and computation functionality are validated by describing the (sink) output data that will be produced from the (source) input data.  
+
+\item[\checkboxDashed] The instructions  explain how the  configuration functionality is validated by describing what changes in behaviour will occur if the values for the component parameters in the component configuration ({\small \verb+text_to_speech_test_configuration.ini+}) file are altered.
+
+\end{description}
+
+\end{description}
+
+
+
 \newpage
 \section{D5.5.3 Environment Map Generation} 
 \subsection{Map Generation} 
@@ -7007,10 +9085,732 @@ mapGenerationTest: running.
 
 \end{description} 
 
-  
 
 
-  
+%===========================================================================
+%========================= D5.5.4 Robot Navigation =========================
+%===========================================================================
+
+\section{D5.5.4 Robot Navigation}
+
+\subsection{Robot Navigation}
+
+\subsubsection{Files and Directories}
+
+\begin{description}
+
+\item[\checkboxChecked] Files for a single component are stored in a subdirectory named \textbf{robotNavigation}. Refer to Deliverable D3.1 System Architecture for details of the ROS package names and the associated ROS nodes.
+
+\item[\checkboxChecked] The \textbf{robotNavigation} directory has six sub-directories: {\small \verb+config+},   {\small \verb+data+},   {\small \verb+include/robotNavigation+}, {\small \verb+msg+},  {\small \verb+src+}, and {\small \verb+srv+}.
+
+\item[\checkboxChecked] The  {\small \verb+config+} directory contains one file, named as follows.
+
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotNavigationConfiguration.ini+}  
+\item[\checkboxChecked] The configuration file {\small \verb+robotNavigationConfiguration.ini+} contains the key-value pairs that set the component parameters.  
+\item[\checkboxChecked] Each key-value pair is written on a separate line.
+\end{description} 
+
+
+\item[\checkboxChecked] The  {\small \texttt{data}} directory contains five input files and three output files.
+
+\begin{itemize}
+    \item The input files are named as follows.
+        \begin{description} 
+        \item[\checkboxChecked] {\small \texttt{pepperTopics.dat}}
+        \item[\checkboxChecked] {\small \texttt{parameters230.dat}}
+        \item[\checkboxChecked] {\small \texttt{parameters240.dat}}
+        \item[\checkboxChecked] {\small \texttt{scenarioOneConfigMap.dat}}
+        \item[\checkboxChecked] {\small \texttt{scenarioOneEnvironmentMap.dat}}
+        \item[\checkboxChecked] The topics file {\small \texttt{pepperTopics.dat}} contains the key-value pairs that set the topic names required by the component.
+        \item[\checkboxChecked] Each key-value pair of the {\small \texttt{pepperTopics.dat}} file is written on a separate line.
+        \end{description}
+    \item The output files are named as follows.
+        \begin{description}
+            \item[\checkboxChecked] {\small \texttt{robotPose.dat}}
+            \item[\checkboxChecked] {\small \texttt{configMapWaypoints<algorithm>.png}} where {\small \texttt{<algorithm>.png}} can be one of {\small \verb+AStar+}, {\small \verb+BFS+}, {\small \verb+DFS+}, or {\small \verb+Dijkstra+}.
+            \item[\checkboxChecked] {\small \texttt{environmentMapWaypoints<algorithm>.png}} where {\small \texttt{<algorithm>.png}} can be one of {\small \verb+AStar+}, {\small \verb+BFS+}, {\small \verb+DFS+}, or {\small \verb+Dijkstra+}.
+        \end{description}
+\end{itemize}
+
+\item[\checkboxChecked] The  {\small \verb+include/robotNavigation+} directory contains one file, named as follows.
+
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotNavigationInterface.h+}  
+\end{description}
+
+\item[\checkboxChecked] The  {\small \verb+msg+} directory contains one files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+Goal.msg+}  
+\end{description} 
+
+\item[\checkboxChecked] The  {\small \verb+src+} directory contains two source files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotNavigationApplication.cpp+}  
+\item[\checkboxChecked]  {\small \verb+robotNavigationImplementation.cpp+}  
+\end{description}
+
+\item[\checkboxChecked] The {\small \verb+robotNavigation+} directory contains a {\small \verb+README.md+} file with instructions on how to run the software.
+
+\item[\checkboxChecked] The {\small \verb+robotNavigation+} directory contains a {\small \verb+CMakeLists.txt+} build file.
+
+\item[\checkboxChecked] The {\small \verb+robotNavigation+} directory contains no {\small \verb+package.xml+} since it is a ROS node within the {\small \verb+cssr_system+} package.
+
+\end{description}
+
+\subsubsection{Internal Source Code Documentation}
+
+Refer to Deliverable D3.2, Appendix B (Mandatory Standards for Internal Source Code Documentation), for a definition of the standards on which this checklist is based.\\
+
+\noindent All source files contain a documentation comment that gives the copyright notice, as follows.
+
+\begin{description}
+
+\item[\checkboxChecked] {\small \verb+robotNavigationApplication.cpp+}
+
+{\scriptsize \begin{verbatim}
+/* robotNavigationApplication.cpp - robot navigation ROS Node definition
+ *
+ * Author:  Birhanu Shimelis Girma, Carnegie Mellon University Africa
+ * Email:   bgirmash@andrew.cmu.edu
+ * Date:    June 05, 2025
+ * Version: v1.0
+ *
+ * Copyright (C) 2023 CSSR4Africa Consortium
+ *
+ * This project is funded by the African Engineering and Technology Network (Afretec)
+ * Inclusive Digital Transformation Research Grant Programme.
+ *
+ * Website: www.cssr4africa.org
+ *
+ * This program comes with ABSOLUTELY NO WARRANTY.
+ */
+\end{verbatim} }
+
+\item[\checkboxChecked]  {\small \verb+robotNavigationApplicationImplementation.cpp+}
+
+{\scriptsize \begin{verbatim}
+/* robotNavigationImplementation.cpp - robot navigation functions implementation.
+*
+* Author:   Birhanu Shimelis Girma, Carnegie Mellon University Africa
+* Email:    bgirmash@andrew.cmu.edu
+* Date:     June 05, 2025
+* Version:  v1.0
+*
+* Copyright (C) 2023 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+robotNavigationApplicationInterface.h+}
+
+{\scriptsize \begin{verbatim}
+/* robotNavigationInterface.h - robot navigation interfacing and imported libraries
+ *
+ * Author:  Birhanu Shimelis Girma, Carnegie Mellon University Africa
+ * Email:   bgirmash@andrew.cmu.edu
+ * Date:    June 05, 2025
+ * Version: v1.0
+ *
+ * Copyright (C) 2023 CSSR4Africa Consortium
+ *
+ * This project is funded by the African Engineering and Technology Network (Afretec)
+ * Inclusive Digital Transformation Research Grant Programme.
+ *
+ * Website: www.cssr4africa.org
+ *
+ * This program comes with ABSOLUTELY NO WARRANTY.
+ */
+\end{verbatim} }
+
+\end{description} 
+
+\noindent The {\small \verb+robotNavigationApplication.cpp+} file contains a documentation comment:
+
+\begin{description}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+/* robotNavigationApplication.cpp - Application code to run the robot Navigation.
+
+ * This node is responsible for navigating the robot to a goal location in
+ * the environment map using a path planning algorithm. The node reads the
+ * robot pose input and the goal location from the service request and
+ * navigates the robot to the goal location. The node uses the path
+ * planning algorithm to find the shortest path to the goal location.
+ *
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Libraries
+ *      Standard libraries
+ *          std::string, std::vector, std::thread, std::fstream, std::cout,
+ *          std::endl, std::cin, std::pow, std::sqrt, std::abs
+ *      ROS libraries
+ *          ros/ros.h, ros/package.h,
+ *          actionlib/client/simple_action_client.h,
+ *          control_msgs/FollowJointTrajectoryAction.h,
+ *          geometry_msgs/Twist.h
+ *      OpenCV libraries
+ *          opencv2/opencv.hpp
+ * 
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Parameters
+ *      Command-line Parameters
+ *          None
+ *      Configuration File Parameters
+ *          Key                   |     Value 
+ *          --------------------- |     -------------------
+ *          environmentMap        |     scenarioOneEnvironmentMap.dat
+ *          configurationMap      |     scenarioOneConfigMap.dat
+ *          pathPlanning          |     astar
+ *          socialDistance        |     true
+ *          robotTopics           |     pepperTopics.dat
+ *          verboseMode           |     true
+ *          robotType             |     old
+ *
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Subscribed Topics and Message Types
+ *      /robotLocalization/pose     geometry_msgs/Pose2D
+ *
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}                    
+ * Published Topics and Message Types
+ *      /pepper_dcm/cmd_vel         geometry_msgs/Twist
+ *      /joint_angles               naoqi_bridge_msgs/JointAnglesWithSpeed
+ *
+\end{verbatim}}
+
+\item[\checkboxChecked]
+ {\small 
+\begin{verbatim}                    
+ * Services Invoked
+ *      None
+ *
+\end{verbatim}}
+
+\item[\checkboxChecked]
+ {\small 
+\begin{verbatim}                    
+ * Services Advertised and Message Types
+ *      /robotNavigation/set_goal   cssr_system/setGoal
+ *
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Input Data Files
+ *      pepperTopics.dat - Contains topic names for robot actuators
+ *      scenarioOneEnvironmentMap.dat - Environment map data
+ *      scenarioOneConfigMap.dat - Configuration space map data
+ *      parameters230.dat - Locomotion parameters for old robot
+ *      parameters240.dat - Locomotion parameters for new robot
+ *
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Output Data Files
+ *      robotPose.dat - Updated robot position after navigation
+ *      environmentMapWaypoints[Algorithm].png - Environment map with waypoints
+ *      configMapWaypoints[Algorithm].png - Configuration map with waypoints
+ *
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Configuration Files
+ *      robotNavigationConfiguration.ini
+ *
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Example Instantiation of the Module
+ *      rosrun cssr_system robotNavigation
+ *
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Author:  Adedayo Akinade, Carnegie Mellon University Africa
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Email:   aakinade@andrew.cmu.edu
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Date:    January 7, 2025
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Version: v1.0
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Author:  Birhanu Shimelis Girma, Carnegie Mellon University Africa
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Email:   bgirmash@andrew.cmu.edu
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Date:    June 05, 2025
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Version: v1.0
+ */
+\end{verbatim}}
+
+\end{description}
+
+\subsubsection{Component Unit Testing}
+
+\begin{description}
+
+\item[\checkboxDashed] A unit test application named {\small \verb+robotNavagationLaunchRobot.launch+} is provided in the {\small \verb+launch+} directory. 
+
+\item[\checkboxDashed] A unit test application named {\small \verb+robotNavigationLaunchSimulator.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxDashed] A unit test application named {\small \verb+robotNavigationLaunchTestHarness.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxDashed] The {\small \verb+robotNavigationLaunchRobot.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+robotNavigationLaunchSimulator.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+robotNavigationLaunchTestHarness.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The component being tested outputs the copyright message on startup:  \\ 
+{\scriptsize
+\begin{verbatim}
+robotNavigation: v1.0
+
+This project is funded by the African Engineering and Technology Network (Afretec) 
+Inclusive Digital Transformation Research Grant Programme. 
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The component being tested write short messages to the terminal  during the start-up phase to indicate the state of the node:
+{\small
+\begin{verbatim}
+robotNavigation: start-up.
+robotNavigation: subscribed to /topicName.
+\end{verbatim}
+} 
+
+\item[\checkboxChecked] The component being tested periodically (every ten seconds) writes a short heartbeat message to the terminal to indicate the state of the node:
+{\small
+\begin{verbatim}
+robotNavigation: running.
+\end{verbatim}
+}
+
+\item[\checkboxDashed] The {\small \verb+robotNavigationLaunchRobot.launch+} file  connects the component a data source and a data sink on the physical robot, and produces the expected result as set out in the  \small {\texttt{README.md}}   file.    This means this file launches the physical robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+robotNavigationLaunchSimulator.launch+} file  connects the component a data source and a data sink on the simulator.    This means this file launches the simulator robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+robotNavigationLaunchTestHarness.launch+} file  connects the component a data source and a data sink using a driver and a stub.   This means this file launches there required drivers and stubs, and the node being tested.
+
+\item[\checkboxChecked] Unit test instructions are provided in a file named {\small \verb+README.md+} in the {\small \verb+robotNavigation+} directory.
+
+\begin{description}
+
+\item[\checkboxChecked] The instructions  explain how the  communication and computation functionality are validated by describing the (sink) output data that will be produced from the (source) input data.  
+
+\item[\checkboxChecked] The instructions  explain how the  configuration functionality is validated by describing what changes in behaviour will occur if the values for the component parameters in the component configuration ({\small \verb+robotNavigationConfiguration.ini+}) file are altered.
+
+\end{description}
+
+\end{description}
+
+\subsection{Robot Navigation Unit Test}
+
+\subsubsection{Files and Directories}
+
+\begin{description}
+
+\item[\checkboxChecked] Files for a single component are stored in a subdirectory named \textbf{robotNavigationTest}. Refer to Deliverable D3.1 System Architecture for details of the ROS package names and the associated ROS nodes.
+
+\item[\checkboxChecked] The \textbf{robotNavigationTest} directory has seven sub-directories: {\small \verb+config+},   {\small \verb+data+},   {\small \verb+include/robotNavigationTest+},   {\small \verb+launch+}, {\small \verb+msg+},  {\small \verb+src+}, and {\small \verb+srv+}.
+
+\item[\checkboxChecked] The  {\small \verb+config+} directory contains one file, named as follows.
+
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotNavigationTestConfiguration.ini+}  
+\item[\checkboxChecked] The configuration file {\small \verb+robotNavigationTestConfiguration.ini+} contains the key-value pairs that set the component parameters.  
+\item[\checkboxChecked] Each key-value pair is written on a separate line.
+\end{description} 
+
+
+\item[\checkboxChecked] The  {\small \texttt{data}} directory contains six input files and one output file.
+
+\begin{itemize}
+    \item The input files are named as follows.
+        \begin{description} 
+        \item[\checkboxChecked] {\small \texttt{pepperTopics.dat}}
+        \item[\checkboxChecked] {\small \texttt{astarAlgorithmInput.dat}}
+        \item[\checkboxChecked] {\small \texttt{bfsAlgorithmInput.dat}}
+        \item[\checkboxChecked] {\small \texttt{dijkstraAlgorithmInput.dat}}
+        \item[\checkboxChecked] {\small \texttt{boundaryTestInput.dat}}
+        \item[\checkboxChecked] {\small \texttt{navigationServiceInput.dat}}
+        \item[\checkboxChecked] The topics file {\small \texttt{pepperTopics.dat}} contains the key-value pairs that set the topic names required by the component.
+        \item[\checkboxChecked] Each key-value pair of the {\small \texttt{pepperTopics.dat}} file is written on a separate line.
+        \end{description}
+    \item The output files are named as follows.
+        \begin{description}
+            \item[\checkboxChecked] {\small \texttt{robotNavigationTestOutput.dat}}
+        \end{description}
+\end{itemize}
+
+\item[\checkboxChecked] The  {\small \verb+include/robotNavigationTest+} directory contains one file, named as follows.
+
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotNavigationTestInterface.h+}  
+\end{description}
+
+\item[\checkboxChecked] The  {\small \verb+launch+} directory contains two launch files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotNavigationTestLaunchRobot.launch+}  
+\item[\checkboxChecked]  {\small \verb+robotNavigationTestLaunchTestHarness.launch+}  
+\end{description}
+
+
+\item[\checkboxChecked] The  {\small \verb+msg+} directory contains one files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+Goal.msg+}  
+\end{description} 
+
+\item[\checkboxChecked] The  {\small \verb+src+} directory contains three source files, named as follows.
+\begin{description}
+\item[\checkboxChecked] {\small \verb+robotNavigationDriver.cpp+}  
+\item[\checkboxChecked]  {\small \verb+robotNavigationTestImplementation.cpp+}  
+\item[\checkboxChecked]  {\small \verb+robotNavigationTestImplementation.cpp+}  
+\end{description}
+
+\item[\checkboxChecked] The {\small \verb+robotNavigationTest+} directory contains a {\small \verb+README.md+} file with instructions on how to run the test.
+
+\item[\checkboxChecked] The {\small \verb+robotNavigationTest+} directory contains a {\small \verb+CMakeLists.txt+} build file.
+
+\item[\checkboxChecked] The {\small \verb+robotNavigationTest+} directory contains no {\small \verb+package.xml+} since it is a ROS node within the {\small \verb+unit_test+} package.
+
+\end{description}Files
+
+\subsubsection{Internal Source Code Documentation}
+
+Refer to Deliverable D3.2, Appendix B (Mandatory Standards for Internal Source Code Documentation), for a definition of the standards on which this checklist is based.\\
+
+\noindent All source files contain a documentation comment that gives the copyright notice, as follows.
+
+\begin{description}
+
+\item[\checkboxChecked] {\small \verb+robotNavigationTestApplication.cpp+}
+{\scriptsize \begin{verbatim}
+/* robotNavigationTestApplication.cpp - robot navigation unit test ROS Node definition
+*
+* Author:   Birhanu Shimelis Girma, Carnegie Mellon University Africa
+* Email:    bgirmash@andrew.cmu.edu
+* Date:     June 05, 2025
+* Version:  v1.0
+*
+* Copyright (C) 2023 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+robotNavigationTestImplementation.cpp+}
+{\scriptsize \begin{verbatim}
+/* robotNavigationTestImplementation.cpp - robot navigation functions that can be used
+*        by the unit test ROS Node
+*
+* Author: Birhanu Shimelis Girma, Carnegie Mellon University Africa
+* Email: bgirmash@andrew.cmu.edu
+* Date: June 05, 2025
+* Version: v1.0
+*
+* Copyright (C) 2023 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\item[\checkboxChecked] {\small \verb+robotNavigationDriver.cpp+}
+{\scriptsize \begin{verbatim}
+/* robotNavigationDriver.cpp - a driver software that simulates robot localization
+*
+* Author:   Birhanu Shimelis Girma, Carnegie Mellon University Africa
+* Email:    bgirmash@andrew.cmu.edu
+* Date:     June 05, 2025
+* Version:  v1.0
+*
+* Copyright (C) 2023 CSSR4Africa Consortium
+*
+* This project is funded by the African Engineering and Technology Network (Afretec)
+* Inclusive Digital Transformation Research Grant Programme.
+*
+* Website: www.cssr4africa.org
+*
+* This program comes with ABSOLUTELY NO WARRANTY.
+*/
+\end{verbatim} }
+
+\end{description}
+
+\noindent The {\small \verb+robotNavigationTestApplication.cpp+} file contains a documentation comment:
+
+\begin{description}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+/* robotNavigationTestApplication.cpp - Application code to run the robot
+*       Navigation Unit test.
+*
+* This module is responsible for running the tests on the robot navigation
+*   module.
+* The tests are run using Google Test and the results are written to a file. 
+* The module tests the path planning algorithms (BFS, Dijkstra, A*) via
+*    service calls, navigation service functionality, boundary conditions,
+*    and configuration management.
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Libraries
+*       Standard libraries
+-           std::string, std::vector, std::fstream
+*       ROS libraries
+-           ros/ros.h, ros/package.h, cssr_system/setGoal.h
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Parameters
+*       Command-line Parameters
+*           None
+*       Configuration File Parameters
+*           Key                   |     Value 
+*           --------------------- |     -------------------
+*           pathPlanningBfs       |     true
+*           pathPlanningDijkstra  |     true
+*           pathPlanningAstar     |     true
+*           serviceTests          |     true
+*           boundaryTests         |     true
+*           configurationTests    |     true
+*           verboseMode           |     true
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Subscribed Topics and Message Types
+*       None
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}                    
+* Published Topics and Message Types
+*       None
+\end{verbatim}}
+
+\item[\checkboxChecked]
+ {\small 
+\begin{verbatim}                    
+* Services Used
+*       /robotNavigation/set_goal            cssr_system/setGoal
+\end{verbatim}}
+
+\item[\checkboxChecked]
+ {\small 
+\begin{verbatim}                    
+* Services Advertised and Message Types
+*       None
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Input Data Files
+*       astarAlgorithmInput.dat
+*       bfsAlgorithmInput.dat
+*       boundaryTestInput.dat
+*       dijkstraAlgorithmInput.dat
+*       navigationServiceInput.dat
+*       pepperTopics.dat
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Output Data Files
+*       robotNavigationTestOutput.dat
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Configuration Files
+*       robotNavigationTestConfiguration.ini
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Example Instantiation of the Module
+*       rosrun unit_tests robotNavigationTest
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Author:  Birhanu Shimelis Girma, Carnegie Mellon University Africa
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Email:   bgirmash@andrew.cmu.edu
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+* Date:     January 10, 2025
+\end{verbatim}}
+
+\item[\checkboxChecked] 
+ {\small 
+\begin{verbatim}
+ * Version: v1.0
+ */
+\end{verbatim}}
+
+\end{description}
+
+\subsubsection{Component Unit Testing}
+
+\begin{description}
+
+\item[\checkboxChecked] A unit test application named {\small \verb+robotNavagationTestLaunchRobot.launch+} is provided in the {\small \verb+launch+} directory. 
+
+\item[\checkboxDashed] A unit test application named {\small \verb+robotNavigationTestLaunchSimulator.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxChecked] A unit test application named {\small \verb+robotNavigationTestLaunchTestHarness.launch+} is provided in the {\small \verb+launch+} directory.
+
+\item[\checkboxChecked] The {\small \verb+robotNavigationTestLaunchRobot.launch+} file  launches the component being tested.
+
+\item[\checkboxDashed] The {\small \verb+robotNavigationTestLaunchSimulator.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The {\small \verb+robotNavigationTestLaunchTestHarness.launch+} file  launches the component being tested.
+
+\item[\checkboxChecked] The component being tested outputs the copyright message on startup:  \\ 
+{\scriptsize
+\begin{verbatim}
+robotNavigationTest: v1.0
+
+This project is funded by the African Engineering and Technology Network (Afretec) 
+Inclusive Digital Transformation Research Grant Programme. 
+
+Website: www.cssr4africa.org
+
+This program comes with ABSOLUTELY NO WARRANTY.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The component being tested write short messages to the terminal  during the start-up phase to indicate the state of the node:
+{\small
+\begin{verbatim}
+robotNavigationTest: start-up.
+robotNavigationTest: subscribed to /topicName.
+\end{verbatim}
+} 
+
+\item[\checkboxChecked] The component being tested periodically (every ten seconds) writes a short heartbeat message to the terminal to indicate the state of the node:
+{\small
+\begin{verbatim}
+robotNavigationTest: running.
+\end{verbatim}
+}
+
+\item[\checkboxChecked] The {\small \verb+robotNavigationTestLaunchRobot.launch+} file  connects the component a data source and a data sink on the physical robot, and produces the expected result as set out in the  \small {\texttt{README.md}}   file.    This means this file launches the physical robot and all its sensors and actuators as required.
+
+\item[\checkboxDashed] The {\small \verb+robotNavigationTestLaunchSimulator.launch+} file  connects the component a data source and a data sink on the simulator.    This means this file launches the simulator robot and all its sensors and actuators as required.
+
+\item[\checkboxChecked] The {\small \verb+robotNavigationTestLaunchTestHarness.launch+} file  connects the component a data source and a data sink using a driver and a stub.   This means this file launches there required drivers and stubs, and the node being tested.
+
+\item[\checkboxChecked] Unit test instructions are provided in a file named {\small \verb+README.md+} in the {\small \verb+robotNavigationTest+} directory.
+
+\begin{description}
+
+\item[\checkboxChecked] The instructions  explain how the  communication and computation functionality are validated by describing the (sink) output data that will be produced from the (source) input data.  
+
+\item[\checkboxChecked] The instructions  explain how the  configuration functionality is validated by describing what changes in behaviour will occur if the values for the component parameters in the component configuration ({\small \verb+robotNavigationTestConfiguration.ini+}) file are altered.
+
+\end{description}
+
+\end{description}
+
+
+
 %\subsubsection{System Testing}
 %%=============================================================
 %\label{subsubsection:overt_attention_test_system_testing}
@@ -7032,6 +9832,7 @@ mapGenerationTest: running.
 \addcontentsline{toc}{subsection}{Principal Contributors}
 The main authors of this deliverable are as follows (in alphabetical order).\\
 Adedayo Akinade, Carnegie Mellon University Africa.\\
+Clifford Onyonka, Carnegie Mellon University Africa.\\
 David Vernon, Carnegie Mellon University Africa.\\     
 
   
@@ -7057,12 +9858,15 @@ Adedayo Akinade. \\
 27 January 2025.   
 
 \item [Version 1.2]~\\
-Updated the integration results for all accepted software -- personDetection, faceDetection, soundDetection, speechEvent, behaviourController, and mapGeneration.
+Updated the integration results for all accepted software -- personDetection, faceDetection, soundDetection, speechEvent, behaviourController, and mapGeneration. \\
 Adedayo Akinade. \\                               
 30 June 2025.   
 
+\item [Version 1.3]~\\
+Updated the integration results for the following accepted software -- actuatorTests, sensorTests, robotNavigation, robotLocalization, and textToSpeech. \\
+Clifford Onyonka. \\
+14 November 2025.
 
 \end{description}
 
 \end{document}
-
