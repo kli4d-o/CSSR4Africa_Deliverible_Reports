@@ -31,10 +31,10 @@
 \leadpartner{Carnegie Mellon University Africa}     
 %%\partner{}                               
 
-\revision{2.6}                         
+\revision{2.7}                         
 \deliverabledate{31/01/2024}    
 \submissiondate{24/01/2024}   
-\revisiondate{11/06/2025}   
+\revisiondate{08/05/2026}   
 \disseminationlevel{PU}
 \responsible{D. Vernon }            
 
@@ -1502,11 +1502,11 @@ This ROS node processes a vocal sound, i.e., an utterance, represented as an aud
 
 The node uses a deep neural network that has been trained so that it can perform automated speech recognition.  In the case that the spoken utterance cannot be recognized, either because the sound is not a spoken utterance or because it uses vocabulary on when the neural network has not been trained, then the node flags this by producing a text that reads ``Error: speech not recognized''.  
  
-The node has one input: an audio signal that is captured by the  {\small \verb+soundDetection+} module, published on a  topic named  {\small \verb+soundDetection/signal+}. When the {\small \verb+soundDetection+} module is not available or is not publishing  to the  {\small \verb+soundDetection/signal+} topic, the  {\small \verb+speechEvent+} ROS node flags this by producing a text that reads ``Error: soundDetection is down''.
- 
-The node has one output: a string representing the message in the spoken audio signal. This is published on a  topic named  {\small \verb+speechEvent/text+}.
+The node has one input: an audio signal that is captured by the  {\small \verb+soundDetection+} module, published on a  topic named {\small \verb+soundDetection/signal+}. When the {\small \verb+soundDetection+} module is not available or is not publishing  to the  {\small \verb+soundDetection/signal+} topic, the  {\small \verb+speechEvent+} ROS node flags this by producing a text that reads ``Error: soundDetection is down''. The node has one output: a string representing the message in the spoken audio signal.
 
-The node can run in normal mode or verbose mode. In verbose mode, data that is published to topics is also printed to the terminal, and a graphical application is opened on the screen where data that is published to the  \verb+speechEvent/text+} topic is displayed.
+The node can run in normal mode or verbose mode. In verbose mode, the generated text transcription is printed to the terminal while also being displayed on a graphical application that is automatically opened on the screen (this graphical application is only opened when the ROS node is running in verbose mode).
+
+Speech transcription is triggered by a call made to the {\small \verb+speechEvent/recognise_speech_action+} ROS action. This is done via the {\small \verb+speechEvent/recognise_speech_action/goal+} ROS topic that is tied to this ROS action. Results are then published on the \\{\small \verb+speechEvent/recognise_speech_action/result+} ROS topic that is tied to this ROS action.
 
 \subsubsection*{Configuration File}
 %-----------------------------
@@ -1521,17 +1521,23 @@ The operation of the {\small \verb+speechEvent+} node is determined by the conte
 \hline
 {\footnotesize \verb+language+}  & {\footnotesize \verb+kinyarwanda+, \verb+english+}   &  {\small Specifies the language in which the utterance is spoken.} \\ 
 \hline
+{\footnotesize \verb+model+}  & {\footnotesize \makecell[l]{\verb+conformer-transducer+, \\ \verb+parakeet+, \verb+whisper+}} &  {\small Specifies the ASR model to be used.} \\ 
+\hline
 {\footnotesize \verb+verboseMode+}  & {\footnotesize \verb+true+, \verb+false+}     & {\small Specifies whether diagnostic data is to be printed to the terminal.} \\
 \hline
 {\footnotesize \verb+cuda+}  & {\footnotesize \verb+true+, \verb+false+}     & {\small Specifies whether to use GPUs. The term `cuda' is chosen as the key to alert the user that only NVIDIA GPUs are supported.} \\
 \hline
 {\footnotesize \verb+confidence+}  & {\footnotesize \verb+<number>+}     & {\small The confidence level on a scale of 0 to 1 above which transcriptions are assumed to be acceptable and correct.} \\
 \hline
-{\footnotesize \verb+speechPausePeriod+}  & {\footnotesize \verb+<number>+}     & {\small The time period above which one utterance is assumed to be separate from a preceding utterance.} \\
-\hline
-{\footnotesize \verb+maxUtteranceLength+}  & {\footnotesize \verb+<number>+}     & {\small The maximum length (in seconds) of an utterance. Longer utterances are split when they go past this length.} \\
+{\footnotesize \verb+vadThreshold+}  & {\footnotesize \verb+<number>+}     & {\small The confidence level on a scale of 0 to 1 above which an utterance is considered valid in an audio signal.} \\
 \hline
 {\footnotesize \verb+sampleRate+}  & {\footnotesize \verb+<number>+}     & {\small Specifies the sampling rate of the incoming audio sourced from the \verb+/soundDetection/signal+ ROS topic.} \\
+\hline
+{\footnotesize \verb+interUtteranceLen+}  & {\footnotesize \verb+<number>+}     & {\small The minimum length (in seconds) between two successive utterances, below which the two are assumed to be one utterance.} \\
+\hline
+{\footnotesize \verb+minUtteranceLen+}  & {\footnotesize \verb+<number>+}     & {\small The minimum length (in seconds) of an utterance; shorter utterances are ignored and therefore discarded.} \\
+\hline
+{\footnotesize \verb+maxUtteranceLength+}  & {\footnotesize \verb+<number>+}     & {\small The maximum length (in seconds) of an utterance, after which any extra utterances are truncated.} \\
 \hline
 {\footnotesize \verb+heartbeatMsgPeriod+}  & {\footnotesize \verb+<number>+}     & {\small Specifies the time period in seconds at which a periodic heartbeat message is sent to the terminal.} \\
 \hline
@@ -1568,22 +1574,12 @@ The following are the topics to which the {\small \verb+speechEvent+} node subsc
 \subsubsection*{Topics Published}
 %----------------------------
 
-The following are the topics to which the {\small \verb+speechEvent+} node publishes.
- 
-\begin{center}
-\begin{tabularx}{\linewidth}{| l | l | X|}
-\hline 
-{\small Topic }                                                                                & {\small  Node}    &  {\small Platform}       \\
-\hline
-{\footnotesize \verb+/speechEvent/text+ }  & {\footnotesize \verb+behaviorController+} & {\small Physical robot} \\ 
-\hline
-\end{tabularx}
-\end{center}
+This node does not publish to any ROS topics.
 
 \subsubsection*{Services Supported}
 %---------------------------------------
 
-This node  provides and advertizes a server for a service {\small \verb+/speechEvent/set_language+} to set the language to be used. The service {\small \verb+/speechEvent/set_enabled+} is also provided by this node, and it is used to set whether the  {\small \verb+speechEvent+} ROS node is enabled to transcribe speech utterances or disabled so that it does not transcribe speech utterances. These services are called by  the {\small \verb+behaviorController+} node.
+This node  provides and advertises a server for a service {\small \verb+/speechEvent/set_language+} to set the language to be used. This service is called by  the {\small \verb+behaviorController+} node.
 
 The following summarizes the service supported.
 
@@ -1594,8 +1590,6 @@ The following summarizes the service supported.
 \hline
 {\footnotesize \verb+/speechEvent/set_language+ }  & {\footnotesize \verb+kinyarwanda+, \verb+english+} & {\small Sets the transcription language at runtime. Returns a response of 0 if unsuccessful (e.g., if using an unsupported language such as Arabic), and 1 if the service invocation is successful.} \\ 
 \hline
-{\footnotesize \verb+/speechEvent/set_enabled+ }  & {\footnotesize \verb+true+, \verb+false+} & {\small Enables or disables the transcription process .Returns a response of 0 if unsuccessful (e.g., if invoked with a value other than true or false), and 1 if the service invocation is successful.} \\ 
-\hline
 \end{tabularx}
 \end{center}
 
@@ -1605,6 +1599,19 @@ The following summarizes the service supported.
 This node does not call any services.
 
 
+\subsubsection*{Actions Supported}
+
+The following are the actions that the {\small \verb+speechEvent+} node supports.
+ 
+\begin{center}
+\begin{tabularx}{\linewidth}{| l | l | X|}
+\hline 
+{\small Action }                                                                                & {\small  Node}    &  {\small Effect}       \\
+\hline
+{\footnotesize \verb+/speechEvent/recognise_speech_action+ }  & {\footnotesize \verb+behaviorController+} & {\small Triggers the speech recognition process to run and transcribe speech utterances} \\ 
+\hline
+\end{tabularx}
+\end{center}
 
 
 
@@ -1822,7 +1829,7 @@ Figure \ref{fig:architecture2} shows the CSSR4Africa system architecture specifi
 \includegraphics[width=165mm,angle=0]{System_Architecture_Nodes.pdf}
 %\end{center}
 
-\caption{The CSSR4Africa system architecture specified at the level of ROS nodes (thin border rectangles), ROS topics (black lines), ROS services (red lines), and sources \& sinks for sensor topics and actuator topics (thick border rectangles).}  
+\caption{The CSSR4Africa system architecture specified at the level of ROS nodes (thin border rectangles), ROS topics (black lines), ROS services (red lines), ROS actions (blue lines), and sources \& sinks for sensor topics and actuator topics (thick border rectangles).}  
 \label{fig:architecture2}       
 \end{figure}
 
@@ -1845,8 +1852,9 @@ The main authors of this deliverable are as follows (in alphabetical order).
 \blank
 ~
 \blank
-Muhammed Danso, Carnegie Mellon University Africa.\\   
-David Vernon, Carnegie Mellon University Africa.\\   
+Clifford Onyonka, Carnegie Mellon University Africa.\\
+David Vernon, Carnegie Mellon University Africa.\\
+Muhammed Danso, Carnegie Mellon University Africa.\\
 Yohannes Haile, Carnegie Mellon University Africa.\\
 
 \newpage
@@ -1988,6 +1996,13 @@ Add support for the {\small \verb+/speechEvent/set_enabled+} ROS service to {\sm
 Use an updated system architecture diagram to show the new {\small \verb+/speechEvent/set_enabled+} ROS service \\
 Clifford Onyonka.\\
 11 June 2025.
+
+\item [Version 2.7]~\\
+Update {\small \verb+speechEvent+} to include use {\small \verb+speechEvent\recognise_speech_action+} ROS action to trigger speech recognition to run \\
+Update {\small \verb+speechEvent+}'s configuration file \\
+Update system architecture diagram to show {\small \verb+speechEvent+}'s {\small \verb+speechEvent\recognise_speech_action+} ROS action\\
+Clifford Onyonka.\\
+08 May 2026.
 
 
 \end{description}
