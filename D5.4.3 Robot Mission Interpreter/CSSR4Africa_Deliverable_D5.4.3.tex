@@ -115,10 +115,10 @@
 \leadpartner{Carnegie Mellon University Africa}  
 \partner{The University of the Witwatersrand}       
 
-\revision{1.8}                         
+\revision{1.9}                         
 \deliverabledate{31/12/2024}   
 \submissiondate{16/12/2024}  
-\revisiondate{07/06/2025}      
+\revisiondate{08/05/2026}      
 \disseminationlevel{PU}
 \responsible{Tsegazeab Tefferi, CMU-Africa}         
 
@@ -190,7 +190,7 @@ This document describes the development and implementation of a ROS node for the
             \draw[arrow] (interpreter) to[bend left=20] (\node);
         }
 
-            \foreach \node in {overtAttention, speechEvent} {
+            \foreach \node in {overtAttention} {
     
     \draw[reverse] (interpreter) to[bend right=10] (\node);
     }
@@ -200,7 +200,7 @@ This document describes the development and implementation of a ROS node for the
     \label{fig:interaction_diagram}
 \end{figure}
 
-Figure~\ref{fig:interaction_diagram} illustrates the communication architecture of the Robot Mission Interpreter. The central node, shown in red, coordinates with eight peripheral ROS nodes shown in orange. The bidirectional communication is represented by arrows: solid arrows indicate service call from the interpreter to the nodes, while dashed arrows topic messages sent from the nodes to the interpreter.
+Figure~\ref{fig:interaction_diagram} illustrates the communication architecture of the Robot Mission Interpreter. The central node, shown in red, coordinates with eight peripheral ROS nodes shown in orange. The bidirectional communication is represented by arrows: solid arrows indicate service calls or action goals from the interpreter to the nodes, while dashed arrows topic messages sent from the nodes to the interpreter.
 
 
 This deliverable presents a comprehensive report detailing each phase of the software development lifecycle for the Robot Mission Interpreter module. Section 2 outlines the requirements definition process, aligning functional necessities with the project's overarching goals, thereby establishing the foundation for subsequent development efforts.
@@ -380,7 +380,7 @@ In a robot mission specification implemented using behavior trees, the composite
 \paragraph{Class Definition}\mbox{}\\
 %- - - - - - - - - - - - - - - - - - - - - 
 
-Each Leaf Node is implemented as a C++ class that inherits from either \texttt{\small BT::SyncActionNode} or \texttt{\small BT::ConditionNode}, depending on whether it represents an Action or a Condition node. The class definition includes the following components:
+Each Leaf Node is implemented as a C++ class that inherits from either \texttt{\small BT::SyncActionNode}, \texttt{\small BT::StatefulActionNode} or \texttt{\small BT::ConditionNode}, depending on whether it represents an Action (Synchronous or Asynchronous) or a Condition node. The class definition includes the following components:
 
 \subparagraph{1. Constructor}
 %- - - - - - - - - - - - - - - - - - - - - 
@@ -389,24 +389,35 @@ The constructor for an Action node follows the
 \begin{lstlisting}[style=cppstyle]
     BT::SyncActionNode(const std::string& name, const NodeConfig& config)
 \end{lstlisting}
-%\texttt{\small BT::SyncActionNode(const std::string\& name, const NodeConfig\& config)} 
-signature, while that for a Condition node follows the 
+signature for synchronous tasks or 
+\begin{lstlisting}[style=cppstyle]
+    BT::StatefulActionNode(const std::string& name, const NodeConfig& config)
+\end{lstlisting}
+%\texttt{\small BT::SyncActionNode(const std::string\& name, const NodeConfig\& config)}
+signature for asynchronous tasks, while that for a Condition node follows the 
 %\texttt{\small BT::ConditionNode(const std::string\& name, const NodeConfig\& config)}
 \begin{lstlisting}[style=cppstyle]
     BT::ConditionNode(const std::string& name, const NodeConfig& config)
 \end{lstlisting}
-signature. During initialization, the constructor sets up necessary ROS components, such as service clients and topic subscribers, to facilitate the node's functionality.
+signature. During initialization, the constructor sets up necessary ROS components, such as service and action clients and topic subscribers, to facilitate the node's functionality.
 
-\subparagraph{2. Tick Method}
+\subparagraph{2. Task Initiation}
 %- - - - - - - - - - - - - - - - - - - - - 
+The task initiation is handled by either of two methods
 
 \begin{lstlisting}[style=cppstyle]
     BT::NodeStatus tick()
 \end{lstlisting}
+for synchronous tasks, or 
+\begin{lstlisting}[style=cppstyle]
+    BT::NodeStatus onStart()
+\end{lstlisting}
+for asynchronous tasks
 
-The \texttt{\small tick()} method encapsulates the core logic of each Leaf Node and is invoked during behavior tree traversal. Serving as the primary execution method for both Action and Condition nodes, \texttt{\small tick()} performs the node's specific functionality, which may include modifying Blackboard values, making service calls to CSSR4Africa ROS nodes, or executing custom actions based on messages received from subscribed topics.
 
-This method returns one of three possible states:
+These two methods encapsulates the core logic of each Leaf Node and are invoked during behavior tree traversal. Serving as the primary execution method for both nodes, \texttt{\small tick()} performs the node's specific functionality, which may include modifying Blackboard values, sending service or goal requests to CSSR4Africa ROS nodes, or executing custom actions based on messages received from subscribed topics.
+
+These methods returns one of three possible states:
 \begin{itemize}
     \item \texttt{\small BT::NodeStatus::SUCCESS}: Execution completed successfully.
     \item \texttt{\small BT::NodeStatus::FAILURE}: Execution failed.
@@ -418,7 +429,7 @@ This method returns one of three possible states:
 
 The private section contains:
 \begin{itemize}
-    \item Class member variables shared between the constructor and the \texttt{\small tick()} method.
+    \item Class member variables shared between the constructor and the task initiation methods.
     \item Callback methods for handling topic subscriptions.
     \item Other implementation-specific private members essential for the node's operation.
 \end{itemize}
@@ -468,6 +479,12 @@ The \texttt{\small behaviorController} module follows a standard ROS package str
         .5 behaviorControllerInterface.h.
         .5 cultureKnowledgeBaseInterface.h.
         .5 environmentKnowledgeBaseInterface.h.
+        .3 action.
+        .4 gestureExecutionPerformGesture.action.
+        .4 robotNavigationSetGoal.action.
+        .4 robotNavigationSetPose.action.
+        .4 speechEventRecogniseSpeech.action.
+        .4 textToSpeechSayText.action.
         .3 msg.
         .4 overtAttentionMode.msg.
         .3 src.
@@ -547,7 +564,6 @@ Located in srv/ directory, the service definition files are as follows:
     \item \texttt{\small srv/\textnormal{robotLocalizationSetPose.srv}}: Service definition for the \texttt{\small robotLocalization/set\_pose} server.
     \item \texttt{\small srv/\textnormal{robotNavigationSetGoal.srv}}: Service definition for the \texttt{\small robotNavigation/set\_goal} server.
     \item \texttt{\small srv/\textnormal{speechEventSetLanguage.srv}}: Service definition for the \texttt{\small speechEvent/set\_language} server.
-    \item \texttt{\small srv/\textnormal{speechEventSetStatus.srv}}: Service definition for the \texttt{\small speechEvent/set\_status} server.
     \item \texttt{\small srv/\textnormal{tabletEventPromptAndGetResponse.srv}}: Service definition for the 
     \\ \texttt{\small tabletEvent/prompt\_and\_get\_response} server.
     \item \texttt{\small srv/\textnormal{textToSpeechSayText.srv}}: Service definition for the \texttt{\small textToSpeech/say\_text} server.
@@ -559,6 +575,18 @@ Located in srv/ directory, the service definition files are as follows:
 Located in msg/ directory, the message definition files are as follows:
 \begin{itemize}
     \item \texttt{\small overtAttentionMode.msg}: Message definition for \texttt{\small /overtAttention/mode} topic.
+\end{itemize}
+
+\subsubsection{Action Definition Files}
+%- - - - - - - - - - - - - - - - - - - - - 
+Located in action/ directory, the action definition files are as follows:
+\begin{itemize}
+    \item \texttt{\small srv/\textnormal{gestureExecutionPerformGesture.action}}: Action definition for the
+\\ \texttt{\small gestureExecution/perform\_gesture} server.
+\item \texttt{\small srv/\textnormal{robotNavigationSetGoal.action}}: Action definition for the \texttt{\small robotNavigation/set\_goal} server.
+\item \texttt{\small srv/\textnormal{textToSpeechSayText.action}}: Action definition for the \texttt{\small textToSpeech/say\_text} server.
+\item \texttt{\small srv/\textnormal{speechEventRecogniseSpeech.action}}: Action definition for the 
+\\ \texttt{\small speechEvent/recognise\_speech\_action} server.
 \end{itemize}
 
 \subsubsection{Package Relevant Files}
@@ -633,10 +661,10 @@ This node subscribes to the following two topics listed in the table. The table 
     \small{Contains the currently set mode and additional status for the ``seeking'', ``social'', and ``scanning'' modes.} &
     \small{D5.3} \\ \hline
 
-    \small{\texttt{\small /speechEvent/text}} & 
-    \small{\texttt{\small detected\_text}} & 
-    \small{Contains the transcriptions of the utterances detected by the Speech Event node.} &
-    \small{D4.3.2} \\ \hline
+    % \small{\texttt{\small /speechEvent/text}} & 
+    % \small{\texttt{\small detected\_text}} & 
+    % \small{Contains the transcriptions of the utterances detected by the Speech Event node.} &
+    % \small{D4.3.2} \\ \hline
 \end{longtable}
 \subsection{Topics Published}
 This node doesn't publish any topics.
@@ -663,7 +691,7 @@ The node interacts with the services detailed in the table below. Each entry spe
 
     % Data Rows
     \texttt{\footnotesize animateBehaviour/set\_activation} & \texttt{\footnotesize state} & Enable or Disable the Animate Behavior mechanism. &D5.2 \\ \hline
-    \texttt{\footnotesize gestureExecution/perform\_gesture} & \texttt{\footnotesize gesture\_type, gesture\_id, gesture\_duration, bow\_nod\_angle, location\_x, location\_y, location\_z} & Invokes the gesture subsystem to perform a type of gesture with specified coordinates. The coordinates are only necessary if the \texttt{\footnotesize gesture\_type} is \texttt{\footnotesize deictic}. &D5.5.1 \\ \hline
+    \texttt{\footnotesize gestureExecution/perform\_gesture} & \texttt{\footnotesize gesture\_type, gesture\_id, arm, deictic\_shape, gesture\_duration, bow\_nod\_angle, location\_x, location\_y, location\_z} & Invokes the gesture subsystem to perform a type of gesture with specified coordinates. The coordinates are only necessary if the \texttt{\footnotesize gesture\_type} is \texttt{\footnotesize deictic}. &D5.5.1 \\ \hline
     \texttt{\footnotesize overtAttention/set\_mode} & \texttt{\footnotesize state, location\_x, location\_y, location\_z} & Sets the mode of attention for the Overt Attention node to follow. &D5.3 \\ \hline
     \texttt{\footnotesize robotLocalization/set\_pose} & \texttt{\footnotesize x, y, theta} & Informs the localization subsystem of the current pose of the robot &D4.2.4 \\ \hline
     \texttt{\footnotesize robotNavigation/set\_goal} & \texttt{\footnotesize goal\_x, goal\_y, goal\_theta} & Invokes the navigation subsystem to move to the specified coordinates. &D5.5.4 \\ \hline
@@ -675,12 +703,38 @@ The node interacts with the services detailed in the table below. Each entry spe
 \end{longtable}
 }
 
+\newpage
+\subsection{Action goals sent}
+The node interacts with the action servers detailed in the table below. Each entry specifies the action server name, the message format required, the expected effects or observations, and references to the corresponding deliverables that provide comprehensive explanations of the arguments passed and the return values from each request.
+
+{\fontsize{9pt}{12pt}\selectfont
+\begin{longtable}[c]{|p{6.4cm}|p{2.9cm}|p{3cm}|p{1.4cm}|}
+    \caption{Service Messages and Their Effects} \label{tab:service_messages}\\
+    \hline
+    \rowcolor{gray!30}
+    \textnormal{Service} & \textnormal{Message Format} & \textnormal{Effect}& \textnormal{Deliverable}  \\ \hline
+    \endfirsthead
+    % Header for subsequent pages
+    \hline
+    \rowcolor{gray!30}
+     & \textnormal{Message Value} & \textnormal{Effect} \\ \hline
+    \endhead
+
+    % Data Rows
+    \texttt{\footnotesize gestureExecution/perform\_gesture} & \texttt{\footnotesize gesture\_type, gesture\_id, arm, deictic\_shape, gesture\_duration, bow\_nod\_angle, location\_x, location\_y, location\_z} & Invokes the gesture subsystem to perform a type of gesture with specified coordinates. The coordinates are only necessary if the \texttt{\footnotesize gesture\_type} is \texttt{\footnotesize deictic}. &D5.5.1 \\ \hline
+    \texttt{\footnotesize robotNavigation/set\_goal} & \texttt{\footnotesize goal\_x, goal\_y, goal\_theta} & Invokes the navigation subsystem to move to the specified coordinates. &D5.5.4 \\ \hline
+    \texttt{\footnotesize speechEvent/recognise\_speech\_action} & \texttt{\footnotesize language} & Sets the language for the ASR to transcribe utterances to &D5.5.4 \\ \hline
+    \texttt{\footnotesize textToSpeech/say\_text} & \texttt{\footnotesize message, language} & Sends the text to be converted to an audio signal based on the language specified and played on the robot's loudspeakers. &D5.5.2.4 \\ \hline
+
+\end{longtable}
+}
+
 
 \newpage
 \subsection{Robot Mission Nodes}
 %----------------------------
 
-A total of \textnormal{23 action and condition nodes} have been developed for the \texttt{\small behaviorController} module. These custom nodes are comprehensively listed in \textnormal{Table \ref{tab:implemented_mission_nodes}}. The table provides the following details for each:
+A total of \textnormal{29 action and condition nodes} have been developed for the \texttt{\small behaviorController} module. These custom nodes are comprehensively listed in \textnormal{Table \ref{tab:implemented_mission_nodes}}. The table provides the following details for each:
 
 \begin{itemize}
     \item \textnormal{Name}: The identifier of the node.
@@ -693,13 +747,15 @@ A total of \textnormal{23 action and condition nodes} have been developed for th
 % \subsection{Modularity and Reusability}
 %-----------------------------------
 
+There are six pairs of action nodes, each consisting of synchronous and asynchronous variants that perform the same underlying task. The asynchronous variants are non-blocking and interact with action servers by sending goals they can be composed to enable concurrent execution of tasks. In contrast, the synchronous nodes use service calls, are blocking in nature, and only one instance can execute at a time.
+
 While these nodes were crafted with the ``Lab Tour scenario'' in mind, described in \textnormal{D2.1 Use Case Scenario}, they are designed to be \textnormal{modular and highly reusable} across various missions. With a few exceptions, these nodes can be seamlessly integrated into different mission scenarios by supplying a different mission specification as input to the interpreter, by modifing the configuration file. This modularity ensures that the behavior tree remains flexible and scalable, allowing for efficient adaptation to diverse operational requirements without necessitating extensive reconfiguration or redevelopment of existing nodes.
 
 
 
 \begin{landscape}
 {\footnotesize
-\begin{longtable}[c]{|p{4.3cm}|p{1.4cm}|p{4cm}|p{3.8cm}|p{6.6cm}|}
+\begin{longtable}[c]{|p{4.8cm}|p{1.4cm}|p{4cm}|p{3.8cm}|p{6.6cm}|}
     \caption{Implemented Mission Nodes} \label{tab:implemented_mission_nodes}\\
     \hline
     \rowcolor{gray!30}
@@ -713,7 +769,9 @@ While these nodes were crafted with the ``Lab Tour scenario'' in mind, described
     %
     % Data Rows
     \texttt{\footnotesize DescribeExhibitSpeech} & Action & Sends the description of the current exhibit to the textToSpeech ROS node. & None & \texttt{\footnotesize /textToSpeech/say\_text} \\ \hline
+    \texttt{\footnotesize DescribeExhibitSpeechAsync} & Action & Asynchronous variant of \texttt{\footnotesize DescribeExhibitSpeech} & None & \texttt{\footnotesize /textToSpeech/say\_text} \\ \hline
     \texttt{\footnotesize GetVisitorResponse} & Action & Retrieves the response of the visitor from the ASR as transcribed text and sets it in the blackboard. & \texttt{\footnotesize /speechEvent/text} & None \\ \hline
+    \texttt{\footnotesize GetVisitorResponseAsync} & Action & Asynchronous variant of \texttt{\footnotesize GetVisitorResponse} & \texttt{\footnotesize /speechEvent/text} & None \\ \hline
     \texttt{\footnotesize HandleFallBack} & Action & A generic node used to handle scenarios when an Action node returns a failure. Its functionality is currently undefined. & None & None \\ \hline
     \texttt{\footnotesize HasVisitorResponded} & Condition & Checks if the visitor has responded to a query by retrieving the flag from the blackboard. & None & None \\ \hline
     \texttt{\footnotesize IsASREnabled} & Condition & Checks the preset value from the configuration to determine if Automatic Speech Recognition is enabled. & None & None \\ \hline
@@ -723,12 +781,16 @@ While these nodes were crafted with the ``Lab Tour scenario'' in mind, described
     \texttt{\footnotesize IsVisitorPresent} & Condition & Checks if the overtAttention ROS node is publishing ``social'' for the ``state'' and '1' for the ``value'' parameters. & \texttt{\footnotesize /overtAttention/mode} & None \\ \hline
     \texttt{\footnotesize IsVisitorResponseYes} & Condition & Checks if the visitor response is akin to a ``Yes'' or ``No'' by retrieving it from the Blackboard. & None & None \\ \hline
     \texttt{\footnotesize Navigate} & Action & Sends the coordinates to be navigated towards to the robotNavigation ROS node. & None & \texttt{\footnotesize /robotNavigation/set\_goal} \\ \hline
+    \texttt{\footnotesize NavigateAsync} & Action & Asynchronous variant of \texttt{\footnotesize Navigate} & None & \texttt{\footnotesize /robotNavigation/set\_goal} \\ \hline
     \texttt{\footnotesize PerformDeicticGesture} & Action & Retrieves the coordinate values for the current gesture from the Blackboard and sends them to the gestureExecution ROS node. The ``gesture\_type'' parameter is set to ``deictic''. & None & \texttt{\footnotesize /gestureExecution/perform\_gesture} \\ \hline
+    \texttt{\footnotesize PerformDeicticGestureAsync} & Action & Asynchronous variant of \texttt{\footnotesize PerformDeicticGesture} & None & \texttt{\footnotesize /gestureExecution/perform\_gesture} \\ \hline
     \texttt{\footnotesize PerformIconicGesture} & Action & Sends the appropriate ``iconic'' gesture parameters to the gestureExecution ROS node. & None & \texttt{\footnotesize /gestureExecution/perform\_gesture} \\ \hline
+    \texttt{\footnotesize PerformIconicGestureAsync} & Action & Asynchronous variant of \texttt{\footnotesize PerformIconicGesture} & None & \texttt{\footnotesize /gestureExecution/perform\_gesture} \\ \hline
     \texttt{\footnotesize PressYesNoDialogue} & Action & Sends a message to the tabletEvent ROS node to initiate a ``Yes/No'' dialogue on the robot's tablet. Stores the response in the Blackboard. & None & \texttt{\footnotesize /tabletEvent/prompt\_and\_get\_response} \\ \hline
     \texttt{\footnotesize RetrieveInitialLocation} & Action & Retrieves the coordinates of start location from the \texttt{\footnotesize Environment Knowledge Base} and stores the value in the Blackboard. & None & None \\ \hline
     \texttt{\footnotesize RetrieveListOfExhibits} & Action & Retrieves the exhibits to be visited from the Knowledge Base. The retrieved values are stored in the Blackboard. & None & None \\ \hline
     \texttt{\footnotesize SayText} & Action & Sends a text to the text-to-speech ROS node to be vocalized & None & \texttt{\footnotesize /textToSpeech/say\_text} \\ \hline
+    \texttt{\footnotesize SayTextAsync} & Action & Asynchronous variant of \texttt{\footnotesize SayText} & None & \texttt{\footnotesize /textToSpeech/say\_text} \\ \hline
     \texttt{\footnotesize SelectExhibit} & Action & Selects the next exhibit to visit from the Blackboard. Sets values for other nodes to retrieve and use. & None & None \\ \hline
     \texttt{\footnotesize SetAnimateBehavior} & Action & Sets the animate parameter ``state'' to ``enabled'' or ``disabled'' and sends it to the animateBehavior ROS node. & None & \texttt{\footnotesize /animateBehavior/set\_activation} \\ \hline
     \texttt{\footnotesize SetOvertAttentionMode} & Action & Sets the attention parameter ``state'' (e.g., ``disabled'', ``scanning'', ``social'') and sends it to the overtAttention ROS node. & None & \texttt{\footnotesize /overtAttention/set\_mode} \\ \hline
@@ -808,6 +870,12 @@ The unit tests for the \texttt{\small behaviorController} node are organized wit
         .4 behaviorControllerTestLaunchHarness.launch.
         .4 behaviorControllerTestLaunchRobot.launch.
         .4 behaviorControllerTestLaunchSimulator.launch.
+        .3 action.
+        .4 gestureExecutionPerformGesture.action.
+        .4 robotNavigationSetGoal.action.
+        .4 robotNavigationSetPose.action.
+        .4 speechEventRecogniseSpeech.action.
+        .4 textToSpeechSayText.action.
         .3 msg/.
         .4 overtAttentionMode.msg.
         .3 src/.
@@ -1023,6 +1091,16 @@ Updated multiple sections to reflect the changes made to the \texttt{\small beha
 Expanded the unit tests section.\\
 Tsegazeab Tefferi. \\                            
 07 June 2025.
+
+
+\item [Version 1.9]~\\
+References to the use of \texttt{\small ROS Actions} have been added where applicable \\
+Modified the \texttt{\small /gestureExecution/perform\_gesture} service to include updates made to the service \\
+Added \texttt{\small 4.10 Action Goals Sent} \\
+Expanded Figure 2 and Figure 3 to update the file structures \\
+Expanded \texttt{\small 4.11 Robot Mission Nodes} to include the action nodes that support ROS Actions \\
+Tsegazeab Tefferi. \\                            
+08 May 2026.
 
 \end{description}
 
