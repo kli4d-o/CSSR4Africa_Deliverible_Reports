@@ -39,6 +39,27 @@
     columns=fullflexible,
 }
 
+\usepackage{titlesec}
+\titleclass{\subsubsubsection}{straight}[\subsection]
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\titleformat{\subsubsubsection}{\normalfont\normalsize\itshape}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{titletoc}
+
+% Correct formatting for subsubsubsection in TOC
+\titlecontents{subsubsubsection}
+  [10.0em]             % Left indentation (adjust to align with your document class)
+  {\small}            % Above-code (font style for the entry)
+  {\contentslabel{4.0em}} % Numbered entry format (number box width)
+  {\hspace*{-4.0em}}  % Numberless entry format
+  {\titlerule*[0.8pc]{.}\contentspage} % Filler (dots) and page number
+
+
+
 
 
 \begin{document}
@@ -55,10 +76,10 @@
 \leadpartner{Carnegie Mellon University Africa}                        % INSERT partner name: Carnegie Mellon University Africa or The University of the Witwatersrand
 \partner{The University of the Witwatersrand}                                % INSERT partner name: Carnegie Mellon University Africa or The University of the Witwatersrand
 
-\revision{1.3}                          % REPLACE with correct version number
+\revision{1.4}                          % REPLACE with correct version number
 \deliverabledate{31/03/2024}   % REPLACE with correct date
 \submissiondate{20/02/2025}  % REPLACE with correct date
-\revisiondate{30/07/2025}                   % REPLACE with date
+\revisiondate{07/05/2026}                   % REPLACE with date
 \disseminationlevel{PU}
 \responsible{Clifford Onyonka}           % REPLACE with correct  name
 
@@ -114,21 +135,25 @@ Conversational systems are developed using the following main components: automa
 \caption{A diagrammatic representation of a conversational system \cite{romero-gonzalez_spoken_2020}}
 \label{fig:conversational-system}
 \end{figure}
- 
-The Speech Event module only handles one component of the conversational system described in the previous paragraph, that is, speech-to-text (which is referred to as automatic speech recognition in Fig \ref{fig:conversational-system}). It acquires audio signals published on the \texttt{/soundDetection/signal} ROS topic, and then passes these audio signals through a deep neural network that transcribes speech utterances contained within the audio to generate text string representations, which are then published on the \texttt{/speechEvent/text} ROS topic. Kinyarwanda and English are the two languages that are transcribed by Speech Event, with the choice of language being set by the Behaviour Controller which reads it from the Culture Knowledge Base and then passes it to Speech Event via the \texttt{/speechEvent/set\_language} ROS service that is advertised by Speech Event.
+
+The Speech Event module only handles one component of the conversational system described in the previous paragraph, that is, speech-to-text (which is referred to as automatic speech recognition in Fig \ref{fig:conversational-system}). It is worth noting that the Culturally Sensitive Social Robotics for Africa (CSSR4Africa) project does not implement a full fledged conversational system, and therefore the following components are not implemented in the CSSR4Africa project: natural language understanding, dialogue management, and natural language generation. Instead, the Behaviour Controller, which directs the robot mission within a certain scenario such as a lab tour, acts as a proxy that approximates the functionality of all these three unimplemented components. The Behaviour Controller also determines the language that the Speech Event module will transcribe, reading it from the Culture Knowledge Base and then passing it to Speech Event via the \texttt{/speechEvent/set\_language} ROS service that is advertised by Speech Event. The languages that Speech Event supports are Kinyarwanda and English.
 
 
 \newpage
 \section{Requirements Definition}
 %===============================================================
-A running Speech Event ROS node performs one main function - Kinyarwanda and English speech recognition. An audio signal is received via the \texttt{/soundDetection/signal} ROS topic, and Speech Event transcribes any speech utterances detected in the signal to either Kinyarwanda or English.
+A running Speech Event ROS node performs one main function - Kinyarwanda and English speech recognition. An audio signal is received via the \texttt{/soundDetection/signal} ROS topic, and Speech Event transcribes any speech utterances detected in the signal to either Kinyarwanda or English. This transcription process is initiated via the \texttt{/speechEvent/recognise\_speech\_action} ROS action.
 
 In order to successfully perform this function, the following functional requirements are fulfilled by Speech Event:
 
 \begin{enumerate}
-    \item Acquire an audio signal from the \texttt{/soundDetection/signal} ROS topic
-    \item Pass the audio signal through an automatic speech recognition (ASR) model to transcribe any speech utterances the audio signal contains to either Kinyarwanda or English text
-    \item Publish the transcribed text to the \texttt{/speechEvent/text} ROS topic
+    \item Await a transcription request on the \texttt{/speechEvent/recognise\_speech\_action} ROS action, upon which the following takes place:
+    \begin{enumerate}
+        \item Acquire an audio signal from the \texttt{/soundDetection/signal} ROS topic
+        \item Pass the audio signal through an automatic speech recognition (ASR) model to transcribe any speech utterances the audio signal contains to either Kinyarwanda or English text
+        \item Publish the transcribed text to the result ROS topic of the \\\texttt{/speechEvent/recognise\_speech\_action} ROS action
+    \end{enumerate}
+    \item In case voice activity detection is unable to find speech utterances within a time period specified in the transcription request, an empty string is published to the result ROS topic of the \\\texttt{/speechEvent/recognise\_speech\_action} ROS action as soon as the specified time period elapses
 \end{enumerate}
 
 The exact language between Kinyarwanda and English, which a running Speech Event ROS node transcribes, is decided based on a configuration option that is set during the initialisation stage when the ROS node is started. The language that is set during the initialisation of the Speech Event ROS node can be overridden by invoking the \texttt{/speechEvent/set\_language} ROS service and passing a different language to it.
@@ -137,23 +162,23 @@ To supplement the core functionality that Speech Event performs (Kinyarwanda and
 
 A ROS node that emulates Sound Detection is also availed, and its main purpose is to showcase the working of Speech Event in isolation, separated from the rest of the CSSR4Africa system and from the Pepper robot. This ROS node captures audio from the computer on which Speech Event is running on, and publishes the captured audio to the same ROS topic that Sound Detection publishes to (\texttt{/soundDetection/signal}), therefore mimicking Sound Detection's operation of acquiring audio from Pepper and publishing it to the aforementioned ROS topic.
 
-A ROS service is also be provided for enabling and disabling the transcription process at runtime. This ROS service \texttt{/speechEvent/set\_enabled} is invoked by the Behaviour Controller to disable the transcription process when Pepper is speaking so as to avoid the transcription of Pepper's utterances, and then re-enabling the transcription process once Pepper is no longer speaking.
-
-It is also worth noting that Sound Detection may fail, and since the Behaviour Controller does not directly interface with Sound Detection, the Speech Event ROS node bears the burden of signaling failures that may arise in Sound Detection to the Behaviour Controller. This is done by publishing the message `Error: soundDetection is down' on the \texttt{/speechEvent/text} ROS topic.
+It is also worth noting that Sound Detection may fail, and since the Behaviour Controller does not directly interface with Sound Detection, the Speech Event ROS node bears the burden of signaling failures that may arise in Sound Detection to the Behaviour Controller. This is done by publishing the message `Error: soundDetection is down' on the result ROS topic of the \\\texttt{/speechEvent/recognise\_speech\_action} ROS action.
 
 
 \newpage
 \section{Module Specification}
 %===============================================================
-A running Speech Event ROS node performs speech-to-text in real-time, acquiring an audio signal from the \texttt{/soundDetection/signal} ROS topic, generating a text description of the acquired audio, and then publishing transcribed text to the \texttt{/speechEvent/text} ROS topic as soon as speech utterances are detected in the audio signal. The data that is input to Speech Event, the transformation that this data undergoes, and the data that Speech Event outputs is described below:
+A running Speech Event ROS node performs speech-to-text as soon as a trigger is detected on the goal ROS topic of the \texttt{/speechEvent/recognise\_speech\_action} ROS action. An audio signal is acquired from the \texttt{/soundDetection/signal} ROS topic and any speech utterance contained in the sound signal is transcribed, and then the result published to the result topic of the \texttt{/speechEvent/recognise\_speech\_action} ROS action. The data that is input to Speech Event, the transformation that this data undergoes, and the data that Speech Event outputs is described below:
 
 \begin{enumerate}
-    \item The language that Speech Event is to be configured to operate in is set when the ROS node is started by setting a language configuration option
-    \item The language set for Speech Event to operate in when it is first started can be overridden by making a \texttt{/speechEvent/set\_language} ROS service call and passing a different language
-    \item When the Speech Event ROS node is running, it acquires audio signals published by the Sound Detection ROS node on the \texttt{/soundDetection/signal} ROS topic
-    \item The acquired audio signals are then passed through an ASR model that transcribes speech utterances present within the audio signals to text strings
-    \item The text strings output by the ASR model are then published to the \texttt{/speechEvent/text} ROS topic for the Behaviour Controller to use
-    \item The transcription process can be enabled or disabled by invoking the \texttt{/speechEvent/set\_enabled} ROS service
+    \item The language (either Kinyarwanda or English) that Speech Event is to be configured to operate in is set when the ROS node is started by setting a language configuration option
+    \item The language (either Kinyarwanda or English) set for Speech Event to operate in when it is first started can be overridden by making a \texttt{/speechEvent/set\_language} ROS service call and passing a different language
+    \item When a trigger for the transcription process is detected on the goal ROS topic of the \texttt{/speechEvent/recognise\_speech\_action} ROS action, the following takes place:
+    \begin{enumerate}
+        \item An audio signal published by the Sound Detection ROS node on the \texttt{/soundDetection/signal} ROS topic is acquired be Speech Event
+        \item The acquired audio signal is then passed through an ASR model that transcribes speech utterances present within the audio signal to a text string
+        \item The text string output by the ASR model is then published to the result ROS topic of the \texttt{/speechEvent/recognise\_speech\_action} ROS action
+    \end{enumerate}
 \end{enumerate}
 
 This process, and the position of Speech Event within the CSSR4Africa system architecture, is captured in Fig \ref{fig:speechEvent-within-CSSR4A}.
@@ -166,12 +191,11 @@ This process, and the position of Speech Event within the CSSR4Africa system arc
     \node [rectangle, minimum size=1.5cm, text width=3.5cm, anchor=base, draw=black!50, text centered, right=1.5cm of speechEvent] (behaviourController) {behaviourController};
 
     \draw [->] (soundDetection.south) -- (0, -1) -- (2.5, -1) node[pos=0.5, below] {\texttt{/soundDetection/signal}} -- (2.5, 0.125) -- (speechEvent.west);
-    \draw [->] (speechEvent.south) -- (5.275, -1) -- (7.75, -1) node[pos=0.5, below] {\texttt{/speechEvent/text}} -- (7.75, 0.125) -- (behaviourController.west);
-    \draw [->, red] ($(behaviourController.north)+(-0.75cm,0)$) -- (9.775, 1.5) -- (6, 1.5) node[pos=0.5, above] {\texttt{/speechEvent/set\_language}} -- ($(speechEvent.north)+(0.75cm,0)$);
-    \draw [->, red] ($(behaviourController.north)+(+0.75cm,0)$) -- (11.25, 3) -- (4.5, 3) node[pos=0.5, above] {\texttt{/speechEvent/set\_enabled}} -- ($(speechEvent.north)+(-0.75cm,0)$);
+    \draw [->, red] ($(behaviourController.south)+(-0.75cm,0)$) -- (9.8, -1.5) -- (6.05, -1.5) node[pos=0.5, below] {\texttt{/speechEvent/set\_language}} -- ($(speechEvent.south)+(0.75cm,0)$);
+    \draw [<->, blue] ($(behaviourController.north)+(+0.75cm,0)$) -- (11.275, 1.5) -- (4.5, 1.5) node[pos=0.5, above] {\texttt{/speechEvent/recognise\_speech\_action}} -- ($(speechEvent.north)+(-0.75cm,0)$);
 \end{tikzpicture}
 \end{center}
-\caption{Speech Event within the CSSR4Africa architecture (\texttt{/soundDetection/signal} and \texttt{/speechEvent/text} are ROS topics, \textcolor{red}{\texttt{/speechEvent/set\_language}} and \textcolor{red}{\texttt{/speechEvent/set\_enabled}} are ROS services)}
+\caption{Speech Event within the CSSR4Africa architecture (\texttt{/soundDetection/signal} is a ROS topic, \textcolor{red}{\texttt{/speechEvent/set\_language}} is a ROS service, and the bi-directional \textcolor{blue}{\texttt{/speechEvent/recognise\_speech\_action}} is a ROS action)}
 \label{fig:speechEvent-within-CSSR4A}
 \end{figure}
 
@@ -185,47 +209,71 @@ The file structure of Speech Event is as shown below:
 \vspace{1cm}
 \dirtree{%
 .1 speech\_event/.
+.2 action/.
+.3 recognise\_speech.action.
 .2 config/.
 .3 speech\_event\_configuration.ini.
 .2 data/.
-.3 audio\_storage/.
 .3 pepper\_topics.dat.
 .2 models/.
-.3 stt\_en\_conformer\_transducer\_large.nemo.
+.3 silero\_vad.jit.
 .3 stt\_rw\_conformer\_transducer\_large.nemo.
+.3 stt\_en\_conformer\_transducer\_large.nemo.
+.3 stt\_rw\_parakeet-tdt\_ctc-110m.nemo.
+.3 stt\_en\_parakeet-tdt\_ctc-110m.nemo.
+.3 stt\_rw\_whisper-large-v3-turbo.pt.
+.3 stt\_en\_whisper-large-v3-turbo.pt.
 .2 src/.
 .3 speech\_event\_application.py.
 .3 speech\_event\_implementation.py.
+.3 speech\_event\_gui.py.
+.3 speech\_event\_utils.py.
 .2 srv/.
-.3 set\_enabled.srv.
 .3 set\_language.srv.
 .2 README.md.
 .2 speech\_event\_requirements.txt.
 }
 \vspace{1cm}
 
-The \texttt{config/} directory houses configuration files that are used to configure different ROS nodes that are part of Speech Event. For Speech Event, only the \texttt{speech\_event\_configuration.ini} file exists in this directory, and it is used to configure the main Speech Event ROS node.
+The \texttt{action/} directory contains the \texttt{recognise\_speech.action} action file specification for the ROS action \texttt{/speechEvent/recognise\_speech\_action} that is used to trigger a speech transcription process to run.
 
-The \texttt{data/} directory contains data that is required by Speech Event when running. For Speech Event, the \texttt{pepper\_topics.dat} file and \texttt{audio\_storage/} sub-directory are contained in this directory:
+The \texttt{config/} directory houses configuration files that are used to configure different ROS nodes that are part of Speech Event. For Speech Event which contains just one ROS node, only the \texttt{speech\_event\_configuration.ini} file exists in this directory, and it is used to configure the main Speech Event ROS node once, at start up. The transcription language, which is configurable via this configuration file, can be updated at runtime by invoking the \texttt{/speechEvent/set\_language} ROS service.
 
-\begin{enumerate}
-    \item \texttt{pepper\_topics.dat}: list of ROS topics that Speech Event listens to when it is running
-    \item \texttt{audio\_storage}: stores temporary audio files generated when Speech Event is transcribing speech utterances
-\end{enumerate}
+The \texttt{data/} directory contains data that is required by Speech Event when running. For Speech Event, only the \texttt{pepper\_topics.dat} file is contained in this directory. This file contains a list of ROS topics that Speech Event listens to when it is running.
 
-The \texttt{models/} directory holds the two deep learning models used to transcribe speech utterances:
+The \texttt{models/} directory holds seven deep learning models used to detect voice activity in audio signals and transcribe speech utterances:
 
 \begin{enumerate}
-    \item \texttt{stt\_rw\_conformer\_transducer\_large.nemo} for transcribing Kinyarwanda utterances
-    \item \texttt{stt\_en\_conformer\_transducer\_large.nemo} for transcribing English utterances
+    \item Voice activity detection models
+    \begin{enumerate}
+        \item \texttt{silero\_vad.jit}
+    \end{enumerate}
+    \item Kinyarwanda speech recognition models
+    \begin{enumerate}
+        \item \texttt{stt\_rw\_conformer\_transducer\_large.nemo}
+    \end{enumerate}
+    \item English speech recognition models
+    \begin{enumerate}
+        \item \texttt{stt\_en\_conformer\_transducer\_large.nemo}
+        \item \texttt{stt\_en\_parakeet-tdt\_ctc-110m.nemo}
+        \item \texttt{stt\_en\_whisper-large-v3-turbo.pt}
+    \end{enumerate}
+    \item Unused models (included as placeholders, but are just a copy of their English counterpart models)
+    \begin{enumerate}
+        \item \texttt{stt\_rw\_parakeet-tdt\_ctc-110m.nemo}
+        \item \texttt{stt\_rw\_whisper-large-v3-turbo.pt}
+    \end{enumerate}
 \end{enumerate}
+
+When using a GPU-enabled computer, \texttt{stt\_en\_whisper-large-v3-turbo.pt} should be preferred for English speech recognition. It is the best of the three English models, but lags when run on CPU. For English speech recognition on CPU, \texttt{stt\_en\_parakeet-tdt\_ctc-110m.nemo} should be preferred. It provides more accurate transcriptions when compared to \\\texttt{stt\_en\_conformer\_transducer\_large.nemo}, which can also be used on CPU. For Kinyarwanda speech recognition on both GPU and CPU, \texttt{stt\_rw\_conformer\_transducer\_large.nemo} should be used.
 
 The \texttt{src/} directory holds all the Python source code files that implement the Speech Event system.
 
-The \texttt{srv/} directory contains the \texttt{set\_language.srv} service file specification for the ROS service \texttt{/speechEvent/set\_language} and the \texttt{set\_enabled.srv} service file specification for the ROS service \texttt{/speechEvent/set\_enabled} .
+The \texttt{srv/} directory contains the \texttt{set\_language.srv} service file specification for the ROS service \texttt{/speechEvent/set\_language}.
 
 The file \texttt{README.md} contains documentation of how to use Speech Event,  and the Python requirements file \texttt{speech\_event\_requirements.txt} contains a list of versioned Python packages that Speech Event depends on.
 
+\newpage
 \subsection{Configuration Files}
 
 A Speech Event ROS node needs to be configured prior to starting it, a task that is accomplished via a configuration file. The configuration parameters are displayed in Table \ref{table:speechEvent-config-file}.
@@ -235,12 +283,15 @@ A Speech Event ROS node needs to be configured prior to starting it, a task that
 \begin{tabular}[thb]{|p{0.27\linewidth}|p{0.20\linewidth}|p{0.45\linewidth}|}\hline
 \rowcolor{lightgray} Key & Value & Description \\ \hline
 \texttt{language} & \texttt{kinyarwanda}, \texttt{english} & Specifies the language in which the utterance is spoken. \\ \hline
+\texttt{model} & \texttt{conformer- transducer}, \texttt{parakeet}, \texttt{whisper} & Specifies the ASR model to be used. \\ \hline
 \texttt{verboseMode} & \texttt{true}, \texttt{false} & Specifies whether diagnostic data is to be printed to the terminal. \\ \hline
 \texttt{cuda} & \texttt{true}, \texttt{false} & Specifies whether to use GPUs. The term ‘cuda’ is chosen as the key to alert the user that only NVIDIA GPUs are supported. \\ \hline
 \texttt{confidence} & \texttt{<float>} & The confidence level on a scale of 0 to 1 above which transcriptions are assumed to be acceptable and correct. \\ \hline
-\texttt{speechPausePeriod} & \texttt{<float>} & The time period above which one utterance is assumed to be separate from a preceding utterance. \\ \hline
-\texttt{maxUtteranceLength} & \texttt{<integer>} & The maximum length (in seconds) of an utterance. Longer utterances are split when they go past this length. \\ \hline
+\texttt{vadThreshold} & \texttt{<float>} & The confidence level on a scale of 0 to 1 above which an utterance is considered valid in an audio signal. \\ \hline
 \texttt{sampleRate} & \texttt{<integer>} & Specifies the sampling rate of the incoming audio sourced from the /soundDetection/signal ROS topic. \\ \hline
+\texttt{interUtteranceLen} & \texttt{<float>} & The minimum length (in seconds) between two successsive utterances, below which the two are assumed to be one utterance. \\ \hline
+\texttt{minUtteranceLen} & \texttt{<float>} & The minimum length (in seconds) of an utterance; shorter utterances are ignored and therefore discarded. \\ \hline
+\texttt{maxUtteranceLength} & \texttt{<integer>} & The maximum length (in seconds) of an utterance, after which any extra utterances are truncated. \\ \hline
 \texttt{heartbeatMsgPeriod} & \texttt{<integer>} & Specifies the time period in seconds at which a periodic heartbeat message is sent to the terminal. \\ \hline
 \end{tabular}
 \caption{Speech Event configuration file options}
@@ -248,6 +299,7 @@ A Speech Event ROS node needs to be configured prior to starting it, a task that
 \end{table}
 \end{center}
 
+\newpage
 \subsection{Data Files}
 
 The topics that Speech Event subscribes to are listed in the \texttt{pepper\_topics.dat} file, as shown in Table \ref{table:speechEvent-topics-file}.
@@ -263,7 +315,6 @@ The topics that Speech Event subscribes to are listed in the \texttt{pepper\_top
 \end{table}
 \end{center}
 
-\newpage
 \subsection{Topics Subscribing To}
 
 A running Speech Event ROS node acquires audio signals from the \texttt{/soundDetection/signal} ROS topic. Table \ref{table:topics-sub} shows this fact, while also mentioning the ROS node that publishes these audio signals.
@@ -281,28 +332,16 @@ A running Speech Event ROS node acquires audio signals from the \texttt{/soundDe
 
 \subsection{Topics Publishing To}
 
-The Speech Event ROS node publishes transcribed text to the \texttt{/speechEvent/text} ROS topic, publishing each time a transcription process completes. The published text transcriptions are of the \texttt{string} data type. Table \ref{table:topics-pub} shows the ROS topic that Speech Event publishes to.
-
-\begin{center}
-\begin{table}[thb]
-\begin{tabular}[thb]{|p{0.30\linewidth}|p{0.30\linewidth}|p{0.30\linewidth}|} \hline
-\rowcolor{lightgray} Topic & Node & Platform \\ \hline
-\texttt{/speechEvent/text} & \texttt{behaviourController} & \texttt{Physical robot} \\ \hline
-\end{tabular}
-\caption{Topics publishing to}
-\label{table:topics-pub}
-\end{table}
-\end{center}
+The Speech Event ROS node does not publish to any independent ROS topics, but contains one ROS action that advertises its cancel, feedback, goal, result, and status ROS topics.
 
 \subsection{Services Supported}
 
-A running Speech Event ROS node can have its language of operation (Kinyarwanda or English) updated by invoking the \texttt{/speechEvent/set\_language} ROS service, or enabled or disabled at runtime by invoking the \texttt{/speechEvent/set\_enabled} ROS service. Table \ref{table:services} elaborates these ROS services.
+A running Speech Event ROS node can have its language of operation (Kinyarwanda or English) updated by invoking the \texttt{/speechEvent/set\_language} ROS service. Table \ref{table:services} elaborates more about this ROS service.
 
 \begin{center}
 \begin{table}[thb]
 \begin{tabular}[thb]{|p{0.36\linewidth}|p{0.18\linewidth}|p{0.36\linewidth}|} \hline
 \rowcolor{lightgray} Service & Message Value & Effect \\ \hline
-\texttt{/speechEvent/set\_enabled} & \texttt{true}, \texttt{false} & Enable or disable the transcription process \\ \hline
 \texttt{/speechEvent/set\_language} & \texttt{kinyarwanda}, \texttt{english} & Set the language to either Kinyarwanda or English \\ \hline
 \end{tabular}
 \caption{Services supported}
@@ -310,16 +349,46 @@ A running Speech Event ROS node can have its language of operation (Kinyarwanda 
 \end{table}
 \end{center}
 
+\newpage
+\subsection{Actions Supported}
+
+A running Speech Event ROS node depends on triggers on the goal ROS topic of the \\\texttt{/speechEvent/recognise\_speech\_action} ROS action to perform speech recognition. Table \ref{table:actions} elaborates more about this ROS action. This ROS action advertises the following ROS topics:
+
+\begin{enumerate}
+    \item \texttt{/speechEvent/recognise\_speech\_action/cancel}
+    \item \texttt{/speechEvent/recognise\_speech\_action/feedback}
+    \item \texttt{/speechEvent/recognise\_speech\_action/goal}
+    \item \texttt{/speechEvent/recognise\_speech\_action/result}
+    \item \texttt{/speechEvent/recognise\_speech\_action/status}
+\end{enumerate}
+
+\begin{center}
+\begin{table}[thb]
+\begin{tabular}[thb]{|p{0.36\linewidth}|p{0.54\linewidth}|} \hline
+\rowcolor{lightgray} Action & Function \\ \hline
+\texttt{/speechEvent/recognise\_ speech\_action} & Handles the speech recognition process \\ \hline
+\end{tabular}
+\caption{Services supported}
+\label{table:actions}
+\end{table}
+\end{center}
+
 
 \newpage
 \section{Module Design}
 %===============================================================
-\subsection{Model Architecture}
-Both the Kinyarwanda and English speech recognition processes performed by Speech Event rely on deep learning models. Both of these deep learning models are based on the conformer transducer architecture, and the specific models that are used by Speech Event were acquired from NVIDIA's Nemo catalog of models.
+\subsection{Voice Activity Detection}
+Voice Activity Detection (VAD) is the process of investigating whether speech is present within an audio segment. In Speech Event, this process is conducted to ascertain that only audio segments with human speech are handed over for speech recognition. The speech recognition process is compute intensive, and if all audio segments (including those with no human speech) are handed over for speech recognition, then a waste in compute resource and a lagging effect are observed.
 
-The conformer transducer architecture is made up of a conformer encoder and a transducer decoder. The conformer encoder combines transformers and Convolution Neural Networks (CNNs) in an attempt to utilise the strengths of both, with transformers excelling at capturing global dependencies of an audio signal and CNNs excelling at capturing local dependencies of an audio signal \cite{gulati_conformer_2020}. The transducer decoder, on the other hand, makes use of Recurrent Neural Networks (RNNs) to form an autoregressive model whose next token prediction is conditioned on the previously predicted tokens.
+The Silero voice activity detector \cite{Silero_VAD} is used in Speech Event. It is a deep learning based detector, primarily employing convolutional layers interspaced with Long Short-Term Memory (LSTM) layers. The final layer is a classification head that outputs a probability in the range [0.0, 1.0] to quantify the likelihood of whether human speech is present within an audio segment, 1.0 being full certainty and 0.0 being complete uncertainty that human speech is present. Based on experimentation within a specific environment, a threshold value such as 0.5 is selected such that whenever the predicted probability is greater than this threshold, then speech utterances are assumed to be contained within the audio segment passed to the model. Not much about the model architecture is public (based on this GitHub discussion: https://github.com/snakers4/silero-vad/discussions/107), and therefore we will not be discussing it in further detail.
 
-\subsubsection{Preprocessor}
+\subsection{Automatic Speech Recognition}
+Both the Kinyarwanda and English speech recognition processes performed by Speech Event rely on deep learning models. Three deep learning models are supported by Speech Event: NVIDIA's NeMo conformer transducer large, NVIDIA's NeMo Parakeet TDT-CTC (Token-and-Duration Transducer and Connectionist Temporal Classification), and OpenAI's Whisper Large v3 Turbo.
+
+\subsubsection{Conformer Transducer Large}
+The conformer transducer architecture is made up of a conformer encoder and a transducer decoder. The conformer encoder combines transformers and Convolution Neural Networks (CNNs) in an attempt to utilise the strengths of both, with transformers excelling at capturing global dependencies of an audio signal while CNNs excel at capturing local dependencies of an audio signal \cite{gulati_conformer_2020}. The transducer decoder, on the other hand, makes use of Recurrent Neural Networks (RNNs) to form an auto-regressive model whose next token prediction is conditioned on the previously predicted tokens.
+
+\subsubsubsection{Preprocessor}
 When an audio signal is received, it is first passed through a preprocessor block that extracts filterbank features from the audio signal. For this process, an audio signal is first converted to a spectrogram by a Short Time Fourier Transform (STFT), and then a series of filters is applied to the resultant spectrogram to obtain the filterbank features that each represent the magnitude of the energy within a distinct frequency band. This preprocessor block is visualised in Fig \ref{fig:preprocessor}.
 
 \begin{figure}[thb]
@@ -335,7 +404,8 @@ When an audio signal is received, it is first passed through a preprocessor bloc
 \label{fig:preprocessor}
 \end{figure}
 
-\subsubsection{Encoder Architecture}
+\newpage
+\subsubsubsection{Encoder Architecture}
 The filterbank features obtained from the preprocessor block are then passed to the encoder part of the model. The encoder transforms acoustic features in the original audio signal captured within the filterbank features into latent features that better represent the speech in the original audio signal.
 
 A conformer encoder is shown in Fig \ref{fig:conformer-encoder}. The encoder used in Speech Event has 17 conformer blocks.
@@ -399,10 +469,11 @@ The features are then processed by a convolution subsampling block, dropout appl
 
 Each confomer block consists of a multi-head self-attention module and a convolution module collectively sandwiched between two feedforward modules \cite{gulati_conformer_2020}. The self-attention module is more adept at capturing global feature dependencies, while the convolution module is more adept at capturing local feature dependencies, thereby capturing the semantics of speech utterances much better than models that only specialise in capturing only one of either the global or local feature dependencies.
 
-\subsubsection{Decoder/Predictor Architecture}
+\newpage
+\subsubsubsection{Decoder/Prediction Network Architecture}
 Keeping in line with Gulati et al., a single LSTM layer is used in the decoder \cite{gulati_conformer_2020}. An embedding layer converts input tokens into vectorised representations that are then passed to the LSTM layer. Additionally, drop out is applied both in the LSTM layer and on the output of the LSTM layer.
 
-The decoder architecture used in Speech Event is shown in Fig \ref{fig:transducer-decoder}.
+The decoder architecture is shown in Fig \ref{fig:transducer-decoder}.
 
 \begin{figure}[thb]
 \begin{center}
@@ -421,10 +492,11 @@ The decoder architecture used in Speech Event is shown in Fig \ref{fig:transduce
 \label{fig:transducer-decoder}
 \end{figure}
 
-\subsubsection{Joint Network Architecture}
+\newpage
+\subsubsubsection{Joint Network Architecture}
 The joint network combines the output of the encoder and the output of the decoder in order to predict the text in the speech utterances contained in the original sound signal passed to the encoder. The combined outputs are then passed through a ReLU activation, dropout is applied, and lastly passed through a linear layer.
 
-The joint network architecture used in Speech Event is shown in Fig \ref{fig:joint}.
+The joint network architecture is shown in Fig \ref{fig:joint}.
 
 \begin{figure}[thb]
 \begin{center}
@@ -434,7 +506,7 @@ The joint network architecture used in Speech Event is shown in Fig \ref{fig:joi
     \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of dropout] (relu) {ReLU};
     \node[circle, anchor=base, draw=black!50, text centered, below=0.5cm of relu] (plus) {+};
     \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of plus, xshift=-2cm] (enc) {Encoder Linear};
-    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of plus, xshift=2cm] (pred) {Predictor Linear};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of plus, xshift=2cm] (pred) {Decoder Linear};
 
     \draw [->] (-2, -7) -- (enc);
     \draw [->] (2, -7) -- (pred);
@@ -450,7 +522,7 @@ The joint network architecture used in Speech Event is shown in Fig \ref{fig:joi
 \label{fig:joint}
 \end{figure}
 
-\subsubsection{Combined Model Architecture}
+\subsubsubsection{Combined Model Architecture}
 The four different sections of the full conformer transducer architecture discussed above are combined together to form the whole network that performs end-to-end automatic speech recognition. This full model's architecture is summaried in Fig \ref{fig:combined}.
 
 \begin{figure}[thb]
@@ -458,7 +530,7 @@ The four different sections of the full conformer transducer architecture discus
 \begin{tikzpicture}
     \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered] (joint) {Joint Network};
     \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of joint, xshift=-2cm] (encoder) {Encoder};
-    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of joint, xshift=2cm] (decoder) {Predictor};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of joint, xshift=2cm] (decoder) {Prediction Network};
     \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of encoder] (preprocessor) {Preprocessor};
 
     \draw [->] (-2, -4) -- (preprocessor);
@@ -473,13 +545,112 @@ The four different sections of the full conformer transducer architecture discus
 \label{fig:combined}
 \end{figure}
 
+\subsubsection{Parakeet TDT-CTC 110M}
+Parakeet TDT-CTC (Token-and-Duration Transducer and Connectionist Temporal Classification) is a family of models that improves on the conformer trasducer architecture, replacing the conformer encoder with a fast confomer encoder \cite{rekesh2023fastconformerlinearlyscalable} for faster inference (2.8 times faster than conformer), and employing the use of TDT \cite{xu2023efficientsequencetransductionjointly} which facilitates joint prediction of both tokens and their durations that enables the model to have faster inference times (upto 2.82 times faster) and higher accuracy than transducer-based models.
+
+\subsubsubsection{Preprocessor}
+When an audio signal is received, it is first passed through a preprocessor block that extracts Mel spectrogram features from the audio signal. This preprocessor block is similar to the conformer transducer's preprocessor block that is visualised in Fig \ref{fig:preprocessor}.
+
+\subsubsubsection{Encoder Architecture}
+The Mel spectrogram features obtained from the preprocessor block are then passed to the encoder part of the model. The encoder transforms acoustic features in the original audio signal captured within the Mel spectrogram features into latent features that better represent the speech in the original audio signal. However, unlike the conformer blocks used in the conformer transducer, fast conformer blocks are used instead. Fast conformer blocks have the following improvements over conformer blocks, copied verbatim from \cite{rekesh2023fastconformerlinearlyscalable}:
+
+\begin{enumerate}
+    \item 8x downsampling at the start of the encoder, thereby reducing the compute cost of subsequent attention layers by 4x
+    \item Replacement of the original convolution sub-sampling layers with depthwise separable convolutions
+    \item Reduction of the number of convolutional filters in the downsampling block to 256
+    \item Reduction of the convolutional kernel size to 9
+\end{enumerate}
+
+Extra modifications have also been applied to enable fast conformer encoders process very long speech utterances. These modifications see the fast conformer combine local attention with a global context token to process very long speech utterances.
+
+\subsubsubsection{Decoder/Prediction Network Architecture}
+The decoder architecture used by Parakeet TDT-CTC is similar to that used by the conformer transducer model, as shown in Fig \ref{fig:transducer-decoder}.
+
+\subsubsubsection{CTC Decoder}
+This is an extra decoder that projects the encoder's output directly to the vocabulary size and therefore providing additional supervision during training. Speech Event does not use this component during inference.
+
+\subsubsubsection{Joint Network Architecture}
+As in the conformer transducer model, the joint network combines the output of the encoder and the output of the decoder in order to predict the text in the speech utterances contained in the original sound signal passed to the encoder. However, unlike the joint network used in the conformer transducer model, parakeet TDT-CTC emits two outputs: one for the output token, and the other for the duration of the token. \cite{xu2023efficientsequencetransductionjointly}
+
+The joint network workings are shown in Fig \ref{fig:TDT-joint}.
+
+\begin{figure}[thb]
+\begin{center}
+\begin{tikzpicture}
+    \node [rectangle, minimum size=1cm, text width=5cm, anchor=base, draw=black!50, text centered] (joint) {Joint Network};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, above=0.5cm of joint, xshift=-2cm] (softmax1) {Softmax};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, above=0.5cm of joint, xshift=2cm] (softmax2) {Softmax};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of joint, xshift=-2cm] (enc) {Encoder};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of joint, xshift=2cm] (pred) {Decoder};
+
+    \draw [->] (-2, -2.5) -- (enc);
+    \draw [->] (2, -2.5) -- (pred);
+    \draw [->] (enc) -- ($(joint) + (-2cm,-0.5cm)$);
+    \draw [->] (pred) -- ($(joint) + (2cm,-0.5cm)$);
+    \draw [->] ($(joint) + (-2cm,0.5cm)$) -- (softmax1);
+    \draw [->] ($(joint) + (2cm,0.5cm)$) -- (softmax2);
+    \draw [->] (softmax1) -- (-2, 2.75);
+    \draw [->] (softmax2) -- (2, 2.75);
+\end{tikzpicture}
+\end{center}
+\caption{Joint network's interactions with the encoder and decoder, and the two outputs it emits - a token and its duration}
+\label{fig:TDT-joint}
+\end{figure}
+
+\subsubsubsection{Combined Model Architecture}
+The four different sections of the full Parakeet TDT-CTC architecture discussed above are combined together to form the whole network that performs end-to-end automatic speech recognition. This full model's architecture is summaried in Fig \ref{fig:parakeet-combined}.
+
+\begin{figure}[thb]
+\begin{center}
+\begin{tikzpicture}
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered] (joint) {Joint Network};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, above=0.5cm of joint, xshift=-1.5cm] (softmax1) {Softmax};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, above=0.5cm of joint, xshift=1.5cm] (softmax2) {Softmax};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of joint, xshift=-2cm] (encoder) {Encoder};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of joint, xshift=2cm] (decoder) {Prediction Network};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, below=0.5cm of encoder] (preprocessor) {Preprocessor};
+
+    \draw [->] (-2, -4) -- (preprocessor);
+    \draw [->] (2, -2.5) -- (decoder);
+    \draw [->] (preprocessor) -- (encoder);
+    \draw [->] (encoder.north) -- (-2, 0.13) -- (joint.west);
+    \draw [->] (decoder.north) -- (2, 0.13) -- (joint.east);
+    \draw [->] ($(joint) + (-1cm,0.5cm)$) -- ($(softmax1) + (0.5cm,-0.5cm)$);
+    \draw [->] ($(joint) + (1cm,0.5cm)$) -- ($(softmax2) + (-0.5cm,-0.5cm)$);
+    \draw [->] (softmax1) -- (-1.5, 2.75);
+    \draw [->] (softmax2) -- (1.5, 2.75);
+\end{tikzpicture}
+\end{center}
+\caption{Combined model architecture}
+\label{fig:parakeet-combined}
+\end{figure}
+
+\subsubsection{Whisper Large v3 Turbo}
+Whisper Large v3 Turbo is a variant of OpenAI's Whisper family of models \cite{pmlr-v202-radford23a}, specifically a fine-tuned Whisper Large v3 model with a pruned decoder for faster auto-regressive generation. Whisper models are encoder-decoder transformer models. The encoder takes as input log-Mel spectrograms and generates a vector representation that is then passed via cross-attention to the decoder, which auto-regressively generates a text transcript. Whisper's model architecture is shown in Fig \ref{fig:whisper}.
+
+\begin{figure}[thb]
+\begin{center}
+\begin{tikzpicture}
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, xshift=-4cm] (encoder) {Encoder};
+    \node [rectangle, minimum size=1cm, text width=2.5cm, anchor=base, draw=black!50, text centered, xshift=4cm] (decoder) {Decoder};
+
+    \draw [->] (-4, -1) node[pos=0.5, above] {Cross attention} -- (encoder);
+    \draw [->] (encoder) -- (decoder);
+    \draw [->] (4, -1) -- (decoder);
+    \draw [->] (decoder) -- (4, 1.25);
+\end{tikzpicture}
+\end{center}
+\caption{Whisper model architecture}
+\label{fig:whisper}
+\end{figure}
+
 
 \newpage
 \section{Testing}
 %===============================================================
-The \texttt{unit\_tests} package contains unit tests for all CSSR4Africa ROS nodes, including Speech Event. Python's unittest testing framework is used for testing. The unittest package is part of the standard Python library, and therefore no extra packages need to be installed when running tests.
+The \texttt{unit\_tests} package contains unit tests for all CSSR4Africa ROS nodes, including Speech Event. Python's unittest testing framework is used for testing Speech Event. The unittest package is part of the standard Python library, and therefore no extra packages need to be installed when running tests.
 
-These tests check to ensure that Speech Event works as expected end-to-end, from when it receives a signal on the \texttt{/soundDetection/signal} ROS topic to when it publishes transcribed text on the \texttt{/speechEvent/text} ROS topic. They also check that the \texttt{/speechEvent/set\_language} and \texttt{/speechEvent/set\_enabled} ROS services work as expected.
+These tests check to ensure that Speech Event's transcription process works as expected end-to-end, focusing on ensuring that the \texttt{/speechEvent/recognise\_speech\_action} ROS action is fully functional. They also check that the \texttt{/speechEvent/set\_language} ROS service work as expected.
 
 A test report is generated in the \texttt{data/} directory, \texttt{speech\_event\_test\_output.dat}. It shows all the tests that have been run and whether they have passed or failed. For tests that err, the reason for the error is also shown within the test report.
 
@@ -515,7 +686,6 @@ The configuration options for the driver ROS node are located in the driver conf
 \begin{table}[thb]
 \begin{tabular}[thb]{|p{0.35\linewidth}|p{0.13\linewidth}|p{0.44\linewidth}|} \hline
 \rowcolor{lightgray} Key & Value & Description \\ \hline
-\texttt{channels} & \texttt{<integer>} & Number of audio channels to use when acquiring audio from PC's microphones. \\ \hline
 \texttt{chunkSize} & \texttt{<integer>} & Number of samples to acquire at a go every time that audio is read from the PC's microphones. \\ \hline
 \texttt{sampleRate} & \texttt{<integer>} & The sample rate to use when acquiring audio from the PC's microphones. \\ \hline
 \texttt{speechAmplitudeThreshold} & \texttt{<float>} & Threshold above which a signal sample is assumed to contain a speech utterance. \\ \hline
@@ -529,9 +699,8 @@ The configuration options for the driver ROS node are located in the driver conf
 The tests for Speech Event test the following:
 
 \begin{enumerate}
-    \item The working of the \texttt{/speechEvent/set\_enabled} ROS service
     \item The working of the \texttt{/speechEvent/set\_language} ROS service
-    \item The end-to-end working of Speech Event as a whole, from when an audio signal is received from the \texttt{/soundDetection/signal} ROS topic to when a text transcription is published on the \texttt{/speechEvent/text} ROS topic
+    \item The end-to-end working of Speech Event's transcription process via the \\\texttt{/speechEvent/recognise\_speech\_action} ROS action
 \end{enumerate}
 
 A sample test report that is generated at the end of each testing process is displayed below (some lines have been artificially folded to the next line in this report to avoid overflowing out of the page):
@@ -539,48 +708,35 @@ A sample test report that is generated at the end of each testing process is dis
 \begin{verbatim}
 Speech Event Test Report
     
-Date: 2025-04-20 18:34:47
+Date: 2026-04-24 16:18:08
     
     
-====================================================================
+============================================================
     
-Test SpeechEvent's /speechEvent/set_enabled ROS service
----
-As a:     behaviourController developer
-I want:   a means of enabling and disabling the transcription process
-          at runtime
-So that:  I can stop the robot from transcribing its own speech by
-          disabling the transcription process
----
-Set unsupported status (agree): PASS
-Set unsupported status (1): PASS
-Set supported status (false): PASS
-Set supported status (true): PASS
-
-====================================================================
-
 Test SpeechEvent's /speechEvent/set_language ROS service
 ---
 As a:     behaviourController developer
 I want:   a means of setting the transcription language of
-          speechEvent at runtime
-So that:  I don't have to restart speechEvent every time I update the
-          transcription language
+            speechEvent at runtime
+So that:  I don't have to restart speechEvent every time I
+            update the transcription language
 ---
 Set unsupported language (Kiswahili): PASS
 Set unsupported language (Arabic): PASS
 Set supported language (English): PASS
 Set supported language (Kinyarwanda): PASS
 
-====================================================================
+============================================================
 
 Test SpeechEvent's end-to-end transcription process
 ---
 Given:    a running speechEvent ROS node
-When:     an audio signal is detected on the /soundDetection/signal
-          ROS topic
-Then:     the audio needs to be transcribed and the text
-          transcription published on the /speechEvent/text ROS topic
+When:     a goal is sent to the /speechEvent/recognise_speech_action
+            ROS action
+Then:     transcribe utterances in audio published on the
+            /soundDetection/signal ROS topic and return
+            the result via the /speechEvent/recognise_speech_action
+            ROS action
 ---
 
 Transcribe 'rw-ingendo': PASS
@@ -588,7 +744,7 @@ Transcribe 'rw-atandatu': PASS
 Transcribe 'rw-ibikenewe': PASS
 Transcribe 'rw-kabiri': PASS
 Transcribe 'en-turner construction was the construction manager
-            for the project': PASS
+    for the project': PASS
 Transcribe 'en-he now resides in monte carlo': PASS
 Transcribe 'en-the council was held': PASS
 \end{verbatim}
@@ -666,13 +822,13 @@ To run a Speech Event ROS node, a Sound Detection ROS node needs to also be runn
 
 \begin{enumerate}
     \item Run a Speech Event ROS node: \lstinline|rosrun speech_event speech_event_application.py|
-    \item View text transcriptions on the terminal (optional): \lstinline|rostopic echo /speechEvent/text|
+    \item View text transcriptions on the terminal (optional): \lstinline|rostopic echo /speechEvent/recognise _speech_action/result|
 \end{enumerate}
 
 If running the Speech Event ROS node in verbose mode (by setting the configuration option \texttt{verboseMode} to \texttt{true}), a graphical application that displays the text transcriptions will open on the screen.
 
 \subsection{Driver ROS Node}
-A driver ROS node that mimics the Sound Detection ROS node is also provided. It capturing audio from a personal computer's microphone instead of from Pepper, and publishes the audio signal on the \texttt{/soundDetection/signal} ROS topic in the same way that the Sound Detection ROS node does. To bring up this driver ROS node: rosrun speech\_event speech\_event\_driver.py.
+A driver ROS node that mimics the Sound Detection ROS node is also provided. It capturing audio from a personal computer's microphone instead of from Pepper, and publishes the audio signal on the \texttt{/soundDetection/signal} ROS topic in the same way that the Sound Detection ROS node does. Execute the command \lstinline|rosrun speech_event speech_event_driver.py| to bring up this driver ROS node.
 
 
 \newpage
@@ -730,6 +886,14 @@ Fixed typing errors.\\
 Use listings for code blocks.\\
 Clifford Onyonka. \\
 30 July 2025.
+
+\item [Version 1.4]~\\
+Use a ROS action for speech transcription\\
+Update Speech Event ROS node and Speech Event driver ROS node configuration file options\\
+Add Voice Activity Detection (VAD)\\
+Add Parakeet TDT-CTC and Whisper Large v3 Turbo speech recognition models\\
+Clifford Onyonka. \\
+07 May 2026.
 
 
 

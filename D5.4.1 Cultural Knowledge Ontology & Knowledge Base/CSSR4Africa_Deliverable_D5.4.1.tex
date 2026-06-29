@@ -82,10 +82,10 @@
 \leadpartner{Carnegie Mellon University Africa (for Wits)}      
 \partner{Carnegie Mellon University Africa}                               
 
-\revision{2.1}                           
+\revision{2.2}                           
 \deliverabledate{31/12/2024}  
 \submissiondate{30/12/2024}  
-\revisiondate{01/05/2025}      
+\revisiondate{15/05/2026}      
 \disseminationlevel{PU}
 \responsible{D. Vernon }       
 
@@ -613,6 +613,7 @@ should walk slightly to the side).}\\
 \hline
 \multicolumn{2}{|c|}{{\footnotesize Hand Gesture}} \\
 \hline
+{\footnotesize \verb+gestureArm+} 	                 & {\footnotesize 2-8 } \vspace{-1mm}\\
 {\footnotesize \verb+deicticShape+} 	                 & {\footnotesize 2-6, 2-7, 2-8 } \vspace{-1mm}\\
 %%{\footnotesize \verb+deicticRestriction+} 	          & {\footnotesize 2-7, 2-8 } \vspace{-1mm}\\
 {\footnotesize \verb+deicticDuration+} 	                 & {\footnotesize \verb++} \vspace{-1mm}\\
@@ -803,7 +804,7 @@ should walk slightly to the side).}\\
 .4 Deictic.
 .5 Shape.
 .5 Duration.
-.5 Avoid.
+.5 Arm.
 .4 Iconic.
 .5 Shape.
 .4 Symbolic.
@@ -968,6 +969,7 @@ should walk slightly to the side).}\\
 \hline
 \multicolumn{2}{|c|}{{\footnotesize Hand Gesture}} \\
 \hline
+{\footnotesize \verb+gestureArm+} 	                 & {\footnotesize 2-8} \vspace{-1.01mm}\\
 {\footnotesize \verb+deicticShape+} 	                 & {\footnotesize 2-6} \vspace{-1.01mm}\\
 {\footnotesize \verb+deicticDuration+} 	                 & {\footnotesize \verb++} \vspace{-1.01mm}\\
 {\footnotesize \verb+deicticAvoid+} 	          & {\footnotesize 2-7} \vspace{-1.01mm}\\
@@ -1151,6 +1153,7 @@ The key-value pairs are stored in a file {\tt \small cultureKnowledgeBaseInput.d
 \hline
 \multicolumn{2}{|c|}{{\footnotesize Hand Gesture}} \vspace{-0mm}\\
 \hline
+{\footnotesize \verb+gestureArm+} 	                 & {\footnotesize \verb++  Use the arm closest to the object when pointing} \vspace{-1.01mm}\\
 {\footnotesize \verb+deicticShape+} 	                 & {\footnotesize \verb++  Use an open palm to point at people and objects} \vspace{-1.01mm}\\
 {\footnotesize \verb+deicticDuration+} 	                 & {\footnotesize \verb++} \vspace{-1.01mm}\\
 {\footnotesize \verb+deicticAvoid+} 	                 & {\footnotesize \verb++ Do not point an upward-facing palm at someone} \vspace{-1.01mm}\\
@@ -1322,6 +1325,7 @@ The key-value pairs are stored in a file {\tt \small cultureKnowledgeBaseInput.d
 \hline
 \multicolumn{3}{|c|}{{\footnotesize Hand Gesture}} \vspace{-0mm}\\
 \hline
+{\footnotesize \verb+gestureArm+} 	                 & {\footnotesize \verb+EITHER+} & {\footnotesize  }\vspace{-1.01mm}\\
 {\footnotesize \verb+deicticShape+} 	                 & {\footnotesize \verb+PALM_UPWARDS+} & {\footnotesize  }\vspace{-1.01mm}\\
 {\footnotesize \verb+deicticDuration+} 	                 & {\footnotesize \verb++}  & {\footnotesize  }\vspace{-1.01mm}\\
 {\footnotesize \verb+deicticAvoid+} 	                 & {\footnotesize \verb+PALM_FORWARDS+}  & {\footnotesize  }\vspace{-1.01mm}\\
@@ -1648,6 +1652,10 @@ Key-value pairs without values in Tables \ref{table:key-value_pairs1} -\ref{tabl
 {\footnotesize \verb+utilityPhraseEnglish7+}             & {\footnotesize \verb+PHRASE+ } \vspace{-1.5mm}  \\
 {\footnotesize \verb+utilityPhraseKinyarwanda7+}    & {\footnotesize \verb+PHRASE+}  \vspace{-1.5mm} \\
 {\footnotesize \verb+utilityPhraseIsiZulu7+}             & {\footnotesize \verb+UNDEFINED+ }\vspace{-1.5mm} \\
+{\footnotesize \verb+utilityPhraseEnglish8+}             & {\footnotesize \verb+PHRASE+ } \vspace{-1.5mm}  \\
+{\footnotesize \verb+utilityPhraseKinyarwanda8+}    & {\footnotesize \verb+PHRASE+}  \vspace{-1.5mm} \\
+{\footnotesize \verb+utilityPhraseIsiZulu8+}             & {\footnotesize \verb+UNDEFINED+ }\vspace{-1.5mm} \\
+
 \end{tabular}
 %\end{center}
 \end{table}
@@ -1709,6 +1717,7 @@ The culture knowledge base  file comprises a list of key-value pairs as shown in
 {\footnotesize \verb+nodExtentFriendliness+} 	                           & {\footnotesize \verb+30+ }\vspace{-1.5mm} \\
 {\footnotesize \verb+nodExtentComprehension+}                           & {\footnotesize \verb+30+ }\vspace{-1.5mm} \\
 {\footnotesize \verb+nodExtentInterest+} 	                                  & {\footnotesize \verb+30+ }\vspace{-1.5mm} \\
+{\footnotesize \verb+gestureArm+} 	                                          & {\footnotesize \verb+EITHER+} \vspace{-1.5mm}\\
 {\footnotesize \verb+deicticShape+} 	                                          & {\footnotesize \verb+PALM_UPWARDS+} \vspace{-1.5mm}\\
 {\footnotesize \verb+deicticAvoid+} 	                                          & {\footnotesize \verb+PALM_FORWARDS+}  \vspace{-1.5mm}\\
 {\footnotesize \verb+iconicShape+} 	                                          & {\footnotesize \verb+ANIMATE_BEHAVIOR+} \vspace{-1.5mm}\\
@@ -1740,21 +1749,60 @@ The culture knowledge base  file comprises a list of key-value pairs as shown in
 \label{fig:cultureKnowledgeBase2}
 %\begin{center}
 \vspace{-3mm}
-\begin{tabular}{l l}
-{\footnotesize \verb+utilityPhraseEnglish1+} 	                          & {\footnotesize \verb+Please press Yes or No on my screen+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseKinyarwanda1+} 	                  & {\footnotesize \verb+Mukande Yego cyangwa Oya kuri ekara yanjye+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseEnglish2+} 	                          & {\footnotesize \verb+Please follow me+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseKinyarwanda2+} 	                  & {\footnotesize \verb+Munkurikire+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseEnglish3+} 	                          & {\footnotesize \verb+Maybe another time+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseKinyarwanda3+} 	                  & {\footnotesize \verb+Ahari ikindi gihe+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseEnglish4+} 	                          & {\footnotesize \verb+I can only understand Yes or No+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseKinyarwanda4+} 	                  & {\footnotesize \verb+Nshobora kumva Yego cyangwa Oya byonyine+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseEnglish5+} 	                          & {\footnotesize \verb+Would you like a tour of the lab?+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseKinyarwanda5+} 	                  & {\footnotesize \verb+Wakwifuza gutemberezwa muri laboratwari?+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseEnglish6+} 	                          & {\footnotesize \verb+Here is the door+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseKinyarwanda6+} 	                  & {\footnotesize \verb+Umuryango uri hano+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseEnglish7+} 	                          & {\footnotesize \verb+Goodbye+} \vspace{-1.5mm}\\
-{\footnotesize \verb+utilityPhraseKinyarwanda7+} 	                  & {\footnotesize \verb+Murabeho+} \vspace{-1.5mm}\\
+\begin{tabular}{p{0.3\linewidth} p{0.68\linewidth}}
+\footnotesize\texttt{utilityPhraseEnglish1} &
+\footnotesize\texttt{Hello everyone! Welcome to the AI and Robotics lab, here at Carnegie Mellon University Africa. My name is Pepper. I am what is called a Humanoid Robot. That means I was designed to look, move and act like you, humans! For today, I will be your tour guide.} \\
+
+\footnotesize\texttt{utilityPhraseKinyarwanda1} &
+\footnotesize\texttt{Muraho mwese! Murakaza neza muri laboratwari ya AI na Robotika hano muri Carnegie Mellon University Africa. Nitwa Pepper. Ndi icyo bita robo imeze nk’umuntu. Ibi bivuze ko naremewe gusa, kugenda no gukora nkamwe, abantu! Uyu munsi ndababera umuyobozi w’urugendo.} \\
+
+\footnotesize\texttt{utilityPhraseEnglish2} &
+\footnotesize\texttt{Stand back and watch, as I go around the lab and explain some of the things we do here.} \\
+
+\footnotesize\texttt{utilityPhraseKinyarwanda2} &
+\footnotesize\texttt{Nimwigire inyuma mwitegereze, mu gihe nzenguruka muri laboratwari nsobanura bimwe mu byo dukora hano.} \\
+
+\footnotesize\texttt{utilityPhraseEnglish3} &
+\footnotesize\texttt{Now, we move on to the best part of the tour. The star of the main project done here at the lab.} \\
+
+\footnotesize\texttt{utilityPhraseKinyarwanda3} &
+\footnotesize\texttt{Ubu noneho tujye ku gice cy’ingenzi cy’urugendo. Icy’ingenzi cyane mu mushinga ukorerwa hano muri laboratwari.} \\
+
+\footnotesize\texttt{utilityPhraseEnglish4} &
+\footnotesize\texttt{That marks the last item on the tour. If you have any further questions, please ask my colleagues here.} \\
+
+\footnotesize\texttt{utilityPhraseKinyarwanda4} &
+\footnotesize\texttt{Ibyo birarangiza urugendo rwacu. Niba mufite ibindi bibazo, mwabaza abo dukorana hano.} \\
+
+
+
+\footnotesize\texttt{utilityPhraseEnglish5} &
+\footnotesize\texttt{That is it from me. I hope you enjoyed the tour of the AI \& Robotics Lab here at Carnegie Mellon University Africa.} \\
+
+\footnotesize\texttt{utilityPhraseKinyarwanda5} &
+\footnotesize\texttt{Ni ibyo nababwiraga. Nizeye ko mwishimiye urugendo rwo muri laboratwari ya AI na Robotika hano muri Carnegie Mellon University Africa.} \\
+
+\footnotesize\texttt{utilityPhraseEnglish6} &
+\footnotesize\texttt{Hi there. Would you like a tour of the lab?} \\
+
+\footnotesize\texttt{utilityPhraseKinyarwanda6} &
+\footnotesize\texttt{Muraho. Wakwifuza gutemberezwa muri laboratwari?} \\
+
+\footnotesize\texttt{utilityPhraseEnglish7} &
+\footnotesize\texttt{No problem. Perhaps we can do it another time.} \\
+
+\footnotesize\texttt{utilityPhraseKinyarwanda7} &
+\footnotesize\texttt{Nta kibazo. Ahari twabikora ikindi gihe.} \\
+
+\footnotesize\texttt{utilityPhraseEnglish8} &
+\footnotesize\texttt{I Hope to meet with you again soon. I will be right here, ready for our next adventure. See you soon!} \\
+
+\footnotesize\texttt{utilityPhraseKinyarwanda8} &
+\footnotesize\texttt{Nizeye ko tuzongera guhura vuba. Nzaba nkiri hano, niteguye urugendo rwacu rutaha. Tuzabonana vuba!} \\
+
+
+
+
 \end{tabular}
 %\end{center}
 %\vspace{-5mm}
@@ -2154,6 +2202,14 @@ David Vernon.\\
 Changed instances of {\small \tt expressionPhrase*} keys to {\small \tt phrase*} keys in Table \ref{table:key-value_questions_verbal} to be consistent with keys in Table \ref{table:key-value_pairs2}.\\
 David Vernon.\\
 1 May 2025.   \\  
+
+
+\item [Version 2.2]~\\
+Added references to arm selection for ``deictic gestures'' \\
+Added {\small \tt gestureArm} as a key in the cultural knowledge base \\
+Updated the ``Utility Key Phrases''` \\
+Tsegazeab Tefferi.\\
+15 May 2026.   \\  
 
 \end{description}
 

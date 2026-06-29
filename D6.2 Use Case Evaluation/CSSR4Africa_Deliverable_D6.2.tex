@@ -135,10 +135,10 @@
 \leadpartner{Carnegie Mellon University Africa (for Wits)}      
 \partner{Carnegie Mellon University Africa}                               
 
-\revision{1.2}                           
+\revision{1.3}                           
 \deliverabledate{30/06/2025}  
 \submissiondate{13/06/2025}  
-\revisiondate{16/06/2025}      
+\revisiondate{11/01/2026}      
 \disseminationlevel{PU}
 \responsible{D. Vernon }       
 
@@ -227,7 +227,7 @@ Table \ref{table:phase1b} lists the  changes that have been identified in the fi
 \hline 
 {\small Task No.}                               & {\small Node }                                                 &  {\small Change}       \\
 \hline
-{\footnotesize 2.4 }  & {\footnotesize \verb+behaviorController+}     & {\footnotesize Have two variants of the lab tour use case: (a) the robot operates autonomously, without requiring someone to introduce it, and (b) someone introduces Pepper and initiates the tour demo.    The former requires the Pepper robot to locate a visitor, wait until mutual gaze is established, and then ask the visitor if she or he would like a tour. The second omits this part, launches directly into the tour, and doesn't require the visitor to follow the robot.} \\ 
+{\footnotesize 2.4 }  & {\footnotesize \verb+behaviorController+}     & {\footnotesize Have two variants of the lab tour use case: (a) the robot operates autonomously, without requiring someone to introduce it (detects a visitor, ascertains mutual gaze, asks visitor if he/she would like a tour), and (b) someone introduces Pepper and initiates the tour demo (omits visitor detection).} \\ 
 \hline
 {\footnotesize 5.6 }  & {\footnotesize \verb+behaviorController+}     & {\footnotesize Minimize pauses or dead zones between different phases of the tour, i.e., between each behavior tree action nodes.   } \\ 
 \hline
@@ -256,6 +256,8 @@ Table \ref{table:phase1b} lists the  changes that have been identified in the fi
 {\footnotesize 4.4, 5.6 }  & {\footnotesize All nodes}     & {\footnotesize  Implement  a means of resetting the node through a service call.} \\
 %%This will allow a script to reset all nodes using the ROS rosservice command line interface. 
 %%This will avoid having to kill all active ROS nodes and re-launch to entire system in the case of fatal failure of the system.} \\ 
+\hline
+{\footnotesize 4.4, 5.6 }  & {\footnotesize All nodes}     & {\footnotesize  Save logs to file for future auditing and diagnosis of issues that may arise when the ROS nodes are running.} \\
 \hline
 \end{tabularx}
 \caption{Required changes that have been identified in the first phase of the evaluation of the functional operation of the CSSR4Africa system, i.e., during system integration of ROS nodes. These changes are scheduled for implementation in Tasks  1.5, 2.4, 3.6,  4.4 and 5.6 in the final year. The task number refers to the task that is responsible for implementing the change.}
@@ -455,6 +457,7 @@ The main authors of this deliverable are as follows (in alphabetical order).
 ~
 \blank
 Adedayo Akinade, Carnegie Mellon University Africa.\\
+Clifford Onyonka, Carnegie Mellon University Africa.\\
 Daniel Barros, Carnegie Mellon University Africa and Technical University of Munich. \\
 David Vernon, Carnegie Mellon University Africa.\\   
   
@@ -480,7 +483,12 @@ David Vernon.\\
 \item [Version 1.2]~\\
 Updated required changes in Table \ref{table:phase1b}: changed order, added additional limitation of the second variant of the use case, added the receptionist use case, and added more natureal spoken interaction by the visitor.\\
 David Vernon.\\
-16 June 2025.   \\  
+16 June 2025.   \\
+
+\item [Version 1.3]~\\
+Updated Table \ref{table:phase1b}: added saving of logs to file for all ROS nodes, re-phrased the first item to shorten it so that the table fits within a single page.\\
+Clifford Onyonka.\\
+11 January 2026.   \\
 
 
 \end{description}
