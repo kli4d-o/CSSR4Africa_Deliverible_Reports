@@ -31,10 +31,10 @@
 \leadpartner{Carnegie Mellon University Africa}     
 %%\partner{}                               
 
-\revision{2.6}                         
+\revision{2.8}                         
 \deliverabledate{31/01/2024}    
 \submissiondate{24/01/2024}   
-\revisiondate{11/06/2025}   
+\revisiondate{26/06/2026}   
 \disseminationlevel{PU}
 \responsible{D. Vernon }            
 
@@ -280,7 +280,7 @@ This node does not call any services.
 
 \newpage
 
-\subsection{Behavior Controller}
+\subsection{Robot Mission Interpreter}
 %=================================================================================
 \label{section:behavior_controller}
 
@@ -292,7 +292,7 @@ This node does not call any services.
 %--------------------------------
 This ROS node  provides that interprets the robot mission language developed in Task 5.4.2 and implements the specification of the two  use case scenarios in that language, as documented in Deliverable D5.4.2. In does so by  recruiting the robot and visitor behaviors documented in Deliverables D2.2 and D2.3, and the cultural knowledge encapsulated in Deliverable D5.4.1, and realized in the robot sensing modules developed in Work Package 4 and the robot behavior modules developed in Work Package 5.  The outcome of this task  is described in Deliverable D5.4.3. 
 
-The dynamics of interaction between the robot and the visitor in the two use case scenarios are specified by robot mission specifications  written in the robot mission language defined in Task 5.4.2.  The  {\small \verb+behaviorController+}  node interacts with other CSSR4Africa ROS nodes to realize these dynamics.  It does this by calling various services. These are detailed below.
+The dynamics of interaction between the robot and the visitor in the two use case scenarios are specified by robot mission specifications  written in the robot mission language defined in Task 5.4.2.  The  {\small \verb+behaviorController+}  node interacts with other CSSR4Africa ROS nodes to realize these dynamics.  It does this by calling various services, subscribing to topics and sending action goals. These are detailed below.
 
 The node can run in normal mode or verbose mode. In verbose mode, data that is published to topics is also printed to the terminal.
 
@@ -306,9 +306,13 @@ The operation of the {\small \verb+behaviorController+} node is determined by th
 \hline 
 {\small Key }                               & {\small Values }                                                 &  {\small Effect}       \\
 \hline
-{\footnotesize \verb+scenarioSpecification+}  & {\footnotesize \verb+scenarioSpecification.dat+}     & {\small Specifies the filename of the file in which the robot mission specificatgion is stored.} \\
+{\footnotesize \verb+scenarioSpecification+}  & {\footnotesize \verb+<specificationFile>+}     & {\small Specifies the name of the robot mission specification file. The node will look for an xml file, excluding extension, with that name from the data folder.} \\
 \hline
 {\footnotesize \verb+verboseMode+}  & {\footnotesize \verb+true+, \verb+false+}     & {\small Specifies whether diagnostic data is to be printed to the terminal.} \\
+\hline
+{\footnotesize \verb+asrEnabled+}  & {\footnotesize \verb+true+, \verb+false+}     & {\small Specifies whether Automatic Speech Recognition is enabled on the platform or not.} \\
+\hline
+{\footnotesize \verb+audioMode+}  & {\footnotesize \verb+true+, \verb+false+}     & {\small Specifies whether vocalization of audio debugging messages should be enabled or not} \\
 \hline
 \end{tabularx}
 \end{center}
@@ -325,22 +329,17 @@ This node does not write to an output data file.
 
 \subsubsection*{Topics Subscribed}
 %-----------------------------
-This node  subscribes to three topics, as follows. 
+This node  subscribes to these topics, as follows. 
 
 \begin{center}
 \begin{tabularx}{\linewidth}{| l | l | X|}
 \hline 
 {\small Topic }                               & {\small Node }                            &  {\small Platform}       \\
 \hline
-{\footnotesize \verb+/speechEvent/text+ }  & {\footnotesize \verb+speechEvent+}    & {\small Physical robot  } \\ 
-\hline
-{\footnotesize \verb+/robotLocalization/pose+ }  & {\footnotesize \verb+/robotLocalization+}    & {\small Physical robot  } \\ 
-\hline
-{\footnotesize \verb+/personDetection/data+ }  & {\footnotesize \verb+/personDetection+}    & {\small Physical robot  } \\ 
+{\footnotesize \verb+/overtAttention/data+ }  & {\footnotesize \verb+/overtAttention+}    & {\small Physical robot \& Simulator  } \\ 
 \hline
 \end{tabularx}
 \end{center}
-The {\small \verb+/robotLocalization/pose+}  and {\small \verb+/personDetection/data+} topics are needed to allow navigation with respect to people in the robot's field of view.
 
 \subsubsection*{Topics Published}
 %----------------------------
@@ -359,34 +358,50 @@ This node does not provide and advertize  any services.
 This node  calls the following services to implement the interaction dynamics specified in the scenario robot mission specification.
 
 \begin{center}
-\begin{tabularx}{\linewidth}{| l | l | X|}
+\begin{tabularx}{\linewidth}{| p{6.5cm} | p{3cm} | X |}
 \hline 
-{\small Service }                                                    & {\small Message Value}    &  {\small Effect}       \\
+{\small Service }                               & {\small Message Format }                            &  {\small Effect}       \\
 \hline
- {\footnotesize \verb+/animateBehavior/set_activation+} & {\small To be defined} &  {\small Enable and disable the operation of} {\footnotesize \verb+animateBehavior+} \\
+{\footnotesize \verb+animateBehaviour/set_activation+}  & {\footnotesize \texttt{state}}    & {\small Enable or Disable the Animate Behavior mechanism.} \\ 
 \hline
- {\footnotesize \verb+/gestureExecution/perform_gesture+} & {\small To be defined} &  {\small Initiate the performance of a required gesture}\\
+{\footnotesize \verb+gestureExecution/perform_gesture+}  & {\footnotesize \texttt{gesture\_type, gesture\_id, arm, deictic\_shape, gesture\_duration, bow\_nod\_angle, location\_x, location\_y, location\_z}}    & {\small Invokes the gesture subsystem to perform a type of gesture with specified coordinates. The coordinates are only necessary if the \texttt{gesture\_type} is \texttt{deictic}.} \\ 
 \hline
-%%{\footnotesize \verb+/knowledgeBase/query+ }  & {\small To be defined} & {\small Extract required knowledge from the cultural knowledge base} \\ 
-%%\hline
-{\footnotesize \verb+/overtAttention/set_mode+} & {\small To be defined} &  {\small Set the social, scanning, or location mode of attention}\\
-%%\hline
-%%{\footnotesize \verb+/overtAttention/set_activation+} & {\small To be defined} &  {\small Enable and disable the operation of} {\footnotesize \verb+overtAttention+}\\
+{\footnotesize \verb+overtAttention/set_mode+}  & {\footnotesize \texttt{state, location\_x, location\_y, location\_z}}    & {\small Sets the mode of attention for the Overt Attention node to follow.} \\ 
 \hline
-{\footnotesize \verb+/robotNavigation/set_goal+}  &  {\footnotesize \verb+<x>+ \verb+<y>+  \verb+<theta>+}  & {\small Navigate to a given location} \\ 
+{\footnotesize \verb+robotLocalization/set_pose+}  & {\footnotesize \texttt{x, y, theta}}    & {\small Informs the localization subsystem of the current pose of the robot} \\ 
 \hline
-{\footnotesize \verb+/robotLocalization/set_pose+ }  & {\footnotesize \verb+<x>+ \verb+<y>+  \verb+<theta>+}  & {\small Set robot pose} \\ 
+{\footnotesize \verb+robotNavigation/set_goal+}  & {\footnotesize \texttt{goal\_x, goal\_y, goal\_theta}}    & {\small Invokes the navigation subsystem to move to the specified coordinates.} \\ 
 \hline
-{\footnotesize \verb+/tabletEvent/prompt_and_get_response+} &{\small To be defined} &  {\small Seek input from the visitor}\\
+{\footnotesize \verb+speechEvent/set_language+}  & {\footnotesize \texttt{language}}    & {\small Sets the language for the ASR to transcribe utterances to} \\ 
 \hline
-{\footnotesize \verb+/textToSpeech/say_text+ }  & {\footnotesize \verb+<string>+} & {\small Say a text message} \\ 
-
+{\footnotesize \verb+tabletEvent/prompt_and_get_response+}  & {\footnotesize \texttt{message}}    & {\small Sends the text to be printed as a message on the Tablet.} \\ 
+\hline
+{\footnotesize \verb+textToSpeech/say_text+}  & {\footnotesize \texttt{message, language}}    & {\small Sends the text to be converted to an audio signal based on the language specified and played on the robot's loudspeakers.} \\ 
 \hline
 \end{tabularx}
 \end{center}
 
-The type of the variables that are passed as an argument to the service calls  has not yet been defined. This will be done when the node that services and advertizes these services are fully specified.
-Similarly, the type of the service call  return value has not yet been defined. Again, this will be done when the node that services and advertizes these services are fully specified.
+\subsubsection*{Action goals sent}
+%---------------------------------------
+\label{section:robot_mission_interpreter_goals_sent}
+
+The node interacts with the action servers detailed in the table below. Each entry specifies the action server name, the message format required, and the expected effects or observations.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{| p{6.5cm} | X | X |}
+\hline 
+{\small Service }                               & {\small Message Format }                            &  {\small Effect}       \\
+\hline
+{\footnotesize \verb+gestureExecution/perform_gesture+}  & {\footnotesize \texttt{gesture\_type, gesture\_id, arm, deictic\_shape, gesture\_duration, bow\_nod\_angle, location\_x, location\_y, location\_z}}    & {\small Invokes the gesture subsystem to perform a type of gesture with specified coordinates. The coordinates are only necessary if the \texttt{gesture\_type} is \texttt{deictic}.} \\ 
+\hline
+{\footnotesize \verb+robotNavigation/set_goal+}  & {\footnotesize \texttt{goal\_x, goal\_y, goal\_theta}}    & {\small Invokes the navigation subsystem to move to the specified coordinates.} \\ 
+\hline
+{\footnotesize \verb+speechEvent/recognise_speech_action+}  & {\footnotesize \texttt{language}}    & {\small Sets the language for the ASR to transcribe utterances to} \\ 
+\hline
+{\footnotesize \verb+textToSpeech/say_text+}  & {\footnotesize \texttt{message, language}}    & {\small Sends the text to be converted to an audio signal based on the language specified and played on the robot's loudspeakers.} \\ 
+\hline
+\end{tabularx}
+\end{center}
 
 
 \subsubsection*{Helper Classes Used}
@@ -690,29 +705,32 @@ These are specified in the file identified by the {\small \verb+robotTopics+ }  
 
 \subsubsection*{Services Supported}
 %---------------------------------------
- This node  provides and advertizes a server for a service {\small \verb+/gestureExecution/perform_gesture+} to initiate the performance of a required gesture. It uses a package-specific msg, {\small \verb+Gesture.msg+}.
+ This node  provides and advertizes a server for a service {\small \verb+/gestureExecution/perform_gesture+} to initiate the performance of a required gesture.
 The message has several fields, as follows.
 
 \begin{center}
-\begin{tabularx}{\linewidth}{| l | X | l| l|}
+\begin{tabularx}{\linewidth}{| l | X | l | l |}
 \hline 
-{\small Field }                                                                                & {\small Field Value}    &  {\small Field Type}  &     {\small Units}   \\
+{\small Field }                               & {\small Field Value }                            &  {\small Field Type}   &  {\small Units}    \\
 \hline
-{\footnotesize  \verb+gesture_type+}  & {\footnotesize \verb+iconic+,   \verb+symbolic+, \verb+deictic+, \verb+bow+, \verb+nod+   } & {\small String} & \\ 
+{\footnotesize \verb+gesture_type+}  & {\footnotesize \texttt{iconic, symbolic}}    & {\footnotesize \texttt{String}} & {\footnotesize } \\ 
+{\footnotesize }  & {\footnotesize \texttt{deictic, bow, nod}}    & {\footnotesize } & {\footnotesize } \\ 
 \hline
-{\footnotesize  \verb+gesture_id+}  & {\footnotesize \verb+<number>+    } & {\small Integer}  & \\ 
+{\footnotesize \verb+gesture_id+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Integer}} & {\footnotesize } \\ 
 \hline
-{\footnotesize  \verb+gesture_duration+}  & {\footnotesize \verb+<number>+    } & {\small Integer} & {\footnotesize milliseconds} \\ 
+{\footnotesize \verb+arm+}  & {\footnotesize \texttt{LEFT, RIGHT, EITHER}}    & {\footnotesize \texttt{String}} & {\footnotesize } \\ 
 \hline
-{\footnotesize  \verb+bow_nod_angle+}  & {\footnotesize \verb+<number>+    } & {\small Integer} & {\small degrees} \\ 
-%\hline
-%{\footnotesize  \verb+nod_angle+}  & {\footnotesize \verb+<number>+    } & {\small Integer} & {\small degrees} \\ 
+{\footnotesize \verb+deictic_shape+}  & {\footnotesize \texttt{PALM\_UPWARDS, PALM\_DOWNWARDS}}    & {\footnotesize \texttt{String}} & {\footnotesize } \\ 
 \hline
-{\footnotesize  \verb+location_x+}  & {\footnotesize \verb+<number>+    } & {\small Real} & {\small metres} \\ 
+{\footnotesize \verb+gesture_duration+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Integer}} & {\footnotesize \texttt{milliseconds}} \\ 
 \hline
-{\footnotesize  \verb+location_y+}  & {\footnotesize \verb+<number>+    } & {\small Real} & {\small metres} \\ 
+{\footnotesize \verb+bow_nod_angle+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Integer}} & {\footnotesize \texttt{degrees}} \\ 
 \hline
-{\footnotesize  \verb+location_z+}  & {\footnotesize \verb+<number>+    } & {\small Real} & {\small metres} \\ 
+{\footnotesize \verb+location_x+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Real}} & {\footnotesize \texttt{metres}} \\ 
+\hline
+{\footnotesize \verb+location_y+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Real}} & {\footnotesize \texttt{metres}} \\ 
+\hline
+{\footnotesize \verb+location_z+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Real}} & {\footnotesize \texttt{metres}} \\ 
 \hline
 \end{tabularx}
 \end{center}
@@ -720,18 +738,18 @@ The message has several fields, as follows.
 If the {\small \verb+perform_gesture+} request is successful, the service response is ``1''; if it is unsuccessful, it is ``0''.  
 The service  is called by  the {\small \verb+behaviorController+} node.
  
-The following summarizes the services supported.
+% The following summarizes the services supported.
 
-\begin{center}
-\begin{tabularx}{\linewidth}{| l | l | X|}
-\hline 
-{\small Service }                                                                                & {\small Message Value}    &  {\small Effect}       \\
-\hline
-{\footnotesize \verb+/gestureExecution/perform_gesture+ }  & {\footnotesize \verb+iconic+,   \verb+symbolic+,   } & {\small Perform an iconic, symbolic, } \\ 
-  & {\footnotesize  \verb+deictic+, \verb+bow+, \verb+nod+ } &    or deictic gesture \\ 
-\hline
-\end{tabularx}
-\end{center}
+% \begin{center}
+% \begin{tabularx}{\linewidth}{| l | l | X|}
+% \hline 
+% {\small Service }                                                                                & {\small Message Value}    &  {\small Effect}       \\
+% \hline
+% {\footnotesize \verb+/gestureExecution/perform_gesture+ }  & {\footnotesize \verb+iconic+,   \verb+symbolic+,   } & {\small Perform an iconic, symbolic, } \\ 
+%   & {\footnotesize  \verb+deictic+, \verb+bow+, \verb+nod+ } &    or deictic gesture \\ 
+% \hline
+% \end{tabularx}
+% \end{center}
 
 
 
@@ -752,7 +770,35 @@ This node  invokes the service {\small \verb+/overtAttention/set_mode+} to move 
 
 
 
+\subsection*{Actions Supported}
+This node provides and advertises an action server at \texttt{/gestureExecution/perform\_gesture}, which is used to initiate the execution of a specified gesture. It relies on a package-specific action definition, \texttt{gesture.action}. The action definition includes the following fields:
 
+\begin{center}
+\begin{tabularx}{\linewidth}{| l | X | l | l |}
+\hline 
+{\small Field }                               & {\small Field Value }                            &  {\small Field Type}   &  {\small Units}    \\
+\hline
+{\footnotesize \verb+gesture_type+}  & {\footnotesize \texttt{iconic, symbolic}}    & {\footnotesize \texttt{String}} & {\footnotesize } \\ 
+{\footnotesize }  & {\footnotesize \texttt{deictic, bow, nod}}    & {\footnotesize } & {\footnotesize } \\ 
+\hline
+{\footnotesize \verb+gesture_id+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Integer}} & {\footnotesize } \\ 
+\hline
+{\footnotesize \verb+arm+}  & {\footnotesize \texttt{LEFT, RIGHT, EITHER}}    & {\footnotesize \texttt{String}} & {\footnotesize } \\ 
+\hline
+{\footnotesize \verb+deictic_shape+}  & {\footnotesize \texttt{PALM\_UPWARDS, PALM\_DOWNWARDS}}    & {\footnotesize \texttt{String}} & {\footnotesize } \\ 
+\hline
+{\footnotesize \verb+gesture_duration+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Integer}} & {\footnotesize \texttt{milliseconds}} \\ 
+\hline
+{\footnotesize \verb+bow_nod_angle+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Integer}} & {\footnotesize \texttt{degrees}} \\ 
+\hline
+{\footnotesize \verb+location_x+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Real}} & {\footnotesize \texttt{metres}} \\ 
+\hline
+{\footnotesize \verb+location_y+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Real}} & {\footnotesize \texttt{metres}} \\ 
+\hline
+{\footnotesize \verb+location_z+}  & {\footnotesize \texttt{<number>}}    & {\footnotesize \texttt{Real}} & {\footnotesize \texttt{metres}} \\ 
+\hline
+\end{tabularx}
+\end{center}
 
 
 
@@ -1247,7 +1293,7 @@ This ROS node  controls the locomotion of the Pepper robot so that it navigates 
  
 The node optionally  augments a metric workspace map of the robot's environment with obstacles corresponding to the location of any humans that have been detected in the robot's field of view by the {\small \verb+personDetection+} node. The extent of the human obstacle is determined using culturally sensitive proxemics. This augmented workspace map is then  used to generate a configuration space map that constrains the robot's path from its current location to its target location using either Dijkstra's algorithm and the A* algorithm. Waypoints are identified using one of two candidate techniques: equidistant waypoints and high path curvature waypoints. Locomotion from waypoint to waypoint is  effected using one of two locomotion algorithms: Multiple Input Multiple Output (MIMO) and divide and conquer (DnQ).  
 
-The node has three inputs. The first is a record identifying the destination pose for the robot, specified by the x and y coordinates of the location and the direction the robot should face (i.e., the direction of the {\em X-}axis in the robot base frame, all specified in the workspace frame of reference). This  record is part of a message in a service call by the {\small \verb+behaviorController+} node.\footnote{A ROS action will replace the service if it is determined that feedback on achievement of the navigation goal is required.}   The second is robot's current pose. This is provided by messages published to the  {\small \verb+robotLocalization+} node. The third input is the required cultural knowledge regarding proxemics. This is provided  querying the African cultural knowledge base 
+The node has three inputs. The first is a record identifying the destination pose for the robot, specified by the x and y coordinates of the location and the direction the robot should face (i.e., the direction of the {\em X-}axis in the robot base frame, all specified in the workspace frame of reference). This  record is part of a message either in a service call made or an action goal sent by the {\small \verb+behaviorController+} node. The second is robot's current pose. This is provided by messages published to the  {\small \verb+robotLocalization+} node. The third input is the required cultural knowledge regarding proxemics. This is provided  querying the African cultural knowledge base 
 %% service provided by the {\small \verb+knowledgeBase+} node.
 using an instantiation of a  {\small \verb+CultureKnowledgeBase+} helper class to read the culture knowledge base file and retrieve the required data using  class access methods.
 
@@ -1352,6 +1398,24 @@ This node  calls the following two services.
 \hline
 \end{tabularx}
 \end{center}
+
+
+\subsection*{Actions Supported}
+This node provides and advertises an action server at {\small \verb+/robotNavigation/set_goal+} to request navigation to a given goal position and orientation.
+The goal is sent by  the {\small \verb+behaviorController+} node. \\
+
+The table below summarizes the action server advertized and the message format.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{| l | l | X|}
+\hline 
+{\small Service }                                                                                & {\small Message Value}    &  {\small Effect}       \\
+\hline
+{\footnotesize \verb+/robotNavigation/set_goal+ }  & {\footnotesize \verb+<x>+ \verb+<y>+  \verb+<theta>+} & {\small Define navigation goal pose} \\ 
+\hline
+\end{tabularx}
+\end{center}
+
 
 \subsubsection*{Helper Classes Used}
 %---------------------------------------
@@ -1808,6 +1872,26 @@ The service is called by  the {\small \verb+behaviorController+} node. \\
 This node does not call any services.
 
 
+\subsection*{Actions Supported}
+This node provides and advertises an action server at {\small \verb+/textToSpeech/say_text+}, which is used to initiate the conversion of a text string to an audio signal, and to play that audio on the robot's loudspeakers.
+
+It uses a standard message type, {\small \verb+std_msgs::String+} defined in {\small \verb+std_msgs/String.msg+}, to specify the text. 
+The goal is sent by  the {\small \verb+behaviorController+} node. \\
+
+
+\noindent The following summarizes the action servers supported.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{| l | l | X|}
+\hline 
+{\small Action server }                                                                                & {\small Message Value}    &  {\small Effect}       \\
+\hline
+{\footnotesize \verb+/textToSpeech/say_text+ }  & {\footnotesize \verb+string+ \verb+<message>+}  & {\small Convert text to an audio signal and play it on the robot's loudspeakers.} \\ 
+    & {\footnotesize \verb+string+}, {\footnotesize \verb+<language>+}      &  \\ 
+\hline
+\end{tabularx}
+\end{center}
+
 
 \newpage
 \section{System Architecture in Detail}
@@ -1988,6 +2072,14 @@ Add support for the {\small \verb+/speechEvent/set_enabled+} ROS service to {\sm
 Use an updated system architecture diagram to show the new {\small \verb+/speechEvent/set_enabled+} ROS service \\
 Clifford Onyonka.\\
 11 June 2025.
+
+\item [Version 2.8]~\\
+Updated the Service supported for {\small \verb+gestureExecution+} \\
+Updated the services called for {\small \verb+behaviorController+} \\
+Added Action supported for {\small \verb+gestureExecution+}, {\small \verb+robotNavigation+}, and {\small \verb+textToSpeech+} ROS nodes \\
+Added Action goals sent for {\small \verb+behaviorController+} ROS node \\
+Tsegazeab Tefferi.\\
+26 June 2026.
 
 
 \end{description}
