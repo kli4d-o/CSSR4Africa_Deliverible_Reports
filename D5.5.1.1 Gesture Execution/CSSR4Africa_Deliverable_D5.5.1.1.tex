@@ -77,10 +77,10 @@
 \leadpartner{ Carnegie Mellon University Africa}                   
 \partner{}                       
 
-\revision{1.2}                     
+\revision{1.3}                     
 \deliverabledate{30/09/2024}  
 \submissiondate{10/10/2024}   
-\revisiondate{04/02/2025}      
+\revisiondate{15/05/2026}      
 \disseminationlevel{PU}
 \responsible{Adedayo Akinade }        
 
@@ -409,6 +409,8 @@ The file structure of the gesture execution node in the \texttt{cssr\_system} pa
 \dirtree{%
 .1 cssr\_system.
 .2 gestureExecution.
+.3 action.
+.4 performGesture.action.
 .3 config.
 .4 gestureExecutionConfiguration.ini.
 .3 data.
@@ -535,10 +537,10 @@ Table \ref{tab:Published_topics} lists the topics to which the \texttt{gestureEx
 \newpage
 
 \subsection*{Services Supported}
-This node provides and advertizes a server for a service \texttt{/gestureExecution/perform\_gesture} to initiate the performance of a required gesture. It uses a package-specific msg, \texttt{Gesture.msg}. The message has several fields, as follows:
+This node provides and advertises a service server at \texttt{/gestureExecution/perform\_gesture}, which is used to initiate the execution of a specified gesture. It relies on a package-specific service definition, \texttt{performGesture.srv}. The service definition includes the following fields:
 
-\begin{longtable}[c]{|l|l|l|l|}
-    \caption{Fields in the \texttt{Gesture.msg} of the gestureExecution node.} \label{tab:Gesture.msg_field} \\
+\begin{longtable}[c]{|l|p{3.5cm}|l|l|}
+    \caption{Fields in the \texttt{performGesture.srv} of the gestureExecution node.} \label{tab:Gesture.msg_field} \\
     \hline
     \rowcolor{gray!30}
     \footnotesize{\textbf{Field}} & \footnotesize{\textbf{Field Value}} & \footnotesize{\textbf{FIeld Type}} & \footnotesize{\textbf{Units}}\\ \hline
@@ -547,6 +549,8 @@ This node provides and advertizes a server for a service \texttt{/gestureExecuti
     \footnotesize{\texttt{gesture\_type}} & \footnotesize{\texttt{iconic, symbolic}} & \footnotesize{\texttt{String}} & \footnotesize{}  \\ 
    \footnotesize{} & \footnotesize{\texttt{deictic, bow, nod}} & \footnotesize{} & \footnotesize{}  \\\hline
 \footnotesize{\texttt{gesture\_id}} & \footnotesize{\texttt{<number>}} & \footnotesize{\texttt{Integer}} & \footnotesize{}  \\ \hline
+\footnotesize{\texttt{arm}} & \footnotesize{\texttt{LEFT, RIGHT, EITHER}} & \footnotesize{\texttt{String}} & \footnotesize{}  \\ \hline
+\footnotesize{\texttt{deictic\_shape}} & \footnotesize{\texttt{PALM\_UPWARDS, PALM\_DOWNWARDS}} & \footnotesize{\texttt{String}} & \footnotesize{}  \\ \hline
 \footnotesize{\texttt{gesture\_duration}} & \footnotesize{\texttt{<number>}} & \footnotesize{\texttt{Integer}} & \footnotesize{\texttt{milliseconds}}  \\ \hline
 \footnotesize{\texttt{bow\_nod\_angle}} & \footnotesize{\texttt{<number>}} & \footnotesize{\texttt{Integer}} & \footnotesize{\texttt{degrees}}  \\ \hline
 \footnotesize{\texttt{location\_x}} & \footnotesize{\texttt{<number>}} & \footnotesize{\texttt{Real}} & \footnotesize{\texttt{metres}}  \\ \hline
@@ -585,6 +589,31 @@ This node calls the \texttt{/overtAttention/set\_mode} service as shown in Table
 \end{longtable}
 
 The type of variable that is passed as an argument to the \texttt{overtAttention/set\_mode} service and the type of the service call return value is defined in D5.3 Overt Attention.  Specifically, the location mode of the overtAttention node is invoked and the required point coordinates are passed as request in this service call.
+
+
+\subsection*{Actions Supported}
+This node provides and advertises an action server at \texttt{/gestureExecution/perform\_gesture}, which is used to initiate the execution of a specified gesture. It relies on a package-specific action definition, \texttt{gesture.action}. The action definition includes the following fields:
+
+\begin{longtable}[c]{|l|p{3.5cm}|l|l|}
+    \caption{Fields in the \texttt{gesture.action} of the gestureExecution node.} \label{tab:gesture.action_field} \\
+    \hline
+    \rowcolor{gray!30}
+    \footnotesize{\textbf{Field}} & \footnotesize{\textbf{Field Value}} & \footnotesize{\textbf{FIeld Type}} & \footnotesize{\textbf{Units}}\\ \hline
+    \endhead % header for subsequent pages
+    
+    \footnotesize{\texttt{gesture\_type}} & \footnotesize{\texttt{iconic, symbolic}} & \footnotesize{\texttt{String}} & \footnotesize{}  \\ 
+   \footnotesize{} & \footnotesize{\texttt{deictic, bow, nod}} & \footnotesize{} & \footnotesize{}  \\\hline
+\footnotesize{\texttt{gesture\_id}} & \footnotesize{\texttt{<number>}} & \footnotesize{\texttt{Integer}} & \footnotesize{}  \\ \hline
+\footnotesize{\texttt{arm}} & \footnotesize{\texttt{LEFT, RIGHT, EITHER}} & \footnotesize{\texttt{String}} & \footnotesize{}  \\ \hline
+\footnotesize{\texttt{deictic\_shape}} & \footnotesize{\texttt{PALM\_UPWARDS, PALM\_DOWNWARDS}} & \footnotesize{\texttt{String}} & \footnotesize{}  \\ \hline
+\footnotesize{\texttt{gesture\_duration}} & \footnotesize{\texttt{<number>}} & \footnotesize{\texttt{Integer}} & \footnotesize{\texttt{milliseconds}}  \\ \hline
+\footnotesize{\texttt{bow\_nod\_angle}} & \footnotesize{\texttt{<number>}} & \footnotesize{\texttt{Integer}} & \footnotesize{\texttt{degrees}}  \\ \hline
+\footnotesize{\texttt{location\_x}} & \footnotesize{\texttt{<number>}} & \footnotesize{\texttt{Real}} & \footnotesize{\texttt{metres}}  \\ \hline
+\footnotesize{\texttt{location\_y}} & \footnotesize{\texttt{<number>}} & \footnotesize{\texttt{Real}} & \footnotesize{\texttt{metres}}  \\ \hline
+\footnotesize{\texttt{location\_z}} & \footnotesize{\texttt{<number>}} & \footnotesize{\texttt{Real}} & \footnotesize{\texttt{metres}}  \\ \hline
+\end{longtable}
+
+If the goal is successful, the response is “1”; if it is unsuccessful, it is “0”. The action is initiated by the \texttt{ behaviorController} node.
 
 \newpage
 \section{Executing the Gestures}
@@ -711,7 +740,7 @@ then waits for a fixed duration for the movement to complete before proceeding.
 To start the unit tests, the user must first install the necessary software packages as outlined in \href{https://cssr4africa.github.io/deliverables/CSSR4Africa_Deliverable_D3.3.pdf}
 {Deliverable D3.3}. The operation of the unit test is controlled by a configuration file \\ \texttt{gestureExecutionTestConfiguration.ini} which contain key-value pairs required to execute the unit tests as shown below. 
 
-\begin{longtable}[c]{|l|l|p{7cm}|}
+\begin{longtable}[c]{|l|p{1.5cm}|p{7cm}|}
     \caption{Configuration file for the gesture execution unit tests node} \label{tab:unit_tests_config_file}\\
     \hline
     \rowcolor{gray!30}
@@ -728,6 +757,8 @@ To start the unit tests, the user must first install the necessary software pack
 \small{\texttt{nod}} & \small{\texttt{true}} or \texttt{false} & \small{Specifies whether to run the nod gestures test} \\ \hline
     
  \small{\texttt{verboseMode}} & \small{\texttt{true}} or \texttt{false} & \small{Specifies whether diagnostic data is to be printed to the terminal.} \\ \hline
+
+ \small{\texttt{interface}} & \small{\texttt{service}} or \texttt{action} & \small{Specifies which ROS interfacing mechanism to use during tests.} \\ \hline
 
 
 \end{longtable}
@@ -809,7 +840,15 @@ David Vernon. \\
 \item [Version 1.2]~\\
 Removed all references to simulator platform, provided additional information on running the unit tests, and added hyperlinks to relevant external documentation.\\
 Adedayo Akinade. \\                                   
-4 February 2025.   
+4 February 2025.
+
+\item [Version 1.3]~\\
+Updated the service definition to reflect the added improvement to the ROS node \\
+Added ``Actions Supported'' and updated the ``File Organization'' under ``5. Implementation'' \\
+Updated the unit tests configuration to reflect the added support for ``ROS Actions'' \\
+Corrected wrong references to ``.msg'' files that were present
+Tsegazeab Tefferi. \\                                   
+15 May 2026.
 
 \end{description}
 
