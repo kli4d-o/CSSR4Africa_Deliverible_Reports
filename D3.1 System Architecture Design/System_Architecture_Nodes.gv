@@ -1,0 +1,472 @@
+digraph G{
+
+rankdir = LR;
+
+size = 20;
+
+nodesep = 0.3;
+
+splines = ortho;
+
+node [shape = "rectangle", fontname = "sans-serif", fontsize = 18];
+
+edge[fontname = "sans-serif"]
+
+
+
+Sensors[width=0.5,height=18,label = "Sensors",penwidth=2];
+
+personDetection[width=0.5,height=1.5,label = "personDetection"];
+
+
+soundDetection[width=0.5,height=1.5,label = "soundDetection"];
+
+faceDetection[width=0.5,height=2,label = "   faceDetection   "];
+
+
+speechEvent[width=0.5,height=2,label = "    speechEvent   "];
+
+tabletEvent[width=0.5,height=1,label = "    tabletEvent    "];
+
+
+behaviorController[width=0.5,height=2,label = "behaviorController"];
+
+overtAttention[width=0.5,height=7,label = "   overtAttention  "];
+
+animateBehavior[width=0.5,height=4,label = "animateBehavior"];
+
+gestureExecution[width=0.5,height=3,label = "gestureExecution"];
+
+robotLocalization[width=0.5,height=5,label = "robotLocalization"];
+
+robotNavigation[width=0.5,height=2,label = " robotNavigation  "];
+
+textToSpeech[width=0.5,height=1,label = "  textToSpeech  "];
+
+Actuators[width=0.5,height=11,label = "Actuators",penwidth=2];
+
+
+
+
+/* Actuators */
+/* ========= */
+
+/* topics subscribed */
+/* ----------------- */
+
+/* animateBehavior */
+
+animateBehavior -> Actuators [taillabel = " /pepper_dcm/RightHand_controller/follow_joint_trajectory", label="                                                                             ", dir = forward, fontsize = 12];
+animateBehavior -> Actuators [taillabel = " /pepper_dcm/LeftHand_controller/follow_joint_trajectory", dir = forward, fontsize = 12];
+
+animateBehavior -> Actuators [taillabel = " /pepper_dcm/RightArm_controller/follow_joint_trajectory", dir = forward, fontsize = 12];
+animateBehavior -> Actuators [taillabel = " /pepper_dcm/LeftArm_controller/follow_joint_trajectory", dir = forward, fontsize = 12];
+animateBehavior -> Actuators [taillabel = " /pepper_dcm/Pelvis_controller/follow_joint_trajectory", dir = forward, fontsize = 12];
+animateBehavior -> Actuators [taillabel = " /cmd_vel", dir = forward, fontsize = 12];
+
+ 
+ 
+/* gestureExecution */
+
+gestureExecution -> Actuators [taillabel = " /pepper_dcm/RightHand_controller/follow_joint_trajectory", dir = forward, fontsize = 12];
+gestureExecution -> Actuators [taillabel = " /pepper_dcm/LeftHand_controller/follow_joint_trajectory", dir = forward, fontsize = 12];
+
+gestureExecution -> Actuators [taillabel = " /pepper_dcm/RightArm_controller/follow_joint_trajectory", dir = forward, fontsize = 12];
+gestureExecution -> Actuators [taillabel = " /pepper_dcm/LeftArm_controller/follow_joint_trajectory", dir = forward, fontsize = 12];
+
+gestureExecution -> Actuators [taillabel = " /pepper_dcm/Pelvis_controller/follow_joint_trajectory", dir = forward, fontsize = 12];
+gestureExecution -> Actuators [taillabel = " /cmd_vel", dir = forward, fontsize = 12];
+
+
+ 
+/* overtAttention */
+
+overtAttention -> Actuators [taillabel = " /pepper_dcm/Head_controller/follow_joint_trajectory", dir = forward, fontsize = 12];
+
+overtAttention -> Actuators [taillabel = " /cmd_vel",  dir = forward, fontsize = 12];
+robotNavigation -> Actuators [taillabel = " /cmd_vel", dir = forward, fontsize = 12];
+
+ 
+ 
+/* services called */
+/* --------------- */
+
+//none
+
+
+
+/* animateBehavior */
+/* ================ */
+
+/* topics subscribed */
+/* ----------------- */
+
+//none
+
+/* services called */
+/* --------------- */
+
+//none
+
+
+
+
+
+
+/* behaviorController */
+/* ================= */
+
+/* Actions used */
+behaviorController -> speechEvent[headlabel = "/speechEvent/recognise_speech_action", fontcolor="blue", color="blue", dir = forward, fontsize = 12];
+speechEvent -> robotLocalization [style=invis];
+gestureExecution -> robotNavigation [style=invis];
+
+
+/* topics subscribed */
+/* ----------------- */
+ 
+robotLocalization -> behaviorController [taillabel = " /robotLocalization/pose", label="                                                                    ", dir = forward, fontsize = 12];
+
+
+personDetection -> behaviorController [taillabel = " /personDetection/data", label="                                                                    ", dir = forward, fontsize = 12];
+
+
+overtAttention -> behaviorController [taillabel = " /overtAttention/mode", label=" ", dir = forward, fontsize = 12]; 
+
+
+/* services called */
+/* --------------- */
+
+behaviorController -> animateBehavior [headlabel = "/animateBehavior/set_activation    ", label="                                                                    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];
+behaviorController -> gestureExecution [headlabel = "/gestureExecution/perform_gesture    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];
+/*behaviorController -> knowledgeBase [headlabel = " /knowledgeBase/query    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];*/
+behaviorController -> overtAttention [headlabel = " /overtAttention/set_mode    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];
+/*behaviorController -> overtAttention [headlabel = " /overtAttention/set_activation    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];*/
+behaviorController -> overtAttention [headlabel = "   ", fontcolor="", color = "white", dir = forward, fontsize = 12];
+behaviorController -> tabletEvent [headlabel = "/tabletEvent/prompt_and_get_response    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];
+behaviorController -> textToSpeech [headlabel = "/textToSpeech/say_text    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];
+behaviorController -> robotNavigation [headlabel = "/robotNavigation/set_goal    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];
+behaviorController  -> speechEvent[headlabel = "/speechEvent/set_language", fontcolor="red", color = "red", dir = forward, fontsize = 12];
+behaviorController -> robotLocalization [headlabel = "/robotNavigation/set_pose    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];
+
+
+
+
+/* faceDetection */
+/* ============= */
+
+/* topics subscribed */
+/* ----------------- */
+
+/* sensors */
+
+Sensors -> faceDetection [taillabel = " /naoqi_driver/camera/front/image_raw",label="                                          ", dir = forward, fontsize = 12];
+
+Sensors -> faceDetection [taillabel = " /naoqi_driver/camera/depth/image_raw", dir = forward, fontsize = 12];
+
+Sensors -> faceDetection [taillabel = " /camera/color/image_raw", dir = forward, fontsize = 12];
+
+Sensors -> faceDetection [taillabel = " /camera/depth/image_rect_raw", dir = forward, fontsize = 12];
+
+
+
+/* services called */
+/* --------------- */
+
+//none
+
+/* gestureExecution */
+/* ================ */
+
+/* topics subscribed */
+/* ----------------- */
+
+/* gestureExecution */
+
+robotLocalization -> gestureExecution [taillabel = " /robotLocalization/pose", dir = forward, fontsize = 12];
+
+
+
+
+/* services called */
+/* --------------- */
+
+gestureExecution -> overtAttention [headlabel = " /overtAttention/set_mode    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];
+
+
+
+
+
+
+
+
+/* knowledgeBase */
+/* ============= */
+
+/* topics subscribed */
+/* ----------------- */
+
+//none
+
+/* services called */
+/* --------------- */
+
+//none
+
+
+
+
+/* overtAttention */
+/* ============== */
+
+/* topics subscribed */
+/* ----------------- */
+
+/* faceDetection */
+
+faceDetection -> overtAttention [taillabel = " /faceDetection/data", dir = forward, fontsize = 12];
+
+
+
+/* robotLocalization */
+
+robotLocalization -> overtAttention [taillabel = " /robotLocalization/pose",  dir = forward, fontsize = 12];
+
+
+
+/* soundDetection */
+
+soundDetection -> overtAttention [taillabel = " /soundDetection/direction", dir = forward, fontsize = 12];
+
+ 
+
+/* front camera */
+
+Sensors -> overtAttention [taillabel = " /naoqi_driver/camera/front/image_raw", dir = forward, fontsize = 12];
+
+
+
+/* stereo camera */
+
+/* Sensors -> overtAttention [taillabel = " /naoqi_driver/camera/stereo/image_raw", dir = forward, fontsize = 12]; */
+
+
+/* RealSense camera */
+
+Sensors -> overtAttention [taillabel = " /camera/color/image_raw", dir = forward, fontsize = 12];
+
+Sensors -> overtAttention [taillabel = " /camera/depth/image_rect_raw", dir = forward, fontsize = 12];
+
+
+/* services called */
+/* --------------- */
+
+
+//none
+
+
+
+
+
+
+/* personDetection */
+/* =============== */
+
+/* topics subscribed */
+/* ----------------- */
+
+/* sensors */
+
+Sensors -> personDetection [taillabel = " /naoqi_driver/camera/front/image_raw", label="                                                                    ", dir = forward, fontsize = 12];     
+//Sensors -> personDetection [taillabel = " /naoqi_driver/camera/stereo/image_raw", dir = forward, fontsize = 12];
+//Sensors -> personDetection [taillabel = " /naoqi_driver/camera/depth/image_raw", dir = forward, fontsize = 12];
+
+Sensors -> personDetection [taillabel = " /naoqi_driver/camera/depth/image_raw", dir = forward, fontsize = 12];
+Sensors -> personDetection [taillabel = " /camera/color/image_raw", dir = forward, fontsize = 12];
+
+Sensors -> personDetection [taillabel = " /camera/depth/image_rect_raw", dir = forward, fontsize = 12];
+
+
+/* services called */
+/* --------------- */
+
+//none
+
+
+
+/* robotLocalization */
+/* ================= */
+
+/* topics subscribed */
+/* ----------------- */
+
+
+/* sensors */
+
+Sensors -> robotLocalization [taillabel = " /naoqi_driver/camera/front/image_raw", dir = forward, fontsize = 12];
+//Sensors -> robotLocalization [taillabel = " /naoqi_driver/camera/stereo/image_raw", dir = forward, fontsize = 12];
+Sensors -> robotLocalization [taillabel = " /naoqi_driver/odom", dir = forward, fontsize = 12];
+Sensors -> robotLocalization [taillabel = " /naoqi_driver/imu/base", dir = forward, fontsize = 12];
+Sensors -> robotLocalization [taillabel = " /joint_states", dir = forward, fontsize = 12];
+
+Sensors -> robotLocalization [taillabel = " /camera/color/image_raw", dir = forward, fontsize = 12];
+
+Sensors -> robotLocalization [taillabel = " /camera/depth/image_rect_raw", dir = forward, fontsize = 12];
+
+
+/* services called */
+/* --------------- */
+
+//none
+
+
+
+/* robotNavigation */
+/* =============== */
+
+/* topics subscribed */
+/* ----------------- */
+
+ 
+/* robotLocalization */
+
+robotLocalization -> robotNavigation [taillabel = " /robotLocalization/pose", dir = forward, fontsize = 12];
+
+
+
+/* services called */
+/* --------------- */
+
+/*robotNavigation -> knowledgeBase [headlabel = " /knowledgeBase/query    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];*/
+robotNavigation -> robotLocalization [headlabel = " /robotLocalization/reset_pose    ", fontcolor="red", color = "red", dir = forward, fontsize = 12];
+
+
+
+/* soundDetection */
+/* ============= */
+
+/* topics subscribed */
+/* ----------------- */
+ 
+Sensors -> soundDetection [taillabel = " /naoqi_driver/audio", dir = forward, fontsize = 12];
+
+
+/* services called */
+/* --------------- */
+
+//none
+
+
+
+
+/* speechEvent   */
+/* ============= */
+
+/* topics subscribed */
+/* ----------------- */
+
+/* soundDetection */
+
+soundDetection -> speechEvent [taillabel = " /soundDetection/signal", dir = forward, fontsize = 12];
+
+
+/* services called */
+/* --------------- */
+
+//none
+
+
+
+/* tabletEvent  */
+/* ============= */
+
+/* topics subscribed */
+/* ----------------- */
+
+//none
+
+
+/* services called */
+/* --------------- */
+
+//none
+
+
+
+
+/* textToSpeech  */
+/* ============= */
+
+/* topics subscribed */
+/* ----------------- */
+
+//none
+
+/* services called */
+/* --------------- */
+
+//none
+
+ 
+
+
+
+{
+
+rank = same;
+personDetection
+robotLocalization
+soundDetection
+speechEvent
+
+} 
+
+ 
+{
+
+rank = same;
+faceDetection
+behaviorController
+
+} 
+
+{
+
+rank = same;
+gestureExecution
+animateBehavior
+robotNavigation
+overtAttention
+
+} 
+
+{
+
+rank = same;
+textToSpeech
+tabletEvent
+Actuators
+
+} 
+
+
+
+ 
+//personDetection-> robotLocalization [label = "     ", dir = forward, fontsize = 12, color = "white"];
+robotLocalization -> soundDetection[label = "  ", dir = forward, fontsize = 12, color = "white"];
+soundDetection -> speechEvent[label = "  ", dir = forward, fontsize = 12, color = "white"];
+
+//gestureExecution -> animateBehavior[label = "  ", dir = forward, fontsize = 12, color = "white"];
+
+animateBehavior -> robotNavigation[label = "  ", dir = forward, fontsize = 12, color = "white"];
+robotNavigation -> overtAttention[label = "  ", dir = forward, fontsize = 12, color = "white"];
+
+textToSpeech -> tabletEvent[label = "  ", dir = forward, fontsize = 12, color = "white"];
+
+tabletEvent -> Actuators[label = "  ", dir = forward, fontsize = 12, color = "white"];
+
+
+
+
+
+}
